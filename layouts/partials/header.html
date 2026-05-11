@@ -28,8 +28,7 @@
 
         {{ if site.Menus.main }}
           <button class="icon-btn site-nav__menu-btn" type="button" aria-label="Open menu" aria-controls="site-nav-list" aria-expanded="false" data-mobile-menu-toggle>
-            <span class="icon-menu">{{ partial "icons/menu.html" . }}</span>
-            <span class="icon-close">{{ partial "icons/close.html" . }}</span>
+            {{ partial "icons/menu.html" . }}
           </button>
         {{ end }}
       </div>

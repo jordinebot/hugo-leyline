@@ -80,10 +80,16 @@
 /* Mobile menu button is hidden on desktop */
 .site-nav__menu-btn { display: none; }
 
-/* Swap hamburger ↔ X based on the nav's open state */
-.site-nav__menu-btn .icon-close,
-.site-nav[data-mobile-open='true'] .site-nav__menu-btn .icon-menu { display: none; }
-.site-nav[data-mobile-open='true'] .site-nav__menu-btn .icon-close { display: contents; }
+/* Hamburger ↔ X morph */
+.icon-burger__line {
+  transform-origin: 12px 12px;
+  transition:
+    transform .28s cubic-bezier(.65, 0, .35, 1),
+    opacity   .18s ease;
+}
+.site-nav[data-mobile-open='true'] .icon-burger__line--top { transform: rotate(45deg)  translateY(6px); }
+.site-nav[data-mobile-open='true'] .icon-burger__line--mid { transform: scaleX(0); opacity: 0; }
+.site-nav[data-mobile-open='true'] .icon-burger__line--bot { transform: rotate(-45deg) translateY(-6px); }
 
 @media (max-width: 640px) {
   .site-nav__menu-btn { display: inline-grid; }
