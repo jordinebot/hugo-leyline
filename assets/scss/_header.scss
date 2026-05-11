@@ -80,6 +80,11 @@
 /* Mobile menu button is hidden on desktop */
 .site-nav__menu-btn { display: none; }
 
+/* Swap hamburger ↔ X based on the nav's open state */
+.site-nav__menu-btn .icon-close,
+.site-nav[data-mobile-open='true'] .site-nav__menu-btn .icon-menu { display: none; }
+.site-nav[data-mobile-open='true'] .site-nav__menu-btn .icon-close { display: contents; }
+
 @media (max-width: 640px) {
   .site-nav__menu-btn { display: inline-grid; }
 
