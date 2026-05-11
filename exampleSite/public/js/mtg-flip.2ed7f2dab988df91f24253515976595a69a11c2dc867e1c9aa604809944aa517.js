@@ -1,1 +1,0 @@
-(()=>{document.addEventListener("click",s=>{let t=s.target.closest(".js-flip-toggle");if(!t)return;let e=t.closest(".js-flippable");if(!e)return;let i=e.classList.toggle("is-flipped");t.setAttribute("aria-pressed",String(i))});})();

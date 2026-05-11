@@ -1,0 +1,15 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# exampleSite build output
+exampleSite/public/
+exampleSite/resources/_gen/
+exampleSite/.hugo_build.lock
+
+# OS
+.DS_Store
+
+# Claude Code personal overrides
+.claude/settings.local.json
