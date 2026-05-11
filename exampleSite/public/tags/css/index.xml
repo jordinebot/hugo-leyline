@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Css on Leyline — Demo</title>
-    <link>http://localhost:64345/tags/css/</link>
+    <link>http://localhost:59414/tags/css/</link>
     <description>Recent content in Css on Leyline — Demo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 May 2026 10:30:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:64345/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59414/tags/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The mobile menu morph</title>
-      <link>http://localhost:64345/posts/the-mobile-menu-morph/</link>
+      <link>http://localhost:59414/posts/the-mobile-menu-morph/</link>
       <pubDate>Mon, 04 May 2026 10:30:00 +0200</pubDate>
-      <guid>http://localhost:64345/posts/the-mobile-menu-morph/</guid>
+      <guid>http://localhost:59414/posts/the-mobile-menu-morph/</guid>
       <description>&lt;p&gt;The first version of Leyline&amp;rsquo;s mobile menu had two icons stacked in the button: a hamburger and an X. CSS swapped them based on whether the menu was open. It worked, but it felt like flipping a switch.&lt;/p&gt;&#xA;&lt;p&gt;The second version is a single SVG with three &lt;code&gt;&amp;lt;line&amp;gt;&lt;/code&gt; elements. When the menu opens, the top line rotates 45° and translates down to the centre. The bottom mirrors it. The middle line fades out and shrinks. They meet in the middle and form an X.&lt;/p&gt;</description>
     </item>
     <item>
       <title>color-mix() is here. Use it.</title>
-      <link>http://localhost:64345/posts/color-mix-is-here/</link>
+      <link>http://localhost:59414/posts/color-mix-is-here/</link>
       <pubDate>Wed, 15 Apr 2026 09:00:00 +0200</pubDate>
-      <guid>http://localhost:64345/posts/color-mix-is-here/</guid>
+      <guid>http://localhost:59414/posts/color-mix-is-here/</guid>
       <description>&lt;p&gt;For years, &amp;ldquo;a lighter version of the accent colour&amp;rdquo; meant baking in a second hex value. Now there&amp;rsquo;s &lt;code&gt;color-mix()&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Leyline&amp;rsquo;s tag chips use this pattern: on hover, the background fills with the accent at 10% over the page background, the border picks up 35% accent, and the text becomes the full accent. None of it requires defining &lt;code&gt;--accent-light&lt;/code&gt; or &lt;code&gt;--accent-soft&lt;/code&gt; — the theme just mixes on demand.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tag&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;hover&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;:    &lt;span style=&#34;color:#a6e22e&#34;&gt;color-mix&lt;/span&gt;(in srgb, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent) &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;bg));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;border-color&lt;/span&gt;:  &lt;span style=&#34;color:#a6e22e&#34;&gt;color-mix&lt;/span&gt;(in srgb, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent) &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;border));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;:         &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Any change to &lt;code&gt;--accent&lt;/code&gt; cascades correctly through every state. Set the accent to coral and the tag-chip hover becomes a coral wash. No find-and-replace; no extra variables to define.&lt;/p&gt;</description>
     </item>
   </channel>

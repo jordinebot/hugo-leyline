@@ -18,5 +18,26 @@
 
 .site-footer__links {
   display: flex;
-  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Icon variant: square hit target, centered glyph, surface tint on hover. */
+.site-footer__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  color: var(--ink-subtle);
+  transition: color .15s ease, background .15s ease;
+}
+.site-footer__icon:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+.site-footer__icon svg {
+  width: 18px;
+  height: 18px;
 }

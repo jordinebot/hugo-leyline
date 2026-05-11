@@ -38,7 +38,34 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
   url  = "/about/"
   weight = 30
 
+# Footer links: each entry may opt into an icon via `params.icon`. Without
+# an icon, the entry renders as text. Built-in icons:
+#   github, mastodon, bluesky, x, twitter, linkedin, rss, mail
+# Add more by dropping an SVG at layouts/partials/icons/<name>.html.
+[[menus.footer]]
+  name = "GitHub"
+  url  = "https://github.com/jordinebot/hugo-leyline"
+  weight = 10
+  [menus.footer.params]
+    icon = "github"
+
+[[menus.footer]]
+  name = "Mastodon"
+  url  = "https://fosstodon.org/@example"
+  weight = 20
+  [menus.footer.params]
+    icon = "mastodon"
+
+[[menus.footer]]
+  name = "Bluesky"
+  url  = "https://bsky.app/profile/example.bsky.social"
+  weight = 30
+  [menus.footer.params]
+    icon = "bluesky"
+
 [[menus.footer]]
   name = "RSS"
   url  = "/index.xml"
-  weight = 10
+  weight = 40
+  [menus.footer.params]
+    icon = "rss"

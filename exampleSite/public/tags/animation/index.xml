@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Animation on Leyline — Demo</title>
-    <link>http://localhost:57308/tags/animation/</link>
+    <link>http://localhost:59414/tags/animation/</link>
     <description>Recent content in Animation on Leyline — Demo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 May 2026 10:30:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:57308/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59414/tags/animation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The mobile menu morph</title>
-      <link>http://localhost:57308/posts/the-mobile-menu-morph/</link>
+      <link>http://localhost:59414/posts/the-mobile-menu-morph/</link>
       <pubDate>Mon, 04 May 2026 10:30:00 +0200</pubDate>
-      <guid>http://localhost:57308/posts/the-mobile-menu-morph/</guid>
+      <guid>http://localhost:59414/posts/the-mobile-menu-morph/</guid>
       <description>&lt;p&gt;The first version of Leyline&amp;rsquo;s mobile menu had two icons stacked in the button: a hamburger and an X. CSS swapped them based on whether the menu was open. It worked, but it felt like flipping a switch.&lt;/p&gt;&#xA;&lt;p&gt;The second version is a single SVG with three &lt;code&gt;&amp;lt;line&amp;gt;&lt;/code&gt; elements. When the menu opens, the top line rotates 45° and translates down to the centre. The bottom mirrors it. The middle line fades out and shrinks. They meet in the middle and form an X.&lt;/p&gt;</description>
     </item>
   </channel>

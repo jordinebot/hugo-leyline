@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Modules on Leyline — Demo</title>
-    <link>http://localhost:64345/tags/modules/</link>
+    <link>http://localhost:59414/tags/modules/</link>
     <description>Recent content in Modules on Leyline — Demo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Apr 2026 18:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:64345/tags/modules/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59414/tags/modules/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Modules: composable themes</title>
-      <link>http://localhost:64345/posts/hugo-modules-composable-themes/</link>
+      <link>http://localhost:59414/posts/hugo-modules-composable-themes/</link>
       <pubDate>Tue, 28 Apr 2026 18:00:00 +0200</pubDate>
-      <guid>http://localhost:64345/posts/hugo-modules-composable-themes/</guid>
+      <guid>http://localhost:59414/posts/hugo-modules-composable-themes/</guid>
       <description>&lt;p&gt;Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.&lt;/p&gt;&#xA;&lt;p&gt;Leyline is one theme. The MTG shortcodes — &lt;code&gt;card&lt;/code&gt;, &lt;code&gt;cardname&lt;/code&gt;, &lt;code&gt;combo&lt;/code&gt;, &lt;code&gt;mana&lt;/code&gt;, &lt;code&gt;match&lt;/code&gt; — live in a separate module, &lt;code&gt;hugo-mtg-shortcodes&lt;/code&gt;. A sibling theme (Manaforge) consumes the same module. Both get the same shortcodes; updating the module updates both themes at the same time.&lt;/p&gt;</description>
     </item>
   </channel>

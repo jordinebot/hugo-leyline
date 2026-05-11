@@ -8,7 +8,22 @@
     {{ if site.Menus.footer }}
       <ul class="site-footer__links">
         {{ range site.Menus.footer }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ $icon := .Params.icon }}
+          {{ $iconPath := printf "partials/icons/%s.html" $icon }}
+          {{ $hasIcon := and $icon (templates.Exists $iconPath) }}
+          {{ $isExternal := hasPrefix .URL "http" }}
+          <li>
+            <a
+              href="{{ .URL }}"
+              {{ if $hasIcon }}class="site-footer__icon" aria-label="{{ .Name }}" title="{{ .Name }}"{{ end }}
+              {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+              {{ if $hasIcon }}
+                {{ partial (printf "icons/%s.html" $icon) . }}
+              {{ else }}
+                {{ .Name }}
+              {{ end }}
+            </a>
+          </li>
         {{ end }}
       </ul>
     {{ end }}
