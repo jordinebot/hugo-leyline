@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64473&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64345&amp;path=livereload" data-no-instant defer></script>
     <script>
   (function () {
     try {
@@ -35,7 +35,7 @@
 
 
   
-  <link rel="stylesheet" href="/css/main.3fb5fcefbf848f650222023e1bb757d9749f269aa95d6d3c30005b2552cc9956.css" integrity="sha256-P7X877&#43;Ej2UCIgI&#43;G7dX2XSfJpqpXW08MABbJVLMmVY=">
+  <link rel="stylesheet" href="/css/main.8de45f9f88a2ee5d65ddd2fe066ea80d8f201c38aa7f6acdb6503754c780df62.css" integrity="sha256-jeRfn4ii7l1l3dL&#43;Bm6oDY8gHDiqf2rNtlA3VMeA32I=">
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-  <link rel="canonical" href="http://localhost:64473/posts/dark-mode-quick-take/">
+  <link rel="canonical" href="http://localhost:64345/posts/dark-mode-quick-take/">
 
 
 
@@ -60,9 +60,9 @@
 </a>
 
 
-    <nav class="site-nav" aria-label="Primary">
+    <nav class="site-nav" aria-label="Primary" data-mobile-open="false">
       
-        <ul class="site-nav__list">
+        <ul class="site-nav__list" id="site-nav-list">
           
             
             <li>
@@ -88,17 +88,26 @@
         </ul>
       
 
-      <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <div class="site-nav__controls">
+        <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
 
-      </button>
+        </button>
 
-      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
 
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 
-      </button>
+        </button>
+
+        
+          <button class="icon-btn site-nav__menu-btn" type="button" aria-label="Open menu" aria-controls="site-nav-list" aria-expanded="false" data-mobile-menu-toggle>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+
+          </button>
+        
+      </div>
     </nav>
   </div>
 </header>
@@ -143,7 +152,7 @@
   <div class="container site-footer__inner">
     <div>
       &copy; 2026 Leyline — Demo.
-      <span> · Built with Leyline.</span>
+      <span> · Built with Leyline</span>
     </div>
 
     
@@ -159,7 +168,7 @@
     </div>
     
   
-  <script src="/js/theme.37dc1803fd676a292367f08b1b09007d95554f048c9df5404a0df45b5c6d91d2.js" integrity="sha256-N9wYA/1naikjZ/CLGwkAfZVVTwSMnfVASg30W1xtkdI=" defer></script>
+  <script src="/js/theme.267710bad4299e6bbd7cd65f70c434146df75c985035ab4119055f92a54b8ad7.js" integrity="sha256-JncQutQpnmu9fNZfcMQ0FG33XJhQNatBGQVfkqVLitc=" defer></script>
 
 
   </body>

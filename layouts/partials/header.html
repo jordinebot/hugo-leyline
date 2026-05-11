@@ -2,9 +2,9 @@
   <div class="container site-header__inner">
     {{ partial "logo.html" . }}
 
-    <nav class="site-nav" aria-label="Primary">
+    <nav class="site-nav" aria-label="Primary" data-mobile-open="false">
       {{ if site.Menus.main }}
-        <ul class="site-nav__list">
+        <ul class="site-nav__list" id="site-nav-list">
           {{ range site.Menus.main }}
             {{ $isCurrent := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
             <li>
@@ -16,14 +16,22 @@
         </ul>
       {{ end }}
 
-      <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
-        {{ partial "icons/search.html" . }}
-      </button>
+      <div class="site-nav__controls">
+        <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
+          {{ partial "icons/search.html" . }}
+        </button>
 
-      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
-        {{ partial "icons/sun.html" . }}
-        {{ partial "icons/moon.html" . }}
-      </button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+          {{ partial "icons/sun.html" . }}
+          {{ partial "icons/moon.html" . }}
+        </button>
+
+        {{ if site.Menus.main }}
+          <button class="icon-btn site-nav__menu-btn" type="button" aria-label="Open menu" aria-controls="site-nav-list" aria-expanded="false" data-mobile-menu-toggle>
+            {{ partial "icons/menu.html" . }}
+          </button>
+        {{ end }}
+      </div>
     </nav>
   </div>
 </header>
