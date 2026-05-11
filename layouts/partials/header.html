@@ -8,7 +8,7 @@
           {{ range site.Menus.main }}
             {{ $isCurrent := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
             <li>
-              <a class="site-nav__link" href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>
+              <a class="site-nav__link" href="{{ .URL | relURL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>
                 {{ .Name }}
               </a>
             </li>

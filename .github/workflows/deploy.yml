@@ -1,0 +1,83 @@
+name: Deploy exampleSite to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'archetypes/**'
+      - 'assets/**'
+      - 'data/**'
+      - 'i18n/**'
+      - 'layouts/**'
+      - 'static/**'
+      - 'exampleSite/**'
+      - 'theme.toml'
+      - 'go.mod'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deploy at a time; let an in-flight one finish before queuing.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.161.1
+      HUGO_ENVIRONMENT: production
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O "${RUNNER_TEMP}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "${RUNNER_TEMP}/hugo.deb"
+
+      # Both repos are checked out as sibling directories so the exampleSite's
+      # `themesDir = "../.."` setting resolves correctly (hugo-leyline and
+      # hugo-mtg-shortcodes both live one level above exampleSite/).
+      - name: Check out hugo-leyline
+        uses: actions/checkout@v4
+        with:
+          path: hugo-leyline
+
+      - name: Check out hugo-mtg-shortcodes
+        uses: actions/checkout@v4
+        with:
+          repository: jordinebot/hugo-mtg-shortcodes
+          path: hugo-mtg-shortcodes
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Hugo
+        working-directory: hugo-leyline/exampleSite
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --themesDir=../.. \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: hugo-leyline/exampleSite/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:59414/tags/design/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/design/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/meta/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/meta/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/welcome-to-leyline/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/welcome-to-leyline/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/demo/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/demo/</loc>
     <lastmod>2026-05-10T12:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/mtg/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/mtg/</loc>
     <lastmod>2026-05-10T12:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/mtg-shortcodes-demo/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/mtg-shortcodes-demo/</loc>
     <lastmod>2026-05-10T12:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/building-leyline-in-the-open/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/building-leyline-in-the-open/</loc>
     <lastmod>2026-05-08T15:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/process/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/process/</loc>
     <lastmod>2026-05-08T15:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/animation/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/animation/</loc>
     <lastmod>2026-05-04T10:30:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/css/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/css/</loc>
     <lastmod>2026-05-04T10:30:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/the-mobile-menu-morph/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/the-mobile-menu-morph/</loc>
     <lastmod>2026-05-04T10:30:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/architecture/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/architecture/</loc>
     <lastmod>2026-04-28T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/hugo/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/hugo/</loc>
     <lastmod>2026-04-28T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/hugo-modules-composable-themes/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/hugo-modules-composable-themes/</loc>
     <lastmod>2026-04-28T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/modules/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/modules/</loc>
     <lastmod>2026-04-28T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/page-bundle-example/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/page-bundle-example/</loc>
     <lastmod>2026-04-22T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/tags/typography/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/tags/typography/</loc>
     <lastmod>2026-04-22T18:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/color-mix-is-here/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/color-mix-is-here/</loc>
     <lastmod>2026-04-15T09:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/posts/dark-mode-quick-take/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/posts/dark-mode-quick-take/</loc>
     <lastmod>2026-03-30T09:30:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:59414/about/</loc>
+    <loc>https://jordinebot.github.io/hugo-leyline/about/</loc>
   </url>
 </urlset>

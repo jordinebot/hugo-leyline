@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello, I&#39;m Leyline. on Leyline — Demo</title>
-    <link>http://localhost:59414/</link>
+    <link>https://jordinebot.github.io/hugo-leyline/</link>
     <description>Recent content in Hello, I&#39;m Leyline. on Leyline — Demo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 May 2026 10:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:59414/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jordinebot.github.io/hugo-leyline/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to Leyline</title>
-      <link>http://localhost:59414/posts/welcome-to-leyline/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/welcome-to-leyline/</link>
       <pubDate>Mon, 11 May 2026 10:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/welcome-to-leyline/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/welcome-to-leyline/</guid>
       <description>&lt;p&gt;Leyline is a minimal Hugo theme aimed at writing. It does a few things well:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sticky header with a logo, menu, and quick controls.&lt;/li&gt;&#xA;&lt;li&gt;A light/dark switcher that respects your OS preference until you choose otherwise.&lt;/li&gt;&#xA;&lt;li&gt;A quiet home page that surfaces featured posts (or your latest, if you haven&amp;rsquo;t picked any).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-leyline&#34;&gt;Why &amp;ldquo;Leyline&amp;rdquo;?&lt;/h2&gt;&#xA;&lt;p&gt;The name nods to invisible threads of structure — the kind of design you don&amp;rsquo;t notice because everything is where you&amp;rsquo;d expect.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MTG shortcodes demo</title>
-      <link>http://localhost:59414/posts/mtg-shortcodes-demo/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/mtg-shortcodes-demo/</link>
       <pubDate>Sun, 10 May 2026 12:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/mtg-shortcodes-demo/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/mtg-shortcodes-demo/</guid>
       <description>&lt;p&gt;This post exercises every shortcode the &lt;code&gt;hugo-mtg-shortcodes&lt;/code&gt; module ships.&lt;/p&gt;&#xA;&lt;h2 id=&#34;inline-mana&#34;&gt;Inline mana&lt;/h2&gt;&#xA;&lt;p&gt;Hover the symbols below to see the mana font in action: &lt;i class=&#34;ms ms-2 ms-cost ms-shadow&#34;&gt;&lt;/i&gt;&lt;i class=&#34;ms ms-w ms-cost ms-shadow&#34;&gt;&lt;/i&gt;&lt;i class=&#34;ms ms-u ms-cost ms-shadow&#34;&gt;&lt;/i&gt; for a tempo deck, &lt;i class=&#34;ms ms-b ms-cost ms-shadow&#34;&gt;&lt;/i&gt;&lt;i class=&#34;ms ms-b ms-cost ms-shadow&#34;&gt;&lt;/i&gt;&lt;i class=&#34;ms ms-b ms-cost ms-shadow&#34;&gt;&lt;/i&gt; for ritual decks, &lt;i class=&#34;ms ms-1 ms-cost ms-shadow&#34;&gt;&lt;/i&gt;&lt;i class=&#34;ms ms-g ms-cost ms-shadow&#34;&gt;&lt;/i&gt; for elf openers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-single-card&#34;&gt;A single card&lt;/h2&gt;&#xA;&lt;figure class=&#34;card-preview&#34;&gt;&#xA;      &lt;a href=&#34;https://scryfall.com/card/clu/141/lightning-bolt?utm_source=api&#34; rel=&#34;noopener&#34;&gt;&#xA;        &lt;img src=&#34;https://cards.scryfall.io/normal/front/7/7/77c6fa74-5543-42ac-9ead-0e890b188e99.jpg?1706239968&#34; alt=&#34;Lightning Bolt&#34; loading=&#34;lazy&#34;&gt;&#xA;      &lt;/a&gt;&#xA;      &lt;figcaption&gt;&#xA;        &lt;a href=&#34;https://scryfall.com/card/clu/141/lightning-bolt?utm_source=api&#34; rel=&#34;noopener&#34; class=&#34;card-preview__name&#34;&gt;Lightning Bolt&lt;/a&gt;&#xA;        &lt;span class=&#34;card-preview__type&#34;&gt;Instant&lt;/span&gt;&#xA;      &lt;/figcaption&gt;&#xA;    &lt;/figure&gt;&#xA;&lt;h2 id=&#34;inline-card-name-with-hover-preview&#34;&gt;Inline card name with hover preview&lt;/h2&gt;&#xA;&lt;p&gt;The classic &lt;span class=&#34;cardname&#34;&gt;&#xA;      &lt;a class=&#34;cardname__link&#34; href=&#34;https://scryfall.com/card/dsc/113/brainstorm?utm_source=api&#34; rel=&#34;noopener&#34;&gt;Brainstorm&lt;/a&gt;&#xA;      &lt;span class=&#34;cardname__preview&#34;&gt;&#xA;        &lt;img class=&#34;cardname__face&#34; src=&#34;https://cards.scryfall.io/normal/front/8/b/8beb987c-1b67-4a4e-ae71-58547afad2a0.jpg?1726284649&#34; alt=&#34;&#34; loading=&#34;lazy&#34; aria-hidden=&#34;true&#34;&gt;&#xA;      &lt;/span&gt;&#xA;    &lt;/span&gt; sees play in cube, legacy, and pauper alike.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Leyline in the open</title>
-      <link>http://localhost:59414/posts/building-leyline-in-the-open/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/building-leyline-in-the-open/</link>
       <pubDate>Fri, 08 May 2026 15:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/building-leyline-in-the-open/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/building-leyline-in-the-open/</guid>
       <description>&lt;p&gt;Most themes I&amp;rsquo;ve used arrived as finished artifacts. Polished, pre-decided. This time I wanted to do it differently: think out loud, pick at the trade-offs, and keep the small commits that don&amp;rsquo;t usually make it past someone&amp;rsquo;s local branch.&lt;/p&gt;&#xA;&lt;p&gt;The shape of Leyline reflects that. The sticky header didn&amp;rsquo;t need three iterations to land; the second one was right. But the home page took a while: featured posts vs. latest posts vs. a third &amp;ldquo;evergreen&amp;rdquo; section that I tried and then quietly deleted. You don&amp;rsquo;t see that deletion in the diff. You see the result.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The mobile menu morph</title>
-      <link>http://localhost:59414/posts/the-mobile-menu-morph/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/the-mobile-menu-morph/</link>
       <pubDate>Mon, 04 May 2026 10:30:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/the-mobile-menu-morph/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/the-mobile-menu-morph/</guid>
       <description>&lt;p&gt;The first version of Leyline&amp;rsquo;s mobile menu had two icons stacked in the button: a hamburger and an X. CSS swapped them based on whether the menu was open. It worked, but it felt like flipping a switch.&lt;/p&gt;&#xA;&lt;p&gt;The second version is a single SVG with three &lt;code&gt;&amp;lt;line&amp;gt;&lt;/code&gt; elements. When the menu opens, the top line rotates 45° and translates down to the centre. The bottom mirrors it. The middle line fades out and shrinks. They meet in the middle and form an X.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hugo Modules: composable themes</title>
-      <link>http://localhost:59414/posts/hugo-modules-composable-themes/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/hugo-modules-composable-themes/</link>
       <pubDate>Tue, 28 Apr 2026 18:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/hugo-modules-composable-themes/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/hugo-modules-composable-themes/</guid>
       <description>&lt;p&gt;Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.&lt;/p&gt;&#xA;&lt;p&gt;Leyline is one theme. The MTG shortcodes — &lt;code&gt;card&lt;/code&gt;, &lt;code&gt;cardname&lt;/code&gt;, &lt;code&gt;combo&lt;/code&gt;, &lt;code&gt;mana&lt;/code&gt;, &lt;code&gt;match&lt;/code&gt; — live in a separate module, &lt;code&gt;hugo-mtg-shortcodes&lt;/code&gt;. A sibling theme (Manaforge) consumes the same module. Both get the same shortcodes; updating the module updates both themes at the same time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes on typography</title>
-      <link>http://localhost:59414/posts/page-bundle-example/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/page-bundle-example/</link>
       <pubDate>Wed, 22 Apr 2026 18:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/page-bundle-example/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/page-bundle-example/</guid>
       <description>&lt;p&gt;A few short notes on the type choices in this theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;one-family-three-weights&#34;&gt;One family, three weights&lt;/h2&gt;&#xA;&lt;p&gt;Leyline ships with Inter at weights 400, 500, and 700. That&amp;rsquo;s enough to support body text, UI accents, and headings without pulling in a second family.&lt;/p&gt;&#xA;&lt;h2 id=&#34;letter-spacing&#34;&gt;Letter-spacing&lt;/h2&gt;&#xA;&lt;p&gt;Headings use a slight negative letter-spacing (&lt;code&gt;-0.015em&lt;/code&gt;) to tighten the look at large sizes. Below ~1.25rem the effect is barely noticeable; above it, copy feels less airy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;reading-width&#34;&gt;Reading width&lt;/h2&gt;&#xA;&lt;p&gt;Prose containers cap at 720px — about 70 characters per line at the default size. Wider feels like a wiki; narrower feels like a Twitter thread.&lt;/p&gt;</description>
     </item>
     <item>
       <title>color-mix() is here. Use it.</title>
-      <link>http://localhost:59414/posts/color-mix-is-here/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/color-mix-is-here/</link>
       <pubDate>Wed, 15 Apr 2026 09:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/color-mix-is-here/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/color-mix-is-here/</guid>
       <description>&lt;p&gt;For years, &amp;ldquo;a lighter version of the accent colour&amp;rdquo; meant baking in a second hex value. Now there&amp;rsquo;s &lt;code&gt;color-mix()&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Leyline&amp;rsquo;s tag chips use this pattern: on hover, the background fills with the accent at 10% over the page background, the border picks up 35% accent, and the text becomes the full accent. None of it requires defining &lt;code&gt;--accent-light&lt;/code&gt; or &lt;code&gt;--accent-soft&lt;/code&gt; — the theme just mixes on demand.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tag&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;hover&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;:    &lt;span style=&#34;color:#a6e22e&#34;&gt;color-mix&lt;/span&gt;(in srgb, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent) &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;bg));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;border-color&lt;/span&gt;:  &lt;span style=&#34;color:#a6e22e&#34;&gt;color-mix&lt;/span&gt;(in srgb, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent) &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;border));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;:         &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;accent);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Any change to &lt;code&gt;--accent&lt;/code&gt; cascades correctly through every state. Set the accent to coral and the tag-chip hover becomes a coral wash. No find-and-replace; no extra variables to define.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dark mode, quick take</title>
-      <link>http://localhost:59414/posts/dark-mode-quick-take/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/posts/dark-mode-quick-take/</link>
       <pubDate>Mon, 30 Mar 2026 09:30:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/dark-mode-quick-take/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/posts/dark-mode-quick-take/</guid>
       <description>&lt;p&gt;The theme switcher in Leyline follows a simple rule: on the first visit, match the user&amp;rsquo;s OS preference. Once they tap the toggle, lock to their choice via &lt;code&gt;localStorage&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This avoids two common annoyances: a site that ignores &lt;code&gt;prefers-color-scheme&lt;/code&gt;, and a site that resets to its default every time you come back.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:59414/about/</link>
+      <link>https://jordinebot.github.io/hugo-leyline/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59414/about/</guid>
+      <guid>https://jordinebot.github.io/hugo-leyline/about/</guid>
       <description>&lt;p&gt;This is a sample About page that ships with the Leyline demo. Replace its contents — or delete the file — when you adopt the theme.&lt;/p&gt;&#xA;&lt;p&gt;Leyline is built to stay out of the way of your writing. The header is sticky, the controls are quiet, and the home page resists the urge to be a magazine.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -14,7 +14,7 @@
           {{ $isExternal := hasPrefix .URL "http" }}
           <li>
             <a
-              href="{{ .URL }}"
+              href="{{ .URL | relURL }}"
               {{ if $hasIcon }}class="site-footer__icon" aria-label="{{ .Name }}" title="{{ .Name }}"{{ end }}
               {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
               {{ if $hasIcon }}

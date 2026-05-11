@@ -1,0 +1,65 @@
+name: Validate exampleSite build
+
+# Build-only check that runs on every PR. Keeps deploy.yml's setup
+# duplicated here intentionally so a broken Hugo install or missing
+# mtg-shortcodes checkout is caught before merge — not after.
+
+on:
+  pull_request:
+    paths:
+      - 'archetypes/**'
+      - 'assets/**'
+      - 'data/**'
+      - 'i18n/**'
+      - 'layouts/**'
+      - 'static/**'
+      - 'exampleSite/**'
+      - 'theme.toml'
+      - 'go.mod'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Keep in sync with deploy.yml.
+      HUGO_VERSION: 0.161.1
+      HUGO_ENVIRONMENT: production
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O "${RUNNER_TEMP}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "${RUNNER_TEMP}/hugo.deb"
+
+      - name: Check out hugo-leyline
+        uses: actions/checkout@v4
+        with:
+          path: hugo-leyline
+
+      - name: Check out hugo-mtg-shortcodes
+        uses: actions/checkout@v4
+        with:
+          repository: jordinebot/hugo-mtg-shortcodes
+          path: hugo-mtg-shortcodes
+
+      # Build under a project-style baseURL so any template that breaks
+      # URL prefixing (e.g. unfiltered .URL, raw `/posts/` literals)
+      # fails the check before it can break the live deploy.
+      - name: Build with Hugo
+        working-directory: hugo-leyline/exampleSite
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --themesDir=../.. \
+            --baseURL "https://example.com/hugo-leyline/"
+
+      - name: Verify build output is non-empty
+        run: |
+          test -s hugo-leyline/exampleSite/public/index.html
+          test -s hugo-leyline/exampleSite/public/posts/index.html

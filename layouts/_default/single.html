@@ -28,18 +28,14 @@
       {{ with .Params.tags }}
         <ul class="tags" aria-label="Tags">
           {{ range . }}
-            <li><a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+            <li><a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
           {{ end }}
         </ul>
       {{ end }}
     </footer>
 
-    {{/* Adjacent-post navigation. Hugo's NextInSection/PrevInSection
-         follow the collection order, which for date-desc posts means
-         NextInSection is actually the OLDER post. The labels here use
-         "Older / Newer" to sidestep the Previous/Next ambiguity. */}}
-    {{ $older := .NextInSection }}
-    {{ $newer := .PrevInSection }}
+    {{ $older := .PrevInSection }}
+    {{ $newer := .NextInSection }}
     {{ if or $older $newer }}
       {{ $solo := not (and $older $newer) }}
       <nav class="post-pager" aria-label="Adjacent posts">
