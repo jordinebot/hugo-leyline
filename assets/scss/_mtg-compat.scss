@@ -1,0 +1,11 @@
+// Adapter — maps Leyline's CSS custom property names to the names the
+// hugo-mtg-shortcodes module expects. Lets the shared module stay
+// theme-agnostic; Leyline aliases its variables here.
+:root {
+  --color-text:         var(--ink);
+  --color-text-muted:   var(--ink-subtle);
+  --color-accent:       var(--accent);
+  --color-accent-hover: var(--accent);
+  --color-border:       var(--border);
+  --font-display:       var(--font-sans);
+}

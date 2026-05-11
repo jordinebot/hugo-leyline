@@ -2,12 +2,11 @@ baseURL = "https://example.org/"
 locale = "en-us"
 title = "Leyline — Demo"
 
-# Point themesDir at the parent of this repo so `theme = "hugo-leyline"`
-# resolves to the repo root (which is the theme itself). This keeps the
-# exampleSite portable: it works in any clone with no absolute paths and
-# no extra CLI flags.
+# Point themesDir at the parent of this repo so each entry in `theme`
+# resolves to a sibling directory. Keeps the exampleSite portable: works
+# in any clone with no absolute paths and no extra CLI flags.
 themesDir = "../.."
-theme = "hugo-leyline"
+theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
 
 [params]
   description = "A clean, modern Hugo theme."

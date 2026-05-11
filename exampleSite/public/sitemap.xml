@@ -20,6 +20,15 @@
     <loc>http://localhost:64345/posts/welcome-to-leyline/</loc>
     <lastmod>2026-05-11T10:00:00+02:00</lastmod>
   </url><url>
+    <loc>http://localhost:64345/tags/demo/</loc>
+    <lastmod>2026-05-10T12:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:64345/tags/mtg/</loc>
+    <lastmod>2026-05-10T12:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:64345/posts/mtg-shortcodes-demo/</loc>
+    <lastmod>2026-05-10T12:00:00+02:00</lastmod>
+  </url><url>
     <loc>http://localhost:64345/posts/typography-notes/</loc>
     <lastmod>2026-04-22T18:00:00+02:00</lastmod>
   </url><url>

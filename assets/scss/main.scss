@@ -7,3 +7,7 @@
 @import 'home';
 @import 'list';
 @import 'post';
+
+// MTG shortcodes (from the hugo-mtg-shortcodes module)
+@import 'mtg-compat';
+@import 'mtg-shortcodes';

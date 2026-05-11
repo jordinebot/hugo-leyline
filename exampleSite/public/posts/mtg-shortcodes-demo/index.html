@@ -18,10 +18,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo 0.161.1">
 
-<title>Design · Leyline — Demo</title>
+<title>MTG shortcodes demo · Leyline — Demo</title>
 
 
-  <meta name="description" content="A clean, modern Hugo theme.">
+  <meta name="description" content="A quick tour of the card, cardname, mana, combo, and match shortcodes provided by the hugo-mtg-shortcodes module.">
 
 
 
@@ -46,9 +46,9 @@
 
 
 
+  <link rel="canonical" href="http://localhost:59414/posts/mtg-shortcodes-demo/">
 
 
-  <link rel="alternate" type="application/rss+xml" title="Leyline — Demo" href="/tags/design/index.xml">
 
 
   </head>
@@ -117,39 +117,81 @@
 
       <main>
         
-  <div class="container">
-    <header class="list-header">
-      <h1 class="list-header__title">Design</h1>
+  <article class="container-prose">
+    <header class="post-header">
+      <div class="post-header__meta">
+        
+          <time datetime="2026-05-10">May 10, 2026</time>
+        
+        <span class="badge">Featured</span>
+      </div>
+
+      <h1 class="post-header__title">MTG shortcodes demo</h1>
+
       
+        <p class="post-header__lead">A quick tour of the card, cardname, mana, combo, and match shortcodes provided by the hugo-mtg-shortcodes module.</p>
       
     </header>
 
-    
-    
+    <div class="post-content">
+      <p>This post exercises every shortcode the <code>hugo-mtg-shortcodes</code> module ships.</p>
+<h2 id="inline-mana">Inline mana</h2>
+<p>Hover the symbols below to see the mana font in action: <i class="ms ms-2 ms-cost ms-shadow"></i><i class="ms ms-w ms-cost ms-shadow"></i><i class="ms ms-u ms-cost ms-shadow"></i> for a tempo deck, <i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i><i class="ms ms-b ms-cost ms-shadow"></i> for ritual decks, <i class="ms ms-1 ms-cost ms-shadow"></i><i class="ms ms-g ms-cost ms-shadow"></i> for elf openers.</p>
+<h2 id="a-single-card">A single card</h2>
+<figure class="card-preview">
+      <a href="https://scryfall.com/card/clu/141/lightning-bolt?utm_source=api" rel="noopener">
+        <img src="https://cards.scryfall.io/normal/front/7/7/77c6fa74-5543-42ac-9ead-0e890b188e99.jpg?1706239968" alt="Lightning Bolt" loading="lazy">
+      </a>
+      <figcaption>
+        <a href="https://scryfall.com/card/clu/141/lightning-bolt?utm_source=api" rel="noopener" class="card-preview__name">Lightning Bolt</a>
+        <span class="card-preview__type">Instant</span>
+      </figcaption>
+    </figure>
+<h2 id="inline-card-name-with-hover-preview">Inline card name with hover preview</h2>
+<p>The classic <span class="cardname">
+      <a class="cardname__link" href="https://scryfall.com/card/dsc/113/brainstorm?utm_source=api" rel="noopener">Brainstorm</a>
+      <span class="cardname__preview">
+        <img class="cardname__face" src="https://cards.scryfall.io/normal/front/8/b/8beb987c-1b67-4a4e-ae71-58547afad2a0.jpg?1726284649" alt="" loading="lazy" aria-hidden="true">
+      </span>
+    </span> sees play in cube, legacy, and pauper alike.</p>
+<h2 id="a-combo">A combo</h2>
+<p>Three cards arranged like a fanned hand — hover one and the rest spread aside.</p>
+<div class="combo combo--3"><a class="combo__card combo__card--1" href="https://scryfall.com/card/mm2/129/splinter-twin?utm_source=api" rel="noopener" title="Splinter Twin">
+        <img src="https://cards.scryfall.io/normal/front/5/8/580fbbf8-ba7e-4889-a5ea-d066f3ea8cea.jpg?1734350261" alt="Splinter Twin" loading="lazy">
+      </a><a class="combo__card combo__card--2" href="https://scryfall.com/card/cma/36/deceiver-exarch?utm_source=api" rel="noopener" title="Deceiver Exarch">
+        <img src="https://cards.scryfall.io/normal/front/3/5/35437d86-6f92-480a-aa0c-c17c3943c00c.jpg?1623103955" alt="Deceiver Exarch" loading="lazy">
+      </a><a class="combo__card combo__card--3" href="https://scryfall.com/card/mma/59/pestermite?utm_source=api" rel="noopener" title="Pestermite">
+        <img src="https://cards.scryfall.io/normal/front/b/5/b58a6a63-c7d8-4f2f-acaf-b0a871eb5a7c.jpg?1561968098" alt="Pestermite" loading="lazy">
+      </a></div>
 
-    
-      <ul class="post-list">
-        
-          
-            <li class="post-list__item">
-              <a class="post-list__title" href="/posts/welcome-to-leyline/">Welcome to Leyline</a>
-              <time class="post-list__date" datetime="2026-05-11">May 11, 2026</time>
-            </li>
-          
-            <li class="post-list__item">
-              <a class="post-list__title" href="/posts/typography-notes/">Notes on typography</a>
-              <time class="post-list__date" datetime="2026-04-22">Apr 22, 2026</time>
-            </li>
-          
-            <li class="post-list__item">
-              <a class="post-list__title" href="/posts/dark-mode-quick-take/">Dark mode, quick take</a>
-              <time class="post-list__date" datetime="2026-03-30">Mar 30, 2026</time>
-            </li>
-          
-        
-      </ul>
-    
+<h2 id="a-tournament-match">A tournament match</h2>
+<aside class="match" id="round-1">
+  <header class="match__head">
+    <h3 class="match__round">Round 1</h3>
+    <span class="match__result match__result--win">✅ 2-1</span>
+  </header>
+  <div class="match__sides">
+    <div class="match__side match__side--player1">
+      <span class="match__player">Me</span><span class="match__deck">Boros Burn</span></div>
+    <div class="match__side match__side--player2">
+      <span class="match__player">Andrés</span><span class="match__deck">UR Murktide</span></div>
   </div>
+</aside>
+
+
+    </div>
+
+    <footer class="post-footer">
+      
+        <div>
+          Tags:
+          
+            <a href="/tags/mtg/">#mtg</a>
+            <a href="/tags/demo/">#demo</a>
+        </div>
+      
+    </footer>
+  </article>
 
       </main>
       <footer class="site-footer">
