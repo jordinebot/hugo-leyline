@@ -34,16 +34,22 @@
       <div class="post-grid">
         {{ range $featured }}
           <a class="post-card" href="{{ .RelPermalink }}">
-            <div class="post-card__meta">
-              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-              {{ if and (not $isFallback) .Params.featured }}
-                <span class="badge">Featured</span>
+            {{ $cover := partial "post-cover.html" (dict "page" . "variant" "card") }}
+            {{ with $cover }}
+              <div class="post-card__cover">{{ . }}</div>
+            {{ end }}
+            <div class="post-card__body">
+              <div class="post-card__meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ if and (not $isFallback) .Params.featured }}
+                  <span class="badge">Featured</span>
+                {{ end }}
+              </div>
+              <h3 class="post-card__title">{{ .Title }}</h3>
+              {{ with .Summary }}
+                <p class="post-card__summary">{{ . | plainify | truncate 140 }}</p>
               {{ end }}
             </div>
-            <h3 class="post-card__title">{{ .Title }}</h3>
-            {{ with .Summary }}
-              <p class="post-card__summary">{{ . | plainify | truncate 140 }}</p>
-            {{ end }}
           </a>
         {{ end }}
       </div>

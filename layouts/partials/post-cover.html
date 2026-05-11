@@ -1,0 +1,65 @@
+{{- /* Renders the cover image for a post.
+
+       Resolution order:
+         1. Page bundle resource named cover.* / featured.* / hero.*
+            (jpg/jpeg/png/webp/avif) — processed by Hugo into a
+            responsive WebP srcset.
+         2. Front matter `image` (path under static/ or an external URL)
+            — rendered as-is, no processing.
+
+       Args (dict):
+         page    — the page context (required)
+         variant — "hero" (single-post banner, up to 1600w) or "card"
+                   (home post grid thumbnail, up to 640w). Default "card".
+*/ -}}
+
+{{- $page := .page -}}
+{{- $variant := .variant | default "card" -}}
+{{- $alt := $page.Params.imageAlt | default $page.Title -}}
+
+{{- $cover := $page.Resources.GetMatch "{cover,featured,hero}.{jpg,jpeg,png,webp,avif}" -}}
+
+{{- if $cover -}}
+  {{- $sizesAttr := "" -}}
+  {{- $widths := slice -}}
+  {{- if eq $variant "hero" -}}
+    {{- $widths = slice 640 960 1280 1600 -}}
+    {{- $sizesAttr = "(max-width: 720px) 100vw, 1280px" -}}
+  {{- else -}}
+    {{- $widths = slice 320 480 640 -}}
+    {{- $sizesAttr = "(max-width: 640px) 100vw, 360px" -}}
+  {{- end -}}
+
+  {{- /* Build the srcset; skip widths larger than the source. */ -}}
+  {{- $srcset := slice -}}
+  {{- $largest := false -}}
+  {{- range $widths -}}
+    {{- if le . $cover.Width -}}
+      {{- $img := $cover.Resize (printf "%dx q82 webp" .) -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink .) -}}
+      {{- $largest = $img -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Source is smaller than every srcset width — just emit the original as WebP. */ -}}
+  {{- if not $largest -}}
+    {{- $largest = $cover.Process "webp q82" -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $largest.RelPermalink $largest.Width) -}}
+  {{- end -}}
+
+  <img
+    src="{{ $largest.RelPermalink }}"
+    srcset="{{ delimit $srcset ", " }}"
+    sizes="{{ $sizesAttr }}"
+    width="{{ $cover.Width }}"
+    height="{{ $cover.Height }}"
+    alt="{{ $alt }}"
+    loading="lazy"
+    decoding="async">
+{{- else if $page.Params.image -}}
+  <img
+    src="{{ $page.Params.image | safeURL }}"
+    alt="{{ $alt }}"
+    loading="lazy"
+    decoding="async">
+{{- end -}}

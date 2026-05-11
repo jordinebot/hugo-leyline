@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on Leyline — Demo</title>
-    <link>http://localhost:59414/tags/design/</link>
+    <link>http://localhost:63878/tags/design/</link>
     <description>Recent content in Design on Leyline — Demo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 May 2026 10:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:59414/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:63878/tags/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to Leyline</title>
-      <link>http://localhost:59414/posts/welcome-to-leyline/</link>
+      <link>http://localhost:63878/posts/welcome-to-leyline/</link>
       <pubDate>Mon, 11 May 2026 10:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/welcome-to-leyline/</guid>
+      <guid>http://localhost:63878/posts/welcome-to-leyline/</guid>
       <description>&lt;p&gt;Leyline is a minimal Hugo theme aimed at writing. It does a few things well:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sticky header with a logo, menu, and quick controls.&lt;/li&gt;&#xA;&lt;li&gt;A light/dark switcher that respects your OS preference until you choose otherwise.&lt;/li&gt;&#xA;&lt;li&gt;A quiet home page that surfaces featured posts (or your latest, if you haven&amp;rsquo;t picked any).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-leyline&#34;&gt;Why &amp;ldquo;Leyline&amp;rdquo;?&lt;/h2&gt;&#xA;&lt;p&gt;The name nods to invisible threads of structure — the kind of design you don&amp;rsquo;t notice because everything is where you&amp;rsquo;d expect.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes on typography</title>
-      <link>http://localhost:59414/posts/typography-notes/</link>
+      <link>http://localhost:63878/posts/page-bundle-example/</link>
       <pubDate>Wed, 22 Apr 2026 18:00:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/typography-notes/</guid>
+      <guid>http://localhost:63878/posts/page-bundle-example/</guid>
       <description>&lt;p&gt;A few short notes on the type choices in this theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;one-family-three-weights&#34;&gt;One family, three weights&lt;/h2&gt;&#xA;&lt;p&gt;Leyline ships with Inter at weights 400, 500, and 700. That&amp;rsquo;s enough to support body text, UI accents, and headings without pulling in a second family.&lt;/p&gt;&#xA;&lt;h2 id=&#34;letter-spacing&#34;&gt;Letter-spacing&lt;/h2&gt;&#xA;&lt;p&gt;Headings use a slight negative letter-spacing (&lt;code&gt;-0.015em&lt;/code&gt;) to tighten the look at large sizes. Below ~1.25rem the effect is barely noticeable; above it, copy feels less airy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;reading-width&#34;&gt;Reading width&lt;/h2&gt;&#xA;&lt;p&gt;Prose containers cap at 720px — about 70 characters per line at the default size. Wider feels like a wiki; narrower feels like a Twitter thread.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dark mode, quick take</title>
-      <link>http://localhost:59414/posts/dark-mode-quick-take/</link>
+      <link>http://localhost:63878/posts/dark-mode-quick-take/</link>
       <pubDate>Mon, 30 Mar 2026 09:30:00 +0200</pubDate>
-      <guid>http://localhost:59414/posts/dark-mode-quick-take/</guid>
+      <guid>http://localhost:63878/posts/dark-mode-quick-take/</guid>
       <description>&lt;p&gt;The theme switcher in Leyline follows a simple rule: on the first visit, match the user&amp;rsquo;s OS preference. Once they tap the toggle, lock to their choice via &lt;code&gt;localStorage&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This avoids two common annoyances: a site that ignores &lt;code&gt;prefers-color-scheme&lt;/code&gt;, and a site that resets to its default every time you come back.&lt;/p&gt;</description>
     </item>
   </channel>

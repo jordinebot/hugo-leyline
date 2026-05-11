@@ -1,5 +1,10 @@
 {{ define "main" }}
   <article class="container-prose">
+    {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
+    {{ with $cover }}
+      <figure class="post-hero">{{ . }}</figure>
+    {{ end }}
+
     <header class="post-header">
       <div class="post-header__meta">
         {{ if not .Date.IsZero }}

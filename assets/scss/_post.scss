@@ -1,3 +1,15 @@
+.post-hero {
+  margin: 0 0 var(--space-6);
+}
+.post-hero img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+}
+
 .post-header {
   margin-bottom: var(--space-6);
   padding-bottom: var(--space-5);

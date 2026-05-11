@@ -4,6 +4,8 @@ date = 2026-05-11T10:00:00+02:00
 draft = false
 description = "What Leyline is, what it isn't, and the design choices behind it."
 featured = true
+image = "https://picsum.photos/seed/leyline-welcome/1600/900"
+imageAlt = "Abstract muted landscape"
 tags = ["meta", "design"]
 +++
 
