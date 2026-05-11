@@ -33,5 +33,31 @@
         </ul>
       {{ end }}
     </footer>
+
+    {{/* Adjacent-post navigation. Hugo's NextInSection/PrevInSection
+         follow the collection order, which for date-desc posts means
+         NextInSection is actually the OLDER post. The labels here use
+         "Older / Newer" to sidestep the Previous/Next ambiguity. */}}
+    {{ $older := .NextInSection }}
+    {{ $newer := .PrevInSection }}
+    {{ if or $older $newer }}
+      {{ $solo := not (and $older $newer) }}
+      <nav class="post-pager" aria-label="Adjacent posts">
+        {{ with $older }}
+          <a class="post-pager__link post-pager__link--older{{ if $solo }} post-pager__link--solo{{ end }}"
+             href="{{ .RelPermalink }}" rel="prev">
+            <span class="post-pager__direction">&larr; Older</span>
+            <span class="post-pager__title">{{ .Title }}</span>
+          </a>
+        {{ end }}
+        {{ with $newer }}
+          <a class="post-pager__link post-pager__link--newer{{ if $solo }} post-pager__link--solo{{ end }}"
+             href="{{ .RelPermalink }}" rel="next">
+            <span class="post-pager__direction">Newer &rarr;</span>
+            <span class="post-pager__title">{{ .Title }}</span>
+          </a>
+        {{ end }}
+      </nav>
+    {{ end }}
   </article>
 {{ end }}

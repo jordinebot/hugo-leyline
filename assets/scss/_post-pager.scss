@@ -1,0 +1,57 @@
+.post-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+
+.post-pager__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color .15s ease,
+    background .15s ease,
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.post-pager__link:hover {
+  text-decoration: none;
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.post-pager__direction {
+  color: var(--ink-subtle);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.post-pager__title {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.post-pager__link--newer { text-align: right; }
+
+/* When only one direction exists, let it span the full width rather
+   than leaving an empty grid cell next to it. */
+.post-pager__link--solo { grid-column: 1 / -1; }
+
+@media (max-width: 520px) {
+  .post-pager { grid-template-columns: 1fr; }
+  .post-pager__link--newer { text-align: left; }
+}
