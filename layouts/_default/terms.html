@@ -11,26 +11,23 @@
     </header>
 
     {{ if gt (len .Pages) 0 }}
-      {{/* Find the busiest tag so we can size the rest relative to it. */}}
-      {{ $maxCount := 1 }}
-      {{ range .Pages }}
-        {{ $c := len .Pages }}
-        {{ if gt $c $maxCount }}{{ $maxCount = $c }}{{ end }}
+      {{/* Build a list of {page, count} dicts. Pre-sort by title so that
+           the final sort by count is stable for ties (busiest first,
+           alphabetical within each tier). */}}
+      {{ $items := slice }}
+      {{ range .Pages.ByTitle }}
+        {{ $items = $items | append (dict "page" . "count" (len .Pages)) }}
       {{ end }}
 
-      <div class="tag-cloud">
-        {{ range .Pages.ByTitle }}
-          {{ $c := len .Pages }}
-          {{ $bucket := 1 }}
-          {{ if gt $maxCount 1 }}
-            {{ $ratio := div (float $c) (float $maxCount) }}
-            {{ $bucket = int (math.Max 1 (math.Ceil (mul $ratio 5))) }}
-          {{ end }}
-          <a class="tag-cloud__item tag-cloud__item--{{ $bucket }}" href="{{ .RelPermalink }}">
-            {{ .Title }}<span class="tag-cloud__count">{{ $c }}</span>
-          </a>
+      <ul class="tags" aria-label="All tags">
+        {{ range sort $items "count" "desc" }}
+          <li>
+            <a class="tag" href="{{ .page.RelPermalink }}">
+              {{ .page.Title }}<span class="tag__count">{{ .count }}</span>
+            </a>
+          </li>
         {{ end }}
-      </div>
+      </ul>
     {{ else }}
       <p>No tags yet.</p>
     {{ end }}

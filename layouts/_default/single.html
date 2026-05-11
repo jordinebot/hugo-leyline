@@ -26,11 +26,11 @@
 
     <footer class="post-footer">
       {{ with .Params.tags }}
-        <div>
-          Tags:
+        <ul class="tags" aria-label="Tags">
           {{ range . }}
-            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
-        </div>
+            <li><a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+          {{ end }}
+        </ul>
       {{ end }}
     </footer>
   </article>
