@@ -47,6 +47,11 @@ jobs:
           repository: jordinebot/hugo-mtg-shortcodes
           path: hugo-mtg-shortcodes
 
+      - name: Set up Node (for Pagefind)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       # Build under a project-style baseURL so any template that breaks
       # URL prefixing (e.g. unfiltered .URL, raw `/posts/` literals)
       # fails the check before it can break the live deploy.
@@ -59,7 +64,12 @@ jobs:
             --themesDir=../.. \
             --baseURL "https://example.com/hugo-leyline/"
 
+      - name: Build Pagefind search index
+        working-directory: hugo-leyline/exampleSite
+        run: npx -y pagefind@1.4.0 --site public
+
       - name: Verify build output is non-empty
         run: |
           test -s hugo-leyline/exampleSite/public/index.html
           test -s hugo-leyline/exampleSite/public/posts/index.html
+          test -s hugo-leyline/exampleSite/public/pagefind/pagefind.js

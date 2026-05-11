@@ -8,7 +8,8 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 
 ## Features
 
-- **Sticky header** with logo (image or site-title text), main menu, a placeholder search icon, and a 2-state light/dark toggle that respects `prefers-color-scheme` until the user overrides
+- **Sticky header** with logo (image or site-title text), main menu, a search button (Cmd/Ctrl+K), and a 2-state light/dark toggle that respects `prefers-color-scheme` until the user overrides
+- **Client-side search** powered by [Pagefind](https://pagefind.app/) — a modal overlay with debounced search-as-you-type, arrow-key navigation, snippet highlighting, and lazy-loaded JS (only fetched on first open)
 - **Mobile menu** that drops down from under the header with an animated hamburger → X morph
 - **No-flash theme bootstrap** — an inline `<head>` script sets `[data-theme]` before first paint, so dark-mode visitors don't see a white flash
 - **Featured posts grid** on the home page (cards with optional 16:9 cover images), driven by a `featured: true` front-matter flag; falls back to "latest posts" when nothing is flagged
@@ -163,8 +164,9 @@ The repo doubles as a developable theme: clone it, work in `exampleSite/`, and v
 
 ```sh
 git clone https://github.com/jordinebot/hugo-leyline.git
-cd hugo-leyline/exampleSite
-hugo server
+cd hugo-leyline
+npm install                  # installs pagefind for search-index generation
+npm run serve                # hugo server with live reload
 ```
 
 The exampleSite's `themesDir = "../.."` setting tells Hugo to look for themes one level above the repo, so it picks up `hugo-leyline/` as a sibling directory. If you also want the MTG shortcodes during local dev, clone that repo as a sibling:
@@ -176,13 +178,20 @@ git clone https://github.com/jordinebot/hugo-mtg-shortcodes.git
 
 The exampleSite is wired with `theme = ["hugo-leyline", "hugo-mtg-shortcodes"]`, so both load when present.
 
-### Production-style build
+### Production-style build (with search index)
+
+```sh
+npm run build                # hugo --gc --minify && pagefind --site public
+```
+
+The two-step pattern is what consuming sites should mirror: `hugo` first, then `pagefind --site <hugo-output>`. The search overlay degrades gracefully when the Pagefind bundle is missing (e.g. `hugo server` during development), so you don't need to regenerate the index on every edit.
 
 To verify the build under a GitHub-Pages-style baseURL (catches URL-prefixing regressions before deploy):
 
 ```sh
 cd exampleSite
 hugo --gc --minify --baseURL "https://example.com/hugo-leyline/"
+npx pagefind --site public
 ```
 
 ## Credits

@@ -1,0 +1,12 @@
+{
+  "name": "hugo-leyline",
+  "private": true,
+  "description": "Build helpers for the Leyline Hugo theme. Sites consuming the theme should mirror the `build` script (or its two steps) so Pagefind search can index the rendered HTML.",
+  "scripts": {
+    "serve": "cd exampleSite && hugo server --themesDir=../..",
+    "build": "cd exampleSite && hugo --gc --minify --themesDir=../.. && pagefind --site public"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0"
+  }
+}

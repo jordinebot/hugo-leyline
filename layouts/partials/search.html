@@ -1,0 +1,62 @@
+{{/* Search overlay (Pagefind).
+
+  Triggered from the header's search button or Cmd/Ctrl+K. The Pagefind
+  module is imported lazily on first open from the URL passed in via
+  `data-pagefind-url` — relURL'd so it works under any baseURL path.
+
+  Search index is built by running `pagefind --site exampleSite/public`
+  after `hugo`. Local `hugo server` runs without the index; the overlay
+  shows a graceful "unavailable" state in that case.
+*/}}
+<div
+  class="search-modal"
+  id="search-modal"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="search-modal-title"
+  data-pagefind-url="{{ "pagefind/pagefind.js" | relURL }}"
+>
+  <h2 id="search-modal-title" class="sr-only">Search</h2>
+
+  <button
+    type="button"
+    class="search-modal__backdrop"
+    data-search-close
+    aria-label="Close search"
+    tabindex="-1"
+  ></button>
+
+  <div class="search-modal__panel" role="document">
+    <div class="search-modal__input-row">
+      <span class="search-modal__icon" aria-hidden="true">
+        {{ partial "icons/search.html" . }}
+      </span>
+      <input
+        type="search"
+        class="search-modal__input"
+        placeholder="Search..."
+        aria-label="Search query"
+        aria-controls="search-modal-results"
+        autocomplete="off"
+        spellcheck="false"
+        data-search-input
+      >
+      <kbd class="search-modal__esc">esc</kbd>
+    </div>
+
+    <div
+      class="search-modal__results"
+      id="search-modal-results"
+      role="listbox"
+      aria-label="Search results"
+      data-search-results
+    ></div>
+
+    <p class="search-modal__hint">
+      <kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate &middot;
+      <kbd>&crarr;</kbd> select &middot;
+      <kbd>esc</kbd> close
+    </p>
+  </div>
+</div>

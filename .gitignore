@@ -11,5 +11,8 @@ exampleSite/.hugo_build.lock
 # OS
 .DS_Store
 
+# Node (Pagefind for search-index generation)
+node_modules/
+
 # Claude Code personal overrides
 .claude/settings.local.json

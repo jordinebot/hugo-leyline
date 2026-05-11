@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="container-prose">
+  <article class="container-prose" data-pagefind-body>
     {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
     {{ with $cover }}
       <figure class="post-hero">{{ . }}</figure>
