@@ -54,5 +54,37 @@
         {{ end }}
       </div>
     </section>
+
+    {{/* Latest posts: only show this section when Featured actually
+         surfaced curated posts (otherwise the cards above are already
+         the latest, and this would duplicate them). Excludes posts
+         already shown in Featured. */}}
+    {{ if not $isFallback }}
+      {{ $latestMax := site.Params.home.latestCount | default 10 }}
+      {{ $featuredKeys := slice }}
+      {{ range $featured }}
+        {{ $featuredKeys = $featuredKeys | append .RelPermalink }}
+      {{ end }}
+      {{ $latest := where (sort $posts "Date" "desc") "RelPermalink" "not in" $featuredKeys }}
+      {{ $latest = first $latestMax $latest }}
+
+      {{ if gt (len $latest) 0 }}
+        <section class="section container">
+          <div class="section__head">
+            <h2 class="section__title">Latest posts</h2>
+            <a class="section__link" href="{{ "/posts/" | relURL }}">All posts &rarr;</a>
+          </div>
+
+          <ul class="post-list">
+            {{ range $latest }}
+              <li class="post-list__item">
+                <a class="post-list__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <time class="post-list__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              </li>
+            {{ end }}
+          </ul>
+        </section>
+      {{ end }}
+    {{ end }}
   {{ end }}
 {{ end }}

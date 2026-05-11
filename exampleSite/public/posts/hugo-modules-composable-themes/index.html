@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64345&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=57308&amp;path=livereload" data-no-instant defer></script>
     <script>
   (function () {
     try {
@@ -18,10 +18,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo 0.161.1">
 
-<title>About · Leyline — Demo</title>
+<title>Hugo Modules: composable themes · Leyline — Demo</title>
 
 
-  <meta name="description" content="A demo About page for the Leyline theme.">
+  <meta name="description" content="How Leyline shares the MTG shortcodes module with Manaforge — one source of truth, two consumers.">
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-  <link rel="canonical" href="http://localhost:64345/about/">
+  <link rel="canonical" href="http://localhost:57308/posts/hugo-modules-composable-themes/">
 
 
 
@@ -120,27 +120,48 @@
   <article class="container-prose">
     
     
+      <figure class="post-hero"><img
+    src="https://picsum.photos/seed/leyline-modules/1600/900"
+    alt="Stack of modular shipping containers"
+    loading="lazy"
+    decoding="async"></figure>
+    
 
     <header class="post-header">
       <div class="post-header__meta">
         
+          <time datetime="2026-04-28">Apr 28, 2026</time>
         
+        <span class="badge">Featured</span>
       </div>
 
-      <h1 class="post-header__title">About</h1>
+      <h1 class="post-header__title">Hugo Modules: composable themes</h1>
 
       
-        <p class="post-header__lead">A demo About page for the Leyline theme.</p>
+        <p class="post-header__lead">How Leyline shares the MTG shortcodes module with Manaforge — one source of truth, two consumers.</p>
       
     </header>
 
     <div class="post-content">
-      <p>This is a sample About page that ships with the Leyline demo. Replace its contents — or delete the file — when you adopt the theme.</p>
-<p>Leyline is built to stay out of the way of your writing. The header is sticky, the controls are quiet, and the home page resists the urge to be a magazine.</p>
+      <p>Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.</p>
+<p>Leyline is one theme. The MTG shortcodes — <code>card</code>, <code>cardname</code>, <code>combo</code>, <code>mana</code>, <code>match</code> — live in a separate module, <code>hugo-mtg-shortcodes</code>. A sibling theme (Manaforge) consumes the same module. Both get the same shortcodes; updating the module updates both themes at the same time.</p>
+<p>The pattern is straightforward: each theme declares the module as a dependency in its <code>hugo.toml</code>, and the module ships shortcodes, partials, SCSS, static assets, and JS that get merged into the consuming site at build time.</p>
+<h2 id="the-local-dev-wrinkle">The local-dev wrinkle</h2>
+<p>Hugo&rsquo;s environment-scoped config replaces <code>[[module.imports]]</code> rather than appending it. If a development config adds a new module import, it has to declare every import the dev build needs — not just the new one. Hugo merges most things; this isn&rsquo;t one of them. Easy to miss, easy to fix once you&rsquo;ve been bitten.</p>
 
     </div>
 
     <footer class="post-footer">
+      
+        <ul class="tags" aria-label="Tags">
+          
+            <li><a class="tag" href="/tags/hugo/">hugo</a></li>
+          
+            <li><a class="tag" href="/tags/modules/">modules</a></li>
+          
+            <li><a class="tag" href="/tags/architecture/">architecture</a></li>
+          
+        </ul>
       
     </footer>
   </article>

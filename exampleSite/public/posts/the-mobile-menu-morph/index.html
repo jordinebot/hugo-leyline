@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64345&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=57308&amp;path=livereload" data-no-instant defer></script>
     <script>
   (function () {
     try {
@@ -18,10 +18,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo 0.161.1">
 
-<title>About · Leyline — Demo</title>
+<title>The mobile menu morph · Leyline — Demo</title>
 
 
-  <meta name="description" content="A demo About page for the Leyline theme.">
+  <meta name="description" content="Three lines, two rotations, one fade — the hamburger-to-X animation in 30 lines of CSS.">
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-  <link rel="canonical" href="http://localhost:64345/about/">
+  <link rel="canonical" href="http://localhost:57308/posts/the-mobile-menu-morph/">
 
 
 
@@ -120,27 +120,52 @@
   <article class="container-prose">
     
     
+      <figure class="post-hero"><img
+    src="https://picsum.photos/seed/leyline-mobile-menu/1600/900"
+    alt="Close-up of a phone screen with a navigation menu"
+    loading="lazy"
+    decoding="async"></figure>
+    
 
     <header class="post-header">
       <div class="post-header__meta">
         
+          <time datetime="2026-05-04">May 4, 2026</time>
         
+        <span class="badge">Featured</span>
       </div>
 
-      <h1 class="post-header__title">About</h1>
+      <h1 class="post-header__title">The mobile menu morph</h1>
 
       
-        <p class="post-header__lead">A demo About page for the Leyline theme.</p>
+        <p class="post-header__lead">Three lines, two rotations, one fade — the hamburger-to-X animation in 30 lines of CSS.</p>
       
     </header>
 
     <div class="post-content">
-      <p>This is a sample About page that ships with the Leyline demo. Replace its contents — or delete the file — when you adopt the theme.</p>
-<p>Leyline is built to stay out of the way of your writing. The header is sticky, the controls are quiet, and the home page resists the urge to be a magazine.</p>
+      <p>The first version of Leyline&rsquo;s mobile menu had two icons stacked in the button: a hamburger and an X. CSS swapped them based on whether the menu was open. It worked, but it felt like flipping a switch.</p>
+<p>The second version is a single SVG with three <code>&lt;line&gt;</code> elements. When the menu opens, the top line rotates 45° and translates down to the centre. The bottom mirrors it. The middle line fades out and shrinks. They meet in the middle and form an X.</p>
+<h2 id="where-the-geometry-lives">Where the geometry lives</h2>
+<p>The trick is the <code>transform-origin</code>. Each line&rsquo;s origin sits at the icon centre (<code>12px 12px</code>), so when you translate to the centre first and then rotate, the lines pivot around their new midpoint. The order of the CSS transforms matters — rotate-first or translate-first is the difference between a clean X and an offset cross.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">icon-burger__line--top</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>) translateY(<span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="the-timing">The timing</h2>
+<p>280ms with <code>cubic-bezier(.65, 0, .35, 1)</code> for the rotation; 180ms for the middle line&rsquo;s fade. The slight stagger reads as confident motion rather than choreographed.</p>
 
     </div>
 
     <footer class="post-footer">
+      
+        <ul class="tags" aria-label="Tags">
+          
+            <li><a class="tag" href="/tags/design/">design</a></li>
+          
+            <li><a class="tag" href="/tags/css/">css</a></li>
+          
+            <li><a class="tag" href="/tags/animation/">animation</a></li>
+          
+        </ul>
       
     </footer>
   </article>

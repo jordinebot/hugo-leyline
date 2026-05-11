@@ -14,7 +14,8 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
   # logo = "/logo.svg"          # uncomment to use an image instead of the title
 
   [params.home]
-    postCount = 6
+    postCount = 6           # Featured posts (cards). Falls back to latest if none flagged.
+    latestCount = 10        # Latest posts list shown below Featured (excludes posts already in Featured).
 
   [params.footer]
     tagline = "Built with Leyline"
