@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      &copy; {{ now.Year }} {{ site.Title }}.
+      {{ with site.Params.footer.tagline }}<span> · {{ . }}</span>{{ end }}
+    </div>
+
+    {{ if site.Menus.footer }}
+      <ul class="site-footer__links">
+        {{ range site.Menus.footer }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</footer>

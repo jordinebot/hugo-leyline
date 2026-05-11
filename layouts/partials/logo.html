@@ -1,0 +1,8 @@
+{{/* Logo: image if site.Params.logo is set, otherwise site title as text. */ -}}
+<a class="site-logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} home">
+  {{ with site.Params.logo }}
+    <img src="{{ . | relURL }}" alt="{{ site.Title }}">
+  {{ else }}
+    <span>{{ site.Title }}</span>
+  {{ end }}
+</a>

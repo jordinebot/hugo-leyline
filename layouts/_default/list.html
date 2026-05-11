@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <div class="container">
+    <header class="list-header">
+      <h1 class="list-header__title">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="list-header__lead">{{ . }}</p>
+      {{ end }}
+      {{ with .Content }}
+        <div class="post-content">{{ . }}</div>
+      {{ end }}
+    </header>
+
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}{{ $pages = where site.RegularPages "Section" "posts" }}{{ end }}
+
+    {{ if gt (len $pages) 0 }}
+      <ul class="post-list">
+        {{ range ($pages.GroupByDate "2006") }}
+          {{ range .Pages }}
+            <li class="post-list__item">
+              <a class="post-list__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <time class="post-list__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>No posts yet.</p>
+    {{ end }}
+  </div>
+{{ end }}

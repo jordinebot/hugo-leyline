@@ -1,0 +1,13 @@
+{{/* Inline, render-blocking init: set [data-theme] before first paint to avoid FOUC. */ -}}
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('leyline-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>

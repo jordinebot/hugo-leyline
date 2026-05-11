@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    {{ partial "logo.html" . }}
+
+    <nav class="site-nav" aria-label="Primary">
+      {{ if site.Menus.main }}
+        <ul class="site-nav__list">
+          {{ range site.Menus.main }}
+            {{ $isCurrent := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+            <li>
+              <a class="site-nav__link" href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+
+      <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
+        {{ partial "icons/search.html" . }}
+      </button>
+
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+        {{ partial "icons/sun.html" . }}
+        {{ partial "icons/moon.html" . }}
+      </button>
+    </nav>
+  </div>
+</header>

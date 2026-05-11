@@ -1,0 +1,44 @@
+baseURL = "https://example.org/"
+locale = "en-us"
+title = "Leyline — Demo"
+
+# Point themesDir at the parent of this repo so `theme = "hugo-leyline"`
+# resolves to the repo root (which is the theme itself). This keeps the
+# exampleSite portable: it works in any clone with no absolute paths and
+# no extra CLI flags.
+themesDir = "../.."
+theme = "hugo-leyline"
+
+[params]
+  description = "A clean, modern Hugo theme."
+  accentColor = "#4f46e5"
+  # logo = "/logo.svg"          # uncomment to use an image instead of the title
+
+  [params.home]
+    postCount = 6
+
+  [params.footer]
+    tagline = "Built with Leyline."
+
+[taxonomies]
+  tag = "tags"
+
+[[menus.main]]
+  name = "Posts"
+  url  = "/posts/"
+  weight = 10
+
+[[menus.main]]
+  name = "Tags"
+  url  = "/tags/"
+  weight = 20
+
+[[menus.main]]
+  name = "About"
+  url  = "/about/"
+  weight = 30
+
+[[menus.footer]]
+  name = "RSS"
+  url  = "/index.xml"
+  weight = 10

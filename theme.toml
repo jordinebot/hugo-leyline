@@ -1,0 +1,12 @@
+name = "Leyline"
+license = "MIT"
+licenselink = "https://github.com/jordinebot/hugo-leyline/blob/main/LICENSE"
+description = ""
+homepage = "https://github.com/jordinebot/hugo-leyline"
+tags = []
+features = []
+min_version = "0.128.0"
+
+[author]
+  name = "Jordi Nebot"
+  homepage = "https://github.com/jordinebot"

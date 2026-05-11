@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo {{ hugo.Version }}">
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+
+{{ with .Description | default site.Params.description }}
+  <meta name="description" content="{{ . }}">
+{{ end }}
+
+{{ with site.Params.accentColor }}
+  <meta name="theme-color" content="{{ . }}">
+{{ end }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+
+{{ $opts := dict "outputStyle" "compressed" "targetPath" "css/main.css" }}
+{{ with resources.Get "scss/main.scss" }}
+  {{ $css := . | toCSS $opts | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
+
+{{ with site.Params.accentColor }}
+  <style>:root { --accent: {{ . | safeCSS }}; }</style>
+{{ end }}
+
+{{ if .IsPage }}
+  <link rel="canonical" href="{{ .Permalink }}">
+{{ end }}
+
+{{ with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">
+{{ end }}

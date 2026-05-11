@@ -1,0 +1,52 @@
+{{ define "main" }}
+  <section class="hero container-prose">
+    <h1 class="hero__title">
+      {{ .Title | default site.Title }}
+    </h1>
+    {{ with .Description | default site.Params.description }}
+      <p class="hero__lead">{{ . }}</p>
+    {{ end }}
+    {{ with .Content }}
+      <div class="hero__body post-content">{{ . }}</div>
+    {{ end }}
+  </section>
+
+  {{/* Featured-with-latest-fallback: prefer posts marked `featured: true`. */}}
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  {{ $featured := where $posts "Params.featured" true }}
+  {{ $max := site.Params.home.postCount | default 6 }}
+  {{ $isFallback := false }}
+  {{ if eq (len $featured) 0 }}
+    {{ $featured = $posts }}
+    {{ $isFallback = true }}
+  {{ end }}
+  {{ $featured = first $max (sort $featured "Date" "desc") }}
+
+  {{ if gt (len $featured) 0 }}
+    <section class="section container">
+      <div class="section__head">
+        <h2 class="section__title">
+          {{ if $isFallback }}Latest posts{{ else }}Featured posts{{ end }}
+        </h2>
+        <a class="section__link" href="{{ "/posts/" | relURL }}">All posts &rarr;</a>
+      </div>
+
+      <div class="post-grid">
+        {{ range $featured }}
+          <a class="post-card" href="{{ .RelPermalink }}">
+            <div class="post-card__meta">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              {{ if and (not $isFallback) .Params.featured }}
+                <span class="badge">Featured</span>
+              {{ end }}
+            </div>
+            <h3 class="post-card__title">{{ .Title }}</h3>
+            {{ with .Summary }}
+              <p class="post-card__summary">{{ . | plainify | truncate 140 }}</p>
+            {{ end }}
+          </a>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

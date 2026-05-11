@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64473&amp;path=livereload" data-no-instant defer></script>
+    <script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('leyline-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.161.1">
+
+<title>Leyline — Demo</title>
+
+
+  <meta name="description" content="A clean, modern Hugo theme designed for writing — sticky header, light &amp; dark modes, and a quiet home page that gets out of the way.">
+
+
+
+  <meta name="theme-color" content="#4f46e5">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+
+
+
+  
+  <link rel="stylesheet" href="/css/main.3fb5fcefbf848f650222023e1bb757d9749f269aa95d6d3c30005b2552cc9956.css" integrity="sha256-P7X877&#43;Ej2UCIgI&#43;G7dX2XSfJpqpXW08MABbJVLMmVY=">
+
+
+
+  <style>:root { --accent: #4f46e5; }</style>
+
+
+
+
+
+  <link rel="alternate" type="application/rss+xml" title="Leyline — Demo" href="/index.xml">
+
+
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="/" aria-label="Leyline — Demo home">
+  
+    <span>Leyline — Demo</span>
+  
+</a>
+
+
+    <nav class="site-nav" aria-label="Primary">
+      
+        <ul class="site-nav__list">
+          
+            
+            <li>
+              <a class="site-nav__link" href="/posts/">
+                Posts
+              </a>
+            </li>
+          
+            
+            <li>
+              <a class="site-nav__link" href="/tags/">
+                Tags
+              </a>
+            </li>
+          
+            
+            <li>
+              <a class="site-nav__link" href="/about/">
+                About
+              </a>
+            </li>
+          
+        </ul>
+      
+
+      <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+
+      </button>
+
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+
+      </button>
+    </nav>
+  </div>
+</header>
+
+      <main>
+        
+  <section class="hero container-prose">
+    <h1 class="hero__title">
+      Hello, I&#39;m Leyline.
+    </h1>
+    
+      <p class="hero__lead">A clean, modern Hugo theme designed for writing — sticky header, light &amp; dark modes, and a quiet home page that gets out of the way.</p>
+    
+    
+      <div class="hero__body post-content"><p>This is the home page intro. It renders below the title and lead, so you can use Markdown here freely — short paragraphs, links, lists, whatever fits.</p>
+<p>Below this block the theme shows up to six featured posts (or the latest posts, if none are featured).</p>
+</div>
+    
+  </section>
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <section class="section container">
+      <div class="section__head">
+        <h2 class="section__title">
+          Featured posts
+        </h2>
+        <a class="section__link" href="/posts/">All posts &rarr;</a>
+      </div>
+
+      <div class="post-grid">
+        
+          <a class="post-card" href="/posts/welcome-to-leyline/">
+            <div class="post-card__meta">
+              <time datetime="2026-05-11">May 11, 2026</time>
+              
+                <span class="badge">Featured</span>
+              
+            </div>
+            <h3 class="post-card__title">Welcome to Leyline</h3>
+            
+              <p class="post-card__summary">Leyline is a minimal Hugo theme aimed at writing. It does a few things well:
+Sticky header with a logo, menu, and quick controls. A …</p>
+            
+          </a>
+        
+      </div>
+    </section>
+  
+
+      </main>
+      <footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      &copy; 2026 Leyline — Demo.
+      <span> · Built with Leyline.</span>
+    </div>
+
+    
+      <ul class="site-footer__links">
+        
+          <li><a href="/index.xml">RSS</a></li>
+        
+      </ul>
+    
+  </div>
+</footer>
+
+    </div>
+    
+  
+  <script src="/js/theme.37dc1803fd676a292367f08b1b09007d95554f048c9df5404a0df45b5c6d91d2.js" integrity="sha256-N9wYA/1naikjZ/CLGwkAfZVVTwSMnfVASg30W1xtkdI=" defer></script>
+
+
+  </body>
+</html>
