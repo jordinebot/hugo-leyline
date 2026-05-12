@@ -6,7 +6,8 @@
    shows a graceful "unavailable" message instead of erroring.
 */
 
-const MAX_RESULTS = 8;
+const MAX_PAGES = 6;     // Pagefind pages we fetch data for
+const MAX_ENTRIES = 12;  // Flattened entries shown (page + h2 anchors)
 const DEBOUNCE_MS = 80;
 
 let pagefind = null;
@@ -72,12 +73,38 @@ async function runSearch(query) {
   try {
     const pf = await loadPagefind();
     const search = await pf.search(query);
-    const data = await Promise.all(
-      search.results.slice(0, MAX_RESULTS).map((r) => r.data()),
+    const pages = await Promise.all(
+      search.results.slice(0, MAX_PAGES).map((r) => r.data()),
     );
-    currentResults = data;
-    activeIndex = data.length > 0 ? 0 : -1;
-    renderResults(data);
+
+    // Flatten: one entry per page + one entry per h2-anchored sub-result.
+    // Cap at MAX_ENTRIES so high-relevance pages get priority.
+    const flat = [];
+    for (const page of pages) {
+      if (flat.length >= MAX_ENTRIES) break;
+      const pageTitle = (page.meta && page.meta.title) || page.url;
+      flat.push({
+        url: page.url,
+        pageTitle,
+        sectionTitle: null,
+        excerpt: page.excerpt || '',
+      });
+      for (const sub of page.sub_results || []) {
+        if (flat.length >= MAX_ENTRIES) break;
+        if (sub.anchor && sub.anchor.element === 'h2') {
+          flat.push({
+            url: sub.url,
+            pageTitle,
+            sectionTitle: sub.title || '',
+            excerpt: sub.excerpt || '',
+          });
+        }
+      }
+    }
+
+    currentResults = flat;
+    activeIndex = flat.length > 0 ? 0 : -1;
+    renderResults(flat);
   } catch (_) {
     renderUnavailable();
   }
@@ -93,16 +120,24 @@ function renderResults(results) {
     return;
   }
 
-  resultsEl.innerHTML = results.map((r, i) => `
-    <a class="search-modal__result${i === activeIndex ? ' is-active' : ''}"
-       href="${r.url}"
-       role="option"
-       aria-selected="${i === activeIndex}"
-       data-index="${i}">
-      <div class="search-modal__result-title">${escapeHtml((r.meta && r.meta.title) || r.url)}</div>
-      <div class="search-modal__result-excerpt">${r.excerpt || ''}</div>
-    </a>
-  `).join('');
+  resultsEl.innerHTML = results.map((r, i) => {
+    const isSection = !!r.sectionTitle;
+    const titleHtml = isSection
+      ? `<span class="search-modal__result-page">${escapeHtml(r.pageTitle)}</span>` +
+        `<span class="search-modal__result-sep" aria-hidden="true">›</span>` +
+        `<span class="search-modal__result-section">${escapeHtml(r.sectionTitle)}</span>`
+      : `<span class="search-modal__result-page">${escapeHtml(r.pageTitle)}</span>`;
+    return `
+      <a class="search-modal__result${isSection ? ' search-modal__result--section' : ''}${i === activeIndex ? ' is-active' : ''}"
+         href="${r.url}"
+         role="option"
+         aria-selected="${i === activeIndex}"
+         data-index="${i}">
+        <div class="search-modal__result-title">${titleHtml}</div>
+        <div class="search-modal__result-excerpt">${r.excerpt}</div>
+      </a>
+    `;
+  }).join('');
 }
 
 function renderUnavailable() {

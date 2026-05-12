@@ -114,6 +114,39 @@
   color: var(--ink);
   letter-spacing: -0.005em;
   margin-bottom: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4em;
+}
+
+.search-modal__result--section .search-modal__result-page {
+  font-weight: 500;
+  color: var(--ink-subtle);
+  font-size: 0.9em;
+}
+
+.search-modal__result-sep {
+  color: var(--ink-subtle);
+  font-weight: 400;
+}
+
+.search-modal__result--section {
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.search-modal__result--section::before {
+  content: '';
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  border-bottom-left-radius: 3px;
 }
 
 .search-modal__result-excerpt {
