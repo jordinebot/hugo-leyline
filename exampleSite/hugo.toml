@@ -20,37 +20,12 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
 [taxonomies]
   tag = "tags"
 
-# Footer links: each entry may opt into an icon via `params.icon`. Without
-# an icon, the entry renders as text. Built-in icons:
-#   github, mastodon, bluesky, x, twitter, linkedin, rss, mail
+# Footer links live PER LANGUAGE (see [[languages.<lang>.menus.footer]]
+# blocks below). When `[languages]` is configured, top-level
+# `[[menus.footer]]` blocks don't attach to any language and silently
+# fail to render. Each entry can opt into an icon via `params.icon`.
+# Built-in icons: github, mastodon, bluesky, x, twitter, linkedin, rss, mail.
 # Add more by dropping an SVG at layouts/partials/icons/<name>.html.
-[[menus.footer]]
-  name = "GitHub"
-  url  = "https://github.com/jordinebot/hugo-leyline"
-  weight = 10
-  [menus.footer.params]
-    icon = "github"
-
-[[menus.footer]]
-  name = "Mastodon"
-  url  = "https://fosstodon.org/@example"
-  weight = 20
-  [menus.footer.params]
-    icon = "mastodon"
-
-[[menus.footer]]
-  name = "Bluesky"
-  url  = "https://bsky.app/profile/example.bsky.social"
-  weight = 30
-  [menus.footer.params]
-    icon = "bluesky"
-
-[[menus.footer]]
-  name = "RSS"
-  url  = "/index.xml"
-  weight = 40
-  [menus.footer.params]
-    icon = "rss"
 
 # ---------------------------------------------------------------------------
 # Languages
@@ -88,6 +63,31 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
       url  = "/about/"
       weight = 30
 
+    [[languages.en.menus.footer]]
+      name = "GitHub"
+      url  = "https://github.com/jordinebot/hugo-leyline"
+      weight = 10
+      [languages.en.menus.footer.params]
+        icon = "github"
+    [[languages.en.menus.footer]]
+      name = "Mastodon"
+      url  = "https://fosstodon.org/@example"
+      weight = 20
+      [languages.en.menus.footer.params]
+        icon = "mastodon"
+    [[languages.en.menus.footer]]
+      name = "Bluesky"
+      url  = "https://bsky.app/profile/example.bsky.social"
+      weight = 30
+      [languages.en.menus.footer.params]
+        icon = "bluesky"
+    [[languages.en.menus.footer]]
+      name = "RSS"
+      url  = "/index.xml"
+      weight = 40
+      [languages.en.menus.footer.params]
+        icon = "rss"
+
   [languages.es]
     label = "Español"
     locale = "es-es"
@@ -112,6 +112,31 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
       url  = "/es/about/"
       weight = 30
 
+    [[languages.es.menus.footer]]
+      name = "GitHub"
+      url  = "https://github.com/jordinebot/hugo-leyline"
+      weight = 10
+      [languages.es.menus.footer.params]
+        icon = "github"
+    [[languages.es.menus.footer]]
+      name = "Mastodon"
+      url  = "https://fosstodon.org/@example"
+      weight = 20
+      [languages.es.menus.footer.params]
+        icon = "mastodon"
+    [[languages.es.menus.footer]]
+      name = "Bluesky"
+      url  = "https://bsky.app/profile/example.bsky.social"
+      weight = 30
+      [languages.es.menus.footer.params]
+        icon = "bluesky"
+    [[languages.es.menus.footer]]
+      name = "RSS"
+      url  = "/es/index.xml"
+      weight = 40
+      [languages.es.menus.footer.params]
+        icon = "rss"
+
   [languages.ca]
     label = "Català"
     locale = "ca-es"
@@ -135,3 +160,28 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
       name = "Quant a"
       url  = "/ca/about/"
       weight = 30
+
+    [[languages.ca.menus.footer]]
+      name = "GitHub"
+      url  = "https://github.com/jordinebot/hugo-leyline"
+      weight = 10
+      [languages.ca.menus.footer.params]
+        icon = "github"
+    [[languages.ca.menus.footer]]
+      name = "Mastodon"
+      url  = "https://fosstodon.org/@example"
+      weight = 20
+      [languages.ca.menus.footer.params]
+        icon = "mastodon"
+    [[languages.ca.menus.footer]]
+      name = "Bluesky"
+      url  = "https://bsky.app/profile/example.bsky.social"
+      weight = 30
+      [languages.ca.menus.footer.params]
+        icon = "bluesky"
+    [[languages.ca.menus.footer]]
+      name = "RSS"
+      url  = "/ca/index.xml"
+      weight = 40
+      [languages.ca.menus.footer.params]
+        icon = "rss"
