@@ -40,6 +40,20 @@
 
 .post-content img { border-radius: var(--radius); }
 
+/* The global reset strips list-style + padding from ul/ol so the
+   theme's nav and chip lists render cleanly. Re-enable both for prose
+   lists inside rendered Markdown content. */
+.post-content ul,
+.post-content ol {
+  padding-left: var(--space-5);
+}
+.post-content ul { list-style: disc outside; }
+.post-content ol { list-style: decimal outside; }
+.post-content li::marker { color: var(--ink-subtle); }
+.post-content li + li { margin-top: var(--space-2); }
+.post-content li > ul,
+.post-content li > ol { margin-top: var(--space-2); }
+
 .post-footer {
   margin-top: var(--space-7);
   padding-top: var(--space-5);
