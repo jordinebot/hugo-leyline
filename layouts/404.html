@@ -1,3 +1,42 @@
+{{ define "head_extras" }}
+  {{/* For non-default-language URLs that hit a 404, redirect to the
+       language-appropriate /<lang>/404.html. Static hosts like GitHub
+       Pages serve only the root /404.html for any unknown URL, so we
+       ship one 404 per language and hop into the right one client-side.
+       Runs from <head> so the redirect happens before the body paints.
+
+       The default-language home equals the site's base path (e.g. "/"
+       or "/hugo-leyline/"), so we detect and skip it without needing
+       `site.DefaultContentLanguage` (which isn't accessible on the
+       page.Site interface from inside a `define` block). */}}
+  {{- $basePath := "/" -}}
+  {{- with urls.Parse site.BaseURL -}}
+    {{- with .Path -}}{{- $basePath = . -}}{{- end -}}
+  {{- end -}}
+  <script>
+  (function() {
+    var basePath = '{{ $basePath }}';
+    var langHomes = {
+{{- range hugo.Sites }}
+      '{{ .Language.Lang }}': '{{ .Home.RelPermalink }}',
+{{- end }}
+    };
+    var path = location.pathname;
+    for (var lang in langHomes) {
+      var home = langHomes[lang];
+      if (home === basePath) continue;       // default language — no redirect needed
+      if (path.indexOf(home) === 0) {
+        var target = home + '404.html';
+        if (path !== target) {
+          location.replace(target);
+        }
+        return;
+      }
+    }
+  })();
+  </script>
+{{ end }}
+
 {{ define "main" }}
   <section class="not-found container-prose">
     <p class="not-found__code" aria-hidden="true">404</p>

@@ -3,6 +3,7 @@
   <head>
     {{ partial "theme-init.html" . }}
     {{ partial "head.html" . }}
+    {{ block "head_extras" . }}{{ end }}
   </head>
   <body>
     <div class="site">
