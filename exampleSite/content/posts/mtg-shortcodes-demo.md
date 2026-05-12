@@ -1,11 +1,11 @@
-+++
-title = "MTG shortcodes demo"
-date = 2026-05-10T12:00:00+02:00
-draft = false
-description = "A quick tour of the card, cardname, mana, combo, and match shortcodes provided by the hugo-mtg-shortcodes module."
-featured = true
-tags = ["mtg", "demo"]
-+++
+---
+title: "MTG shortcodes demo"
+date: 2026-05-10T12:00:00+02:00
+draft: false
+description: "A quick tour of the card, cardname, mana, combo, and match shortcodes provided by the hugo-mtg-shortcodes module."
+featured: true
+tags: ["mtg", "demo"]
+---
 
 This post exercises every shortcode the `hugo-mtg-shortcodes` module ships.
 
