@@ -2,7 +2,7 @@
 title: "Hugo Modules: composable themes"
 date: 2026-04-28T18:00:00+02:00
 draft: false
-description: "How Leyline shares the MTG shortcodes module with Manaforge — one source of truth, two consumers."
+description: "Why Leyline keeps MTG shortcodes outside the theme — and what Hugo Modules buy you when you compose them."
 featured: true
 image: "https://picsum.photos/seed/leyline-modules/1600/900"
 imageAlt: "Stack of modular shipping containers"
@@ -11,9 +11,9 @@ tags: ["hugo", "modules", "architecture"]
 
 Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.
 
-Leyline is one theme. The MTG shortcodes — `card`, `cardname`, `combo`, `mana`, `match` — live in a separate module, `hugo-mtg-shortcodes`. A sibling theme (Manaforge) consumes the same module. Both get the same shortcodes; updating the module updates both themes at the same time.
+Leyline leans on that. The MTG shortcodes — `card`, `cardname`, `combo`, `mana`, `match` — don't live inside the theme. They sit in a separate Hugo Module, [`hugo-mtg-shortcodes`](https://github.com/jordinebot/hugo-mtg-shortcodes). Sites that want them add the import; sites that don't, don't. The module ships its own SCSS, partials, JS, and the mana icon font — Hugo merges it all into the consuming site at build time.
 
-The pattern is straightforward: each theme declares the module as a dependency in its `hugo.toml`, and the module ships shortcodes, partials, SCSS, static assets, and JS that get merged into the consuming site at build time.
+Splitting along that seam pays off twice. The theme stays focused on layout and typography, with no MTG concepts in its templates. And the shortcodes can evolve at their own cadence — any improvement (better Scryfall caching, a new layout for double-faced cards, smarter hover-preview positioning) lands in every consuming site without touching the theme.
 
 ## The local-dev wrinkle
 
