@@ -113,7 +113,9 @@ async function runSearch(query) {
 function renderResults(results) {
   if (results.length === 0) {
     if (input.value.trim()) {
-      resultsEl.innerHTML = `<p class="search-modal__empty">No matches for &ldquo;${escapeHtml(input.value)}&rdquo;.</p>`;
+      const tpl = modal.dataset.noMatches || 'No matches for "{query}".';
+      const msg = tpl.replace('{query}', escapeHtml(input.value));
+      resultsEl.innerHTML = `<p class="search-modal__empty">${msg}</p>`;
     } else {
       resultsEl.innerHTML = '';
     }
@@ -141,11 +143,9 @@ function renderResults(results) {
 }
 
 function renderUnavailable() {
-  resultsEl.innerHTML = `
-    <p class="search-modal__empty">
-      Search index isn't available yet. Run <code>pagefind --site public</code>
-      after Hugo builds.
-    </p>`;
+  const msg = modal.dataset.unavailable
+    || "Search index isn't available yet. Run `pagefind --site public` after Hugo builds.";
+  resultsEl.innerHTML = `<p class="search-modal__empty">${escapeHtml(msg)}</p>`;
 }
 
 function updateActiveResult() {

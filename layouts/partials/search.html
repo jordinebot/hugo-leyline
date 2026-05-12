@@ -4,9 +4,9 @@
   module is imported lazily on first open from the URL passed in via
   `data-pagefind-url` — relURL'd so it works under any baseURL path.
 
-  Search index is built by running `pagefind --site exampleSite/public`
-  after `hugo`. Local `hugo server` runs without the index; the overlay
-  shows a graceful "unavailable" state in that case.
+  i18n strings consumed by search.js:
+    - data-no-matches: template with `{query}` placeholder
+    - data-unavailable: shown when /pagefind/ isn't built
 */}}
 <div
   class="search-modal"
@@ -16,14 +16,16 @@
   aria-modal="true"
   aria-labelledby="search-modal-title"
   data-pagefind-url="{{ "pagefind/pagefind.js" | relURL }}"
+  data-no-matches="{{ i18n "search_no_matches" }}"
+  data-unavailable="{{ i18n "search_unavailable" }}"
 >
-  <h2 id="search-modal-title" class="sr-only">Search</h2>
+  <h2 id="search-modal-title" class="sr-only">{{ i18n "search" }}</h2>
 
   <button
     type="button"
     class="search-modal__backdrop"
     data-search-close
-    aria-label="Close search"
+    aria-label="{{ i18n "close_search" }}"
     tabindex="-1"
   ></button>
 
@@ -35,28 +37,28 @@
       <input
         type="search"
         class="search-modal__input"
-        placeholder="Search..."
-        aria-label="Search query"
+        placeholder="{{ i18n "search_placeholder" }}"
+        aria-label="{{ i18n "search_query" }}"
         aria-controls="search-modal-results"
         autocomplete="off"
         spellcheck="false"
         data-search-input
       >
-      <kbd class="search-modal__esc">esc</kbd>
+      <kbd class="search-modal__esc">{{ i18n "search_hint_close" }}</kbd>
     </div>
 
     <div
       class="search-modal__results"
       id="search-modal-results"
       role="listbox"
-      aria-label="Search results"
+      aria-label="{{ i18n "search_results" }}"
       data-search-results
     ></div>
 
     <p class="search-modal__hint">
-      <kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate &middot;
-      <kbd>&crarr;</kbd> select &middot;
-      <kbd>esc</kbd> close
+      <kbd>&uarr;</kbd><kbd>&darr;</kbd> {{ i18n "search_hint_navigate" }} &middot;
+      <kbd>&crarr;</kbd> {{ i18n "search_hint_select" }} &middot;
+      <kbd>esc</kbd> {{ i18n "search_hint_close" }}
     </p>
   </div>
 </div>

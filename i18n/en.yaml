@@ -1,0 +1,45 @@
+# Header / nav
+nav_primary: "Primary"
+toggle_theme: "Toggle theme"
+open_menu: "Open menu"
+close_menu: "Close menu"
+site_home:
+  other: "{{ . }} home"
+
+# Search modal
+search: "Search"
+search_placeholder: "Search..."
+search_query: "Search query"
+search_results: "Search results"
+close_search: "Close search"
+search_hint_navigate: "navigate"
+search_hint_select: "select"
+search_hint_close: "close"
+# Used by search.js — `{query}` is replaced client-side with the user's query.
+search_no_matches: 'No matches for "{query}".'
+search_unavailable: "Search index isn't available yet. Run `pagefind --site public` after Hugo builds."
+
+# Home page sections
+featured_posts: "Featured posts"
+latest_posts: "Latest posts"
+all_posts: "All posts"
+# Single-word badge shown on featured post cards
+featured_badge: "Featured"
+
+# Tags
+tags: "Tags"
+all_tags: "All tags"
+
+# Empty states
+no_posts: "No posts yet."
+no_tags: "No tags yet."
+
+# Post pager
+adjacent_posts: "Adjacent posts"
+older: "Older"
+newer: "Newer"
+
+# 404 page
+not_found_title: "Page not found"
+not_found_body: "The page you're looking for doesn't exist or has been moved."
+back_home: "Back home"

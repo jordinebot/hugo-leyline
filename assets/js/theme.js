@@ -29,10 +29,10 @@ media.addEventListener('change', (e) => {
 function setMenuOpen(nav, open) {
   nav.setAttribute('data-mobile-open', open ? 'true' : 'false');
   const btn = nav.querySelector('[data-mobile-menu-toggle]');
-  if (btn) {
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
+  if (!btn) return;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  const label = open ? btn.dataset.labelClose : btn.dataset.labelOpen;
+  if (label) btn.setAttribute('aria-label', label);
 }
 
 document.addEventListener('click', (event) => {
@@ -71,4 +71,17 @@ const breakpoint = window.matchMedia('(min-width: 641px)');
 breakpoint.addEventListener('change', (e) => {
   if (!e.matches) return;
   document.querySelectorAll('.site-nav[data-mobile-open="true"]').forEach((nav) => setMenuOpen(nav, false));
+});
+
+/* ---------- Language switcher (close on outside click + Escape) ---------- */
+
+document.addEventListener('click', (event) => {
+  document.querySelectorAll('[data-lang-switcher][open]').forEach((d) => {
+    if (!d.contains(event.target)) d.removeAttribute('open');
+  });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  document.querySelectorAll('[data-lang-switcher][open]').forEach((d) => d.removeAttribute('open'));
 });

@@ -2,7 +2,7 @@
   <div class="container site-header__inner">
     {{ partial "logo.html" . }}
 
-    <nav class="site-nav" aria-label="Primary" data-mobile-open="false">
+    <nav class="site-nav" aria-label="{{ i18n "nav_primary" }}" data-mobile-open="false">
       {{ if site.Menus.main }}
         <ul class="site-nav__list" id="site-nav-list">
           {{ range site.Menus.main }}
@@ -17,17 +17,25 @@
       {{ end }}
 
       <div class="site-nav__controls">
-        <button class="icon-btn" type="button" aria-label="Search" data-search-trigger>
+        {{ partial "language-switcher.html" . }}
+
+        <button class="icon-btn" type="button" aria-label="{{ i18n "search" }}" data-search-trigger>
           {{ partial "icons/search.html" . }}
         </button>
 
-        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+        <button class="icon-btn theme-toggle" type="button" aria-label="{{ i18n "toggle_theme" }}" data-theme-toggle>
           {{ partial "icons/sun.html" . }}
           {{ partial "icons/moon.html" . }}
         </button>
 
         {{ if site.Menus.main }}
-          <button class="icon-btn site-nav__menu-btn" type="button" aria-label="Open menu" aria-controls="site-nav-list" aria-expanded="false" data-mobile-menu-toggle>
+          <button class="icon-btn site-nav__menu-btn" type="button"
+                  aria-label="{{ i18n "open_menu" }}"
+                  aria-controls="site-nav-list"
+                  aria-expanded="false"
+                  data-label-open="{{ i18n "open_menu" }}"
+                  data-label-close="{{ i18n "close_menu" }}"
+                  data-mobile-menu-toggle>
             {{ partial "icons/menu.html" . }}
           </button>
         {{ end }}

@@ -20,6 +20,7 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Previous / next post navigation** at the bottom of each post, labeled "Older / Newer" to sidestep the perennial previous-vs-next ambiguity
 - **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param
 - **Theme-agnostic CSS custom properties** drive the palette, fonts, spacing, and accent color — per-site override via `params.accentColor`
+- **Multilingual-ready** — every user-facing UI string is wired through Hugo's `{{ i18n }}`, ships with an English `i18n/en.yaml`, and a tiny **language switcher** in the header that only renders when more than one language is configured
 - **GitHub Actions** workflows ship in `.github/workflows/`: PR validation on every pull request, automated GitHub Pages deploy on push to `main`
 
 ## Requirements
@@ -137,6 +138,40 @@ Two ways to give a post a cover:
 2. **Front-matter path**. For plain `.md` posts (or external URLs), set `image = "/path/to/img.jpg"`. The path is rendered as-is (no Hugo image processing).
 
 Bundle resources take priority — if a `cover.*` exists, `image` is ignored.
+
+## Multilingual
+
+Leyline is ready to run as a multilingual site out of the box. To add a second language, expand the top-level config to use Hugo's `[languages]` block:
+
+```toml
+defaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    label = "English"
+    locale = "en-us"
+    weight = 1
+    [languages.en.params]
+      description = "Your English tagline."
+
+  [languages.es]
+    label = "Español"
+    locale = "es-es"
+    weight = 2
+    title = "My Site (Español)"
+    [languages.es.params]
+      description = "Tu lema en español."
+```
+
+Add per-language menus the same way (`[[languages.en.menus.main]]`, `[[languages.es.menus.main]]`). Pages translate via Hugo's file-suffix convention: `welcome.md` is your default-language post, `welcome.es.md` is the Spanish translation. Hugo links them automatically — `.Translations` on each page returns the other-language versions.
+
+### Translating UI strings
+
+The theme's strings live in [`i18n/en.yaml`](i18n/en.yaml). Bundled translations: [`i18n/es.yaml`](i18n/es.yaml) (Spanish) and [`i18n/ca.yaml`](i18n/ca.yaml) (Catalan). For any other language, copy `en.yaml` to `i18n/<lang>.yaml` in your site and translate the values.
+
+The language switcher in the header only renders when more than one language is configured. Each link goes to the current page's translation when one exists, otherwise to that language's home.
+
+A handful of strings are consumed by client-side JavaScript (search "no matches" template, "search unavailable" message, mobile menu open/close labels). They're injected via `data-*` attributes on the search modal and mobile menu button — so they translate alongside everything else without any JS changes.
 
 ## Optional: MTG shortcodes
 

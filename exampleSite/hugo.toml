@@ -1,5 +1,5 @@
 baseURL = "https://example.org/"
-locale = "en-us"
+defaultContentLanguage = "en"
 title = "Leyline — Demo"
 
 # Point themesDir at the parent of this repo so each entry in `theme`
@@ -8,8 +8,8 @@ title = "Leyline — Demo"
 themesDir = "../.."
 theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
 
+# Settings shared across all languages.
 [params]
-  description = "A clean, modern Hugo theme."
   accentColor = "#4f46e5"
   # logo = "/logo.svg"          # uncomment to use an image instead of the title
 
@@ -17,26 +17,8 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
     postCount = 6           # Featured posts (cards). Falls back to latest if none flagged.
     latestCount = 10        # Latest posts list shown below Featured (excludes posts already in Featured).
 
-  [params.footer]
-    tagline = "Built with Leyline"
-
 [taxonomies]
   tag = "tags"
-
-[[menus.main]]
-  name = "Posts"
-  url  = "/posts/"
-  weight = 10
-
-[[menus.main]]
-  name = "Tags"
-  url  = "/tags/"
-  weight = 20
-
-[[menus.main]]
-  name = "About"
-  url  = "/about/"
-  weight = 30
 
 # Footer links: each entry may opt into an icon via `params.icon`. Without
 # an icon, the entry renders as text. Built-in icons:
@@ -69,3 +51,87 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
   weight = 40
   [menus.footer.params]
     icon = "rss"
+
+# ---------------------------------------------------------------------------
+# Languages
+#
+# Multilingual content uses file suffixes: `welcome-to-leyline.md` is the
+# default-language version; `welcome-to-leyline.es.md` is the Spanish
+# translation of the same post. Hugo links them via `.Translations`.
+#
+# Each language can override the global title, descriptions, menus, and
+# params. Anything not overridden falls back to the top-level config.
+# ---------------------------------------------------------------------------
+
+[languages]
+
+  [languages.en]
+    label = "English"
+    locale = "en-us"
+    weight = 1
+
+    [languages.en.params]
+      description = "A clean, modern Hugo theme."
+      [languages.en.params.footer]
+        tagline = "Built with Leyline."
+
+    [[languages.en.menus.main]]
+      name = "Posts"
+      url  = "/posts/"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "Tags"
+      url  = "/tags/"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "About"
+      url  = "/about/"
+      weight = 30
+
+  [languages.es]
+    label = "Español"
+    locale = "es-es"
+    weight = 2
+    title = "Leyline — Demo (Español)"
+
+    [languages.es.params]
+      description = "Un tema Hugo limpio y moderno."
+      [languages.es.params.footer]
+        tagline = "Hecho con Leyline."
+
+    [[languages.es.menus.main]]
+      name = "Entradas"
+      url  = "/es/posts/"
+      weight = 10
+    [[languages.es.menus.main]]
+      name = "Etiquetas"
+      url  = "/es/tags/"
+      weight = 20
+    [[languages.es.menus.main]]
+      name = "Acerca de"
+      url  = "/es/about/"
+      weight = 30
+
+  [languages.ca]
+    label = "Català"
+    locale = "ca-es"
+    weight = 3
+    title = "Leyline — Demo (Català)"
+
+    [languages.ca.params]
+      description = "Un tema Hugo net i modern."
+      [languages.ca.params.footer]
+        tagline = "Fet amb Leyline."
+
+    [[languages.ca.menus.main]]
+      name = "Entrades"
+      url  = "/ca/posts/"
+      weight = 10
+    [[languages.ca.menus.main]]
+      name = "Etiquetes"
+      url  = "/ca/tags/"
+      weight = 20
+    [[languages.ca.menus.main]]
+      name = "Quant a"
+      url  = "/ca/about/"
+      weight = 30

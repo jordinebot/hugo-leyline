@@ -1,0 +1,43 @@
+# Header / nav
+nav_primary: "Principal"
+toggle_theme: "Canvia el tema"
+open_menu: "Obre el menú"
+close_menu: "Tanca el menú"
+site_home:
+  other: "Inici de {{ . }}"
+
+# Search modal
+search: "Cerca"
+search_placeholder: "Cerca..."
+search_query: "Consulta de cerca"
+search_results: "Resultats de la cerca"
+close_search: "Tanca la cerca"
+search_hint_navigate: "navegar"
+search_hint_select: "seleccionar"
+search_hint_close: "tancar"
+search_no_matches: 'No s''ha trobat res per a "{query}".'
+search_unavailable: "L'índex de cerca encara no està disponible. Executa `pagefind --site public` després de compilar amb Hugo."
+
+# Home page sections
+featured_posts: "Entrades destacades"
+latest_posts: "Últimes entrades"
+all_posts: "Totes les entrades"
+featured_badge: "Destacada"
+
+# Tags
+tags: "Etiquetes"
+all_tags: "Totes les etiquetes"
+
+# Empty states
+no_posts: "Encara no hi ha cap entrada."
+no_tags: "Encara no hi ha cap etiqueta."
+
+# Post pager
+adjacent_posts: "Entrades adjacents"
+older: "Anterior"
+newer: "Següent"
+
+# 404 page
+not_found_title: "Pàgina no trobada"
+not_found_body: "La pàgina que busques no existeix o s'ha mogut."
+back_home: "Tornar a l'inici"

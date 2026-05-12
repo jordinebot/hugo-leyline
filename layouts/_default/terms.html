@@ -19,7 +19,7 @@
         {{ $items = $items | append (dict "page" . "count" (len .Pages)) }}
       {{ end }}
 
-      <ul class="tags" aria-label="All tags">
+      <ul class="tags" aria-label="{{ i18n "all_tags" }}">
         {{ range sort $items "count" "desc" }}
           <li>
             <a class="tag" href="{{ .page.RelPermalink }}">
@@ -29,7 +29,7 @@
         {{ end }}
       </ul>
     {{ else }}
-      <p>No tags yet.</p>
+      <p>{{ i18n "no_tags" }}</p>
     {{ end }}
   </div>
 {{ end }}

@@ -26,9 +26,9 @@
     <section class="section container">
       <div class="section__head">
         <h2 class="section__title">
-          {{ if $isFallback }}Latest posts{{ else }}Featured posts{{ end }}
+          {{ if $isFallback }}{{ i18n "latest_posts" }}{{ else }}{{ i18n "featured_posts" }}{{ end }}
         </h2>
-        <a class="section__link" href="{{ "posts/" | relURL }}">All posts &rarr;</a>
+        <a class="section__link" href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} &rarr;</a>
       </div>
 
       <div class="post-grid">
@@ -42,7 +42,7 @@
               <div class="post-card__meta">
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
                 {{ if and (not $isFallback) .Params.featured }}
-                  <span class="badge">Featured</span>
+                  <span class="badge">{{ i18n "featured_badge" }}</span>
                 {{ end }}
               </div>
               <h3 class="post-card__title">{{ .Title }}</h3>
@@ -71,8 +71,8 @@
       {{ if gt (len $latest) 0 }}
         <section class="section container">
           <div class="section__head">
-            <h2 class="section__title">Latest posts</h2>
-            <a class="section__link" href="{{ "posts/" | relURL }}">All posts &rarr;</a>
+            <h2 class="section__title">{{ i18n "latest_posts" }}</h2>
+            <a class="section__link" href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} &rarr;</a>
           </div>
 
           <ul class="post-list">

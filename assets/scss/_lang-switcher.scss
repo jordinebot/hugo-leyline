@@ -1,0 +1,76 @@
+.lang-switcher {
+  position: relative;
+}
+
+/* The native disclosure marker (▸) gets suppressed; we provide our own chevron. */
+.lang-switcher__current {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  list-style: none;
+  user-select: none;
+  transition: color .15s ease, background .15s ease;
+}
+.lang-switcher__current::-webkit-details-marker { display: none; }
+.lang-switcher__current::marker { content: ""; }
+
+.lang-switcher__current:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+.lang-switcher[open] .lang-switcher__current {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.lang-switcher__chevron {
+  width: 12px;
+  height: 12px;
+  transition: transform .15s ease;
+}
+.lang-switcher[open] .lang-switcher__chevron {
+  transform: rotate(180deg);
+}
+
+.lang-switcher__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 160px;
+  margin: 0;
+  padding: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  z-index: 60;
+}
+
+.lang-switcher__option {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 6px;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color .12s ease, background .12s ease;
+}
+.lang-switcher__option:hover {
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--surface);
+}
+.lang-switcher__option.is-current {
+  color: var(--ink);
+  background: var(--surface-2);
+}

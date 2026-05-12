@@ -1,5 +1,5 @@
 {{/* Logo: image if site.Params.logo is set, otherwise site title as text. */ -}}
-<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
+<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" site.Title }}">
   {{ with site.Params.logo }}
     <img src="{{ . | relURL }}" alt="{{ site.Title }}">
   {{ else }}

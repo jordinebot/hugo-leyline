@@ -1,0 +1,43 @@
+# Header / nav
+nav_primary: "Principal"
+toggle_theme: "Cambiar tema"
+open_menu: "Abrir menú"
+close_menu: "Cerrar menú"
+site_home:
+  other: "Inicio de {{ . }}"
+
+# Search modal
+search: "Buscar"
+search_placeholder: "Buscar..."
+search_query: "Consulta de búsqueda"
+search_results: "Resultados de búsqueda"
+close_search: "Cerrar búsqueda"
+search_hint_navigate: "navegar"
+search_hint_select: "seleccionar"
+search_hint_close: "cerrar"
+search_no_matches: 'No hay resultados para "{query}".'
+search_unavailable: "El índice de búsqueda aún no está disponible. Ejecuta `pagefind --site public` después de compilar con Hugo."
+
+# Home page sections
+featured_posts: "Entradas destacadas"
+latest_posts: "Últimas entradas"
+all_posts: "Todas las entradas"
+featured_badge: "Destacada"
+
+# Tags
+tags: "Etiquetas"
+all_tags: "Todas las etiquetas"
+
+# Empty states
+no_posts: "Todavía no hay entradas."
+no_tags: "Todavía no hay etiquetas."
+
+# Post pager
+adjacent_posts: "Entradas adyacentes"
+older: "Anterior"
+newer: "Siguiente"
+
+# 404 page
+not_found_title: "Página no encontrada"
+not_found_body: "La página que buscas no existe o ha sido movida."
+back_home: "Volver al inicio"

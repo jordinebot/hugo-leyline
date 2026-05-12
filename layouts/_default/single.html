@@ -10,7 +10,7 @@
         {{ if not .Date.IsZero }}
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
         {{ end }}
-        {{ with .Params.featured }}{{ if . }}<span class="badge">Featured</span>{{ end }}{{ end }}
+        {{ with .Params.featured }}{{ if . }}<span class="badge">{{ i18n "featured_badge" }}</span>{{ end }}{{ end }}
       </div>
 
       <h1 class="post-header__title">{{ .Title }}</h1>
@@ -26,9 +26,9 @@
 
     <footer class="post-footer">
       {{ with .Params.tags }}
-        <ul class="tags" aria-label="Tags">
+        <ul class="tags" aria-label="{{ i18n "tags" }}">
           {{ range . }}
-            <li><a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+            <li><a class="tag" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a></li>
           {{ end }}
         </ul>
       {{ end }}
@@ -38,18 +38,18 @@
     {{ $newer := .NextInSection }}
     {{ if or $older $newer }}
       {{ $solo := not (and $older $newer) }}
-      <nav class="post-pager" aria-label="Adjacent posts">
+      <nav class="post-pager" aria-label="{{ i18n "adjacent_posts" }}">
         {{ with $older }}
           <a class="post-pager__link post-pager__link--older{{ if $solo }} post-pager__link--solo{{ end }}"
              href="{{ .RelPermalink }}" rel="prev">
-            <span class="post-pager__direction">&larr; Older</span>
+            <span class="post-pager__direction">&larr; {{ i18n "older" }}</span>
             <span class="post-pager__title">{{ .Title }}</span>
           </a>
         {{ end }}
         {{ with $newer }}
           <a class="post-pager__link post-pager__link--newer{{ if $solo }} post-pager__link--solo{{ end }}"
              href="{{ .RelPermalink }}" rel="next">
-            <span class="post-pager__direction">Newer &rarr;</span>
+            <span class="post-pager__direction">{{ i18n "newer" }} &rarr;</span>
             <span class="post-pager__title">{{ .Title }}</span>
           </a>
         {{ end }}

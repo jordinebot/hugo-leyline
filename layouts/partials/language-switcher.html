@@ -1,0 +1,48 @@
+{{- /* Language dropdown. Only renders when more than one language is
+       configured. The <summary> shows the current language; the <ul>
+       lists every configured language. Each link points to the current
+       page's translation in that language (when one exists), otherwise
+       to the language's home. */ -}}
+
+{{- if gt (len hugo.Sites) 1 -}}
+  {{- $page := . -}}
+  {{- $currentLang := site.Language.Lang -}}
+  {{- $currentFullLabel := site.Language.Label | default $currentLang -}}
+  <details class="lang-switcher" data-lang-switcher>
+    {{/* Closed state shows the 2-letter ISO code; full name is exposed
+         as the aria-label / title so screen readers and tooltips still
+         announce the language. */}}
+    <summary class="lang-switcher__current" aria-label="{{ $currentFullLabel }}" title="{{ $currentFullLabel }}">
+      <span class="lang-switcher__current-label">{{ $currentLang | upper }}</span>
+      <svg class="lang-switcher__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </summary>
+
+    <ul class="lang-switcher__menu" role="menu">
+      {{- range hugo.Sites -}}
+        {{- $siteLang := .Language.Lang -}}
+        {{- $isCurrent := eq $siteLang $currentLang -}}
+        {{- $url := .Home.RelPermalink -}}
+        {{- if $isCurrent -}}
+          {{- $url = $page.RelPermalink -}}
+        {{- else -}}
+          {{- range $page.Translations -}}
+            {{- if eq .Language.Lang $siteLang -}}
+              {{- $url = .RelPermalink -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        <li role="none">
+          <a class="lang-switcher__option{{ if $isCurrent }} is-current{{ end }}"
+             href="{{ $url }}"
+             hreflang="{{ $siteLang }}"
+             role="menuitem"
+             {{ if $isCurrent }}aria-current="true"{{ end }}>
+            {{ with .Language.Label }}{{ . }}{{ else }}{{ $siteLang | upper }}{{ end }}
+          </a>
+        </li>
+      {{- end -}}
+    </ul>
+  </details>
+{{- end -}}

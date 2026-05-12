@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="not-found container-prose">
+    <p class="not-found__code" aria-hidden="true">404</p>
+    <h1 class="not-found__title">{{ i18n "not_found_title" }}</h1>
+    <p class="not-found__body">{{ i18n "not_found_body" }}</p>
+    <a class="not-found__home" href="{{ site.Home.RelPermalink }}">
+      {{ i18n "back_home" }} &rarr;
+    </a>
+  </section>
+{{ end }}
