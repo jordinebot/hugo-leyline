@@ -2,7 +2,7 @@
 title: "MTG shortcodes demo"
 date: 2026-05-10T12:00:00+02:00
 draft: false
-description: "A quick tour of the card, cardname, mana, combo, and match shortcodes provided by the hugo-mtg-shortcodes module."
+description: "A quick tour of the card, cardname, mana, combo, match, and draft shortcodes provided by the hugo-mtg-shortcodes module."
 featured: true
 tags: ["mtg", "demo"]
 ---
@@ -30,3 +30,7 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 ## A tournament match
 
 {{< match round="1" result="2-1" player1="Me" player2="Andrés" deck1="Boros Burn" deck2="UR Murktide" >}}
+
+## A draft summary
+
+{{< draft index="1" colors="{R}{W}" date="2026-05-25" winrate="57" result="4-3" >}}
