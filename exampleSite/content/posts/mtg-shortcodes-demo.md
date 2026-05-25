@@ -33,4 +33,4 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 
 ## A draft summary
 
-{{< draft index="1" colors="{R}{W}" date="2026-05-25" winrate="57" result="4-3" >}}
+{{< draft index="1" colors="{R}{W}" date="2026-05-25" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
