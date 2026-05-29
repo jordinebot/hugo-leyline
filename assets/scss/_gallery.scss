@@ -46,7 +46,8 @@
   margin: auto;
   padding: 0;
   border: none;
-  width: min(96vw, 1400px);
+  width: 96vw;
+  max-width: 1400px;
   max-height: 96dvh;
   background: #111;
   color: #fff;
