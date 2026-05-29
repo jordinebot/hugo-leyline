@@ -2,6 +2,7 @@
 // hugo-mtg-shortcodes module expects. Lets the shared module stay
 // theme-agnostic; Leyline aliases its variables here.
 :root {
+  --color-bg:           var(--bg);
   --color-text:         var(--ink);
   --color-text-muted:   var(--ink-subtle);
   --color-accent:       var(--accent);

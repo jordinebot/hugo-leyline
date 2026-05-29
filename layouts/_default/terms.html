@@ -23,7 +23,7 @@
         {{ range sort $items "count" "desc" }}
           <li>
             <a class="tag" href="{{ .page.RelPermalink }}">
-              {{ .page.Title }}<span class="tag__count">{{ .count }}</span>
+              {{ .page.Name }}<span class="tag__count">{{ .count }}</span>
             </a>
           </li>
         {{ end }}
