@@ -123,7 +123,11 @@
     var btn = e.target.closest('[data-gallery-idx]');
     if (btn) {
       var lb = document.getElementById(btn.dataset.gallery + '-lb');
-      if (lb) { show(lb, parseInt(btn.dataset.galleryIdx, 10)); lb.showModal(); }
+      if (lb) {
+        show(lb, parseInt(btn.dataset.galleryIdx, 10));
+        lb.showModal();
+        document.documentElement.style.overflow = 'hidden';
+      }
       return;
     }
 
@@ -133,6 +137,12 @@
     if (e.target.closest('.gallery-lb__next')) { show(lb, lb._idx + 1); return; }
     if (e.target.closest('.gallery-lb__close') || e.target === lb) { lb.close(); }
   });
+
+  document.addEventListener('close', function (e) {
+    if (e.target.classList && e.target.classList.contains('gallery-lb')) {
+      document.documentElement.style.overflow = '';
+    }
+  }, true);
 
   document.addEventListener('keydown', function (e) {
     var lb = document.querySelector('.gallery-lb[open]');
