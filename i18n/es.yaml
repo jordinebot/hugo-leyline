@@ -37,6 +37,14 @@ adjacent_posts: "Entradas adyacentes"
 older: "Anterior"
 newer: "Siguiente"
 
+# Gallery shortcode
+gallery_lightbox: "Visor de imágenes"
+gallery_close: "Cerrar"
+gallery_open_image: "Abrir imagen"
+gallery_nav: "Navegar por las imágenes"
+gallery_prev: "Imagen anterior"
+gallery_next: "Imagen siguiente"
+
 # 404 page
 not_found_title: "Página no encontrada"
 not_found_body: "La página que buscas no existe o ha sido movida."

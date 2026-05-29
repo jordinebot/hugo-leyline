@@ -37,6 +37,14 @@ adjacent_posts: "Entrades adjacents"
 older: "Anterior"
 newer: "Següent"
 
+# Gallery shortcode
+gallery_lightbox: "Visor d'imatges"
+gallery_close: "Tanca"
+gallery_open_image: "Obre la imatge"
+gallery_nav: "Navegar per les imatges"
+gallery_prev: "Imatge anterior"
+gallery_next: "Imatge següent"
+
 # 404 page
 not_found_title: "Pàgina no trobada"
 not_found_body: "La pàgina que busques no existeix o s'ha mogut."

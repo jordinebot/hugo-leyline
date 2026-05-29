@@ -1,0 +1,131 @@
+// ── Gallery shortcode ────────────────────────────────────────────────────────
+
+.gallery {
+  columns: var(--gallery-cols, 3);
+  column-gap: var(--space-3, 0.75rem);
+  margin: var(--space-6, 2.5rem) 0;
+
+  @media (max-width: 48rem) { columns: 2; }
+  @media (max-width: 28rem) { columns: 1; }
+}
+
+.gallery__item {
+  break-inside: avoid;
+  margin: 0 0 var(--space-3, 0.75rem);
+}
+
+.gallery__btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: calc(var(--radius, 0.5rem) / 2);
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.15s ease;
+  }
+
+  &:hover img,
+  &:focus-visible img { opacity: 0.85; }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, currentColor);
+    outline-offset: 2px;
+  }
+}
+
+// ── Lightbox ─────────────────────────────────────────────────────────────────
+
+.gallery-lb {
+  margin: auto;
+  padding: 0;
+  border: none;
+  width: min(96vw, 1400px);
+  max-height: 96dvh;
+  background: #111;
+  color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.gallery-lb__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 1;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+
+  &:hover { color: #fff; }
+  &:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.5); border-radius: 0.25rem; }
+}
+
+.gallery-lb__stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem 1rem;
+}
+
+.gallery-lb__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(96dvh - 5rem);
+  object-fit: contain;
+  border-radius: 0.25rem;
+}
+
+.gallery-lb__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem 0.75rem;
+  flex-shrink: 0;
+}
+
+.gallery-lb__btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1em 0.3em;
+
+  &:hover { color: #fff; }
+  &:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.5); border-radius: 0.25rem; }
+  &[hidden] { visibility: hidden; pointer-events: none; display: unset; }
+}
+
+.gallery-lb__counter {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 4rem;
+  text-align: center;
+}

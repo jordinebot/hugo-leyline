@@ -1,0 +1,145 @@
+{{- $match      := .Get "match" -}}
+{{- $imagesList := .Get "images" -}}
+{{- $cols       := .Get "cols" | default "3" -}}
+
+{{- /* Per-page counter for unique IDs */ -}}
+{{- $gn := $.Page.Scratch.Get "gallery-n" | default 0 -}}
+{{- $.Page.Scratch.Set "gallery-n" (add $gn 1) -}}
+{{- $id := printf "gallery-%d" $gn -}}
+
+{{- /* Build items slice */ -}}
+{{- $items := slice -}}
+
+{{- if $match -}}
+  {{- range $.Page.Resources.Match $match -}}
+    {{- $thumb := .Resize "600x q82 webp" -}}
+    {{- $full  := . -}}
+    {{- if gt .Width 1600 -}}
+      {{- $full = .Resize "1600x q85 webp" -}}
+    {{- end -}}
+    {{- $items = $items | append (dict
+      "thumb"  $thumb.RelPermalink
+      "thumbW" $thumb.Width
+      "thumbH" $thumb.Height
+      "full"   $full.RelPermalink
+      "alt"    (.Params.alt | default "")
+    ) -}}
+  {{- end -}}
+{{- else if $imagesList -}}
+  {{- range (split $imagesList ",") -}}
+    {{- $path := trim . " " -}}
+    {{- $res  := $.Page.Resources.Get $path -}}
+    {{- if $res -}}
+      {{- $thumb := $res.Resize "600x q82 webp" -}}
+      {{- $full  := $res -}}
+      {{- if gt $res.Width 1600 -}}
+        {{- $full = $res.Resize "1600x q85 webp" -}}
+      {{- end -}}
+      {{- $items = $items | append (dict
+        "thumb"  $thumb.RelPermalink
+        "thumbW" $thumb.Width
+        "thumbH" $thumb.Height
+        "full"   $full.RelPermalink
+        "alt"    ""
+      ) -}}
+    {{- else -}}
+      {{- $items = $items | append (dict
+        "thumb"  ($path | safeURL)
+        "thumbW" 0
+        "thumbH" 0
+        "full"   ($path | safeURL)
+        "alt"    ""
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $items) 0 -}}
+<div class="gallery" id="{{ $id }}" style="--gallery-cols:{{ $cols }}">
+  {{- range $i, $item := $items -}}
+  <figure class="gallery__item">
+    <button class="gallery__btn"
+            type="button"
+            data-gallery="{{ $id }}"
+            data-gallery-idx="{{ $i }}"
+            data-gallery-full="{{ $item.full }}"
+            aria-label="{{ i18n "gallery_open_image" | default "Open image" }} {{ add $i 1 }}">
+      <img src="{{ $item.thumb }}"
+           {{- if and $item.thumbW $item.thumbH }} width="{{ $item.thumbW }}" height="{{ $item.thumbH }}"{{ end }}
+           alt="{{ $item.alt }}"
+           loading="lazy"
+           decoding="async">
+    </button>
+  </figure>
+  {{- end -}}
+</div>
+
+<dialog class="gallery-lb"
+        id="{{ $id }}-lb"
+        aria-label="{{ i18n "gallery_lightbox" | default "Image viewer" }}"
+        data-gallery-lb="{{ $id }}">
+  <button class="gallery-lb__close"
+          type="button"
+          aria-label="{{ i18n "gallery_close" | default "Close" }}">&#x2715;</button>
+  <div class="gallery-lb__stage">
+    <img class="gallery-lb__img" src="" alt="" decoding="async">
+  </div>
+  <nav class="gallery-lb__nav" aria-label="{{ i18n "gallery_nav" | default "Navigate images" }}">
+    <button class="gallery-lb__btn gallery-lb__prev"
+            type="button"
+            aria-label="{{ i18n "gallery_prev" | default "Previous image" }}">&#8249;</button>
+    <span class="gallery-lb__counter" aria-live="polite"></span>
+    <button class="gallery-lb__btn gallery-lb__next"
+            type="button"
+            aria-label="{{ i18n "gallery_next" | default "Next image" }}">&#8250;</button>
+  </nav>
+</dialog>
+{{- end -}}
+
+{{- if not ($.Page.Scratch.Get "gallery-js") -}}
+{{- $.Page.Scratch.Set "gallery-js" true -}}
+<script>
+(function () {
+  function getImages(galleryId) {
+    return Array.from(document.querySelectorAll('[data-gallery="' + galleryId + '"]')).map(function (b) {
+      return { src: b.dataset.galleryFull, alt: b.querySelector('img').alt };
+    });
+  }
+
+  function show(lb, idx) {
+    var items = getImages(lb.dataset.galleryLb);
+    var n = items.length;
+    lb._idx = ((idx % n) + n) % n;
+    var item = items[lb._idx];
+    var img = lb.querySelector('.gallery-lb__img');
+    img.src = item.src;
+    img.alt = item.alt;
+    lb.querySelector('.gallery-lb__counter').textContent = (lb._idx + 1) + ' / ' + n;
+    lb.querySelector('.gallery-lb__prev').hidden = n < 2;
+    lb.querySelector('.gallery-lb__next').hidden = n < 2;
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-gallery-idx]');
+    if (btn) {
+      var lb = document.getElementById(btn.dataset.gallery + '-lb');
+      if (lb) { show(lb, parseInt(btn.dataset.galleryIdx, 10)); lb.showModal(); }
+      return;
+    }
+
+    var lb = e.target.closest('.gallery-lb');
+    if (!lb) return;
+    if (e.target.closest('.gallery-lb__prev')) { show(lb, lb._idx - 1); return; }
+    if (e.target.closest('.gallery-lb__next')) { show(lb, lb._idx + 1); return; }
+    if (e.target.closest('.gallery-lb__close') || e.target === lb) { lb.close(); }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    var lb = document.querySelector('.gallery-lb[open]');
+    if (!lb) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { show(lb, lb._idx + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { show(lb, lb._idx - 1); e.preventDefault(); }
+  });
+})();
+</script>
+{{- end -}}
