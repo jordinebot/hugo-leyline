@@ -11,7 +11,7 @@ tags: ["hugo", "modules", "architecture"]
 
 Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.
 
-Leyline leans on that. The MTG shortcodes — `card`, `cardname`, `combo`, `mana`, `match` — don't live inside the theme. They sit in a separate Hugo Module, [`hugo-mtg-shortcodes`](https://github.com/jordinebot/hugo-mtg-shortcodes). Sites that want them add the import; sites that don't, don't. The module ships its own SCSS, partials, JS, and the mana icon font — Hugo merges it all into the consuming site at build time.
+Leyline leans on that. The MTG shortcodes — `card`, `cardname`, `combo`, `mana`, `match`, `draft` — don't live inside the theme. They sit in a separate Hugo Module, [`hugo-mtg-shortcodes`](https://github.com/jordinebot/hugo-mtg-shortcodes). Sites that want them add the import; sites that don't, don't. The module ships its own SCSS, partials, JS, and the mana icon font — Hugo merges it all into the consuming site at build time.
 
 Splitting along that seam pays off twice. The theme stays focused on layout and typography, with no MTG concepts in its templates. And the shortcodes can evolve at their own cadence — any improvement (better Scryfall caching, a new layout for double-faced cards, smarter hover-preview positioning) lands in every consuming site without touching the theme.
 

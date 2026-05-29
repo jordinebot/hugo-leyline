@@ -2,7 +2,7 @@
 title: "MTG shortcodes demo"
 date: 2026-05-10T12:00:00+02:00
 draft: false
-description: "A quick tour of the card, cardname, mana, combo, match, and draft shortcodes provided by the hugo-mtg-shortcodes module."
+description: "A quick tour of the card, cardname, mana, combo, match, and draft shortcodes from the hugo-mtg-shortcodes module."
 featured: true
 tags: ["mtg", "demo"]
 ---
@@ -33,4 +33,4 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 
 ## A draft summary
 
-{{< draft index="1" colors="{R}{W}" date="2026-05-25" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
+{{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
