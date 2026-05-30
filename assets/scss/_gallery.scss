@@ -6,7 +6,6 @@
   margin: var(--space-6, 2.5rem) 0;
 
   @media (max-width: 48rem) { columns: 2; }
-  @media (max-width: 28rem) { columns: 1; }
 }
 
 .gallery__item {
@@ -64,6 +63,15 @@
     background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(3px);
   }
+
+  @media (max-width: 48rem) {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
 }
 
 .gallery-lb__close {
@@ -96,6 +104,8 @@
   display: block;
   max-width: 100%;
   max-height: calc(96dvh - 5rem);
+
+  @media (max-width: 48rem) { max-height: calc(100dvh - 5rem); }
   object-fit: contain;
   border-radius: 0.25rem;
 }
