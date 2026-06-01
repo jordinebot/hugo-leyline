@@ -2,7 +2,7 @@
 title: "MTG shortcodes demo"
 date: 2026-05-10T12:00:00+02:00
 draft: false
-description: "A quick tour of the card, cardname, mana, combo, match, and draft shortcodes from the hugo-mtg-shortcodes module."
+description: "A quick tour of the card, cardname, mana, combo, match, draft, and Arena currency shortcodes from the hugo-mtg-shortcodes module."
 featured: true
 tags: ["mtg", "demo"]
 ---
@@ -34,3 +34,14 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 ## A draft summary
 
 {{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
+
+## Arena currency
+
+Three inline shortcodes for tracking MTG Arena resources — gems, gold coins, and draft tokens. Each accepts a positive or negative integer; negative values render in red.
+
+Spent {{< gems -1500 >}} to enter a Premier Draft, earned {{< coins 800 >}} from the prize structure, and came away with {{< draft-token 1 >}} extra draft token.
+
+```
+Spent {{</* gems -1500 */>}} to enter a Premier Draft, earned {{</* coins 800 */>}} from
+the prize structure, and came away with {{</* draft-token 1 */>}} extra draft token.
+```
