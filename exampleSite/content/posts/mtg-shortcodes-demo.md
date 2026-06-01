@@ -2,7 +2,7 @@
 title: "MTG shortcodes demo"
 date: 2026-05-10T12:00:00+02:00
 draft: false
-description: "A quick tour of the card, cardname, mana, combo, match, draft, and Arena currency shortcodes from the hugo-mtg-shortcodes module."
+description: "A quick tour of the card, cardname, mana, combo, match, draft, mastery, season, and Arena currency shortcodes from the hugo-mtg-shortcodes module."
 featured: true
 tags: ["mtg", "demo"]
 ---
@@ -34,6 +34,71 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 ## A draft summary
 
 {{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
+
+## Set Mastery
+
+Tracks progress through a set's mastery levels. The `pass` parameter flags whether the Mastery Pass was purchased.
+
+{{< mastery set="MKM" level="68" max="90" pass="true" >}}
+
+{{< mastery set="OTJ" level="34" max="90" pass="false" >}}
+
+```
+{{</* mastery set="MKM" level="68" max="90" pass="true" */>}}
+{{</* mastery set="OTJ" level="34" max="90" pass="false" */>}}
+```
+
+`max` defaults to `90` if omitted.
+
+## Season recap
+
+Monthly season summary with ranks for both formats and a breakdown of gems and draft tokens — earned, bought, spent, and ending balance. Rows with zero activity are hidden automatically.
+
+{{< season
+  month="May 2026"
+  spending="9.99€"
+  constructed-start="Silver 4"
+  constructed-end="Platinum 2"
+  limited-start="Gold 3"
+  limited-end="Diamond 4"
+  gems-start="450"
+  gems-earned="1200"
+  gems-bought="3000"
+  gems-spent="2800"
+  tokens-start="2"
+  tokens-earned="3"
+  tokens-spent="4"
+>}}
+
+{{< season
+  month="April 2026"
+  constructed-start="Bronze 2"
+  constructed-end="Silver 4"
+  limited-start="Bronze 4"
+  limited-end="Gold 1"
+  gems-start="200"
+  gems-earned="600"
+  gems-spent="400"
+  tokens-start="1"
+  tokens-earned="2"
+  tokens-spent="2"
+>}}
+
+```
+{{</* season
+  month="May 2026"
+  spending="9.99€"
+  constructed-start="Silver 4"  constructed-end="Platinum 2"
+  limited-start="Gold 3"        limited-end="Diamond 4"
+  gems-start="450"
+  gems-earned="1200"
+  gems-bought="3000"
+  gems-spent="2800"
+  tokens-start="2"
+  tokens-earned="3"
+  tokens-spent="4"
+*/>}}
+```
 
 ## Arena currency
 
