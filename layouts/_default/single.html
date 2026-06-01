@@ -36,7 +36,7 @@
 
     {{ $older := .PrevInSection }}
     {{ $newer := .NextInSection }}
-    {{ if or $older $newer }}
+    {{ if and .Section (or $older $newer) }}
       {{ $solo := not (and $older $newer) }}
       <nav class="post-pager" aria-label="{{ i18n "adjacent_posts" }}">
         {{ with $older }}
