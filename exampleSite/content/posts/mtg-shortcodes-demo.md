@@ -33,7 +33,7 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 
 ## A draft summary
 
-{{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
+{{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" gems="1400" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
 
 ## Set Mastery
 
