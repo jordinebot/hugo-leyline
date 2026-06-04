@@ -39,12 +39,12 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 
 Tracks progress through a set's mastery levels. The `pass` parameter flags whether the Mastery Pass was purchased.
 
-{{< mastery set="MKM" level="68" max="90" pass="true" >}}
+{{< mastery ongoing="true" set="MKM" level="68" max="90" pass="true" >}}
 
 {{< mastery set="OTJ" level="34" max="90" pass="false" >}}
 
 ```
-{{</* mastery set="MKM" level="68" max="90" pass="true" */>}}
+{{</* mastery ongoing="true" set="MKM" level="68" max="90" pass="true" */>}}
 {{</* mastery set="OTJ" level="34" max="90" pass="false" */>}}
 ```
 
@@ -56,6 +56,7 @@ Monthly season summary with ranks for both formats and a breakdown of gems and d
 
 {{< season
   month="May 2026"
+  ongoing="true"
   spending="9.99€"
   constructed-start="Silver 4"
   constructed-end="Platinum 2"
@@ -87,6 +88,7 @@ Monthly season summary with ranks for both formats and a breakdown of gems and d
 ```
 {{</* season
   month="May 2026"
+  ongoing="true"
   spending="9.99€"
   constructed-start="Silver 4"  constructed-end="Platinum 2"
   limited-start="Gold 3"        limited-end="Diamond 4"
