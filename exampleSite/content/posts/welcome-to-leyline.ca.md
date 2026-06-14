@@ -8,6 +8,7 @@ image: "https://picsum.photos/seed/leyline-welcome/1600/900"
 imageAlt: "Paisatge abstracte amb tons apagats"
 tags: ["meta", "design"]
 credit: ["Ariadna Soler"]
+creditLink: ["https://example.com/artists/ariadna-soler"]
 coverAiModified: true
 aiTranslated: true
 ---

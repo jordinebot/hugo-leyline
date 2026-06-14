@@ -39,7 +39,17 @@
           <aside class="post-disclaimers" aria-label="{{ i18n "post_disclaimers" }}">
             <ul class="post-disclaimers__list">
               {{ with .Params.credit }}
-                <li>{{ i18n "cover_art_credit" (delimit . ", ") }}</li>
+                {{ $creditLinks := $.Params.creditLink | default (slice) }}
+                {{ $credits := slice }}
+                {{ range $i, $name := . }}
+                  {{ $credit := $name | htmlEscape | safeHTML }}
+                  {{ if and (lt $i (len $creditLinks)) (index $creditLinks $i) }}
+                    {{ $href := printf "%s" (index $creditLinks $i | safeURL) | htmlEscape }}
+                    {{ $credit = printf "<a href=\"%s\" rel=\"noopener noreferrer\">%s</a>" $href ($name | htmlEscape) | safeHTML }}
+                  {{ end }}
+                  {{ $credits = $credits | append $credit }}
+                {{ end }}
+                <li>{{ i18n "cover_art_credit" (delimit $credits ", ") | safeHTML }}</li>
               {{ end }}
               {{ if .Params.coverAiModified }}
                 <li>{{ i18n "cover_ai_modified" }}</li>

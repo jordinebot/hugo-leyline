@@ -11,6 +11,7 @@ tags: ["design", "typography"]
 image: "https://picsum.photos/seed/leyline-typography/1600/900"
 imageAlt: "Stack of books, shallow depth of field"
 credit: ["Mateu Costa"]
+creditLink: ["https://example.com/artists/mateu-costa"]
 coverAiModified: true
 ---
 

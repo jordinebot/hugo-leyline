@@ -31,9 +31,9 @@ all_tags: "Todas las etiquetas"
 # Post disclaimers
 post_disclaimers: "Avisos de la entrada"
 cover_art_credit:
-  other: "Arte de portada de {{ . }}."
-cover_ai_modified: "El arte de portada se modificó con ayuda de IA."
-ai_translated: "Este texto se tradujo con ayuda de IA."
+  other: "Arte de portada original de {{ . }}."
+cover_ai_modified: "El arte de portada se modificó con la ayuda de IA."
+ai_translated: "Este texto se tradujo con la ayuda de IA."
 
 # Empty states
 no_posts: "Todavía no hay entradas."

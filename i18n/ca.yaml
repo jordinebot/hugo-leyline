@@ -31,9 +31,9 @@ all_tags: "Totes les etiquetes"
 # Post disclaimers
 post_disclaimers: "Avisos de l'entrada"
 cover_art_credit:
-  other: "Art de portada de {{ . }}."
-cover_ai_modified: "L'art de portada s'ha modificat amb ajuda d'IA."
-ai_translated: "Aquest text s'ha traduït amb ajuda d'IA."
+  other: "Art de portada original de {{ . }}."
+cover_ai_modified: "L'art de portada s'ha modificat amb l'ajuda d'IA."
+ai_translated: "Aquest text s'ha traduït amb l'ajuda d'IA."
 
 # Empty states
 no_posts: "Encara no hi ha cap entrada."

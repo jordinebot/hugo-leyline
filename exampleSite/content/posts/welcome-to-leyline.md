@@ -8,6 +8,7 @@ image: "https://picsum.photos/seed/leyline-welcome/1600/900"
 imageAlt: "Abstract muted landscape"
 tags: ["meta", "design"]
 credit: ["Ariadna Soler"]
+creditLink: ["https://example.com/artists/ariadna-soler"]
 ---
 
 Leyline is a minimal Hugo theme aimed at writing. It does a few things well:

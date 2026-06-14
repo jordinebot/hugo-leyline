@@ -8,6 +8,7 @@ image: "https://picsum.photos/seed/leyline-modules/1600/900"
 imageAlt: "Stack of modular shipping containers"
 tags: ["hugo", "modules", "architecture"]
 credit: ["Sana Iqbal"]
+creditLink: ["https://example.com/artists/sana-iqbal"]
 coverAiModified: true
 aiTranslated: true
 ---
