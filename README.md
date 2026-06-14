@@ -21,6 +21,7 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param
 - **Theme-agnostic CSS custom properties** drive the palette, fonts, spacing, and accent color — per-site override via `params.accentColor`
 - **Multilingual-ready** — every user-facing UI string is wired through Hugo's `{{ i18n }}`, ships with an English `i18n/en.yaml`, and a tiny **language switcher** in the header that only renders when more than one language is configured
+- **SEO head tags** including canonical URLs, multilingual `hreflang` alternates, Open Graph, Twitter Cards, per-language `og:locale`, and description fallbacks from page summaries
 - **GitHub Actions** workflows ship in `.github/workflows/`: PR validation on every pull request, automated GitHub Pages deploy on push to `main`
 
 ## Requirements
@@ -172,6 +173,8 @@ defaultContentLanguage = "en"
 ```
 
 Add per-language menus the same way (`[[languages.en.menus.main]]`, `[[languages.es.menus.main]]`). Pages translate via Hugo's file-suffix convention: `welcome.md` is your default-language post, `welcome.es.md` is the Spanish translation. Hugo links them automatically — `.Translations` on each page returns the other-language versions.
+
+Leyline's head partial emits canonical URLs, alternates for every page in `.AllTranslations`, and an `x-default` alternate pointing at the first translation by language weight. Keep your default language at the lowest weight if you want it to be the default search result.
 
 ### Translating UI strings
 

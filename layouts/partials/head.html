@@ -1,12 +1,33 @@
+{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $description := .Description | default .Summary | default site.Params.description -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | truncate 180 -}}
+{{- $languageCode := .Language.Locale | default .Language.Lang -}}
+{{- $localeParts := split $languageCode "-" -}}
+{{- $ogLocale := replace $languageCode "-" "_" -}}
+{{- if ge (len $localeParts) 2 -}}
+  {{- $ogLocale = printf "%s_%s" (index $localeParts 0 | lower) (index $localeParts 1 | upper) -}}
+{{- else -}}
+  {{- $ogLocale = $languageCode | lower -}}
+{{- end -}}
+{{- $cover := .Resources.GetMatch "{cover,featured,hero}.{jpg,jpeg,png,webp,avif}" -}}
+{{- $image := "" -}}
+{{- with $cover -}}
+  {{- $image = .Permalink -}}
+{{- else -}}
+  {{- with .Params.image -}}
+    {{- $image = . | absURL -}}
+  {{- end -}}
+{{- end -}}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo {{ hugo.Version }}">
 
 {{ partial "google-tag.html" . }}
 
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<title>{{ $title }}</title>
 
-{{ with .Description | default site.Params.description }}
+{{ with $description }}
   <meta name="description" content="{{ . }}">
 {{ end }}
 
@@ -39,8 +60,44 @@
   <style>:root { --accent: {{ . | safeCSS }}; }</style>
 {{ end }}
 
-{{ if .IsPage }}
-  <link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+{{ range first 1 .AllTranslations }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ end }}
+
+<meta property="og:title" content="{{ $title }}">
+{{ with $description }}
+  <meta property="og:description" content="{{ . }}">
+{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="{{ $ogLocale }}">
+{{ range .Translations }}
+  {{- $alternateLanguageCode := .Language.Locale | default .Language.Lang -}}
+  {{- $alternateLocaleParts := split $alternateLanguageCode "-" -}}
+  {{- $alternateLocale := replace $alternateLanguageCode "-" "_" -}}
+  {{- if ge (len $alternateLocaleParts) 2 -}}
+    {{- $alternateLocale = printf "%s_%s" (index $alternateLocaleParts 0 | lower) (index $alternateLocaleParts 1 | upper) -}}
+  {{- else -}}
+    {{- $alternateLocale = $alternateLanguageCode | lower -}}
+  {{- end -}}
+  <meta property="og:locale:alternate" content="{{ $alternateLocale }}">
+{{ end }}
+{{ with $image }}
+  <meta property="og:image" content="{{ . }}">
+{{ end }}
+
+<meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+{{ with $description }}
+  <meta name="twitter:description" content="{{ . }}">
+{{ end }}
+{{ with $image }}
+  <meta name="twitter:image" content="{{ . }}">
 {{ end }}
 
 {{ with .OutputFormats.Get "RSS" }}
