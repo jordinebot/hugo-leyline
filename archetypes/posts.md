@@ -16,6 +16,7 @@ tags: []
 # imageAlt: ""
 # credit: []
 # creditLink: []
+# coverAiGenerated: false
 # coverAiModified: false
 # aiTranslated: false
 ---

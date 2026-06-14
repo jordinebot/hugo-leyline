@@ -24,7 +24,7 @@
       {{ .Content }}
     </div>
 
-    {{ $hasDisclaimers := or .Params.credit .Params.coverAiModified .Params.aiTranslated }}
+    {{ $hasDisclaimers := or .Params.credit .Params.coverAiGenerated .Params.coverAiModified .Params.aiTranslated }}
     {{ if or .Params.tags $hasDisclaimers }}
       <footer class="post-footer">
         {{ with .Params.tags }}
@@ -53,6 +53,9 @@
               {{ end }}
               {{ if .Params.coverAiModified }}
                 <li>{{ i18n "cover_ai_modified" }}</li>
+              {{ end }}
+              {{ if .Params.coverAiGenerated }}
+                <li>{{ i18n "cover_ai_generated" }}</li>
               {{ end }}
               {{ if .Params.aiTranslated }}
                 <li>{{ i18n "ai_translated" }}</li>

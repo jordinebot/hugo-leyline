@@ -128,13 +128,14 @@ image           = "/img/cover.jpg"          # Cover image (front-matter path).
 imageAlt        = "Alt text for the cover"  # Optional; defaults to the post title.
 credit          = ["Artist Name"]           # Optional cover-art credit(s).
 creditLink      = ["https://example.com"]   # Optional URL per credit entry.
+coverAiGenerated = false                # Show an AI-generated cover-art disclaimer.
 coverAiModified = false                 # Show an AI-modified cover-art disclaimer.
 aiTranslated    = false                 # Show an AI-translated text disclaimer.
 tags            = ["design", "css"]
 +++
 ```
 
-When `credit`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution. Add `creditLink` as a parallel array to link each artist name to the URL at the same position; missing links leave that artist name as plain text.
+When `credit`, `coverAiGenerated`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution. Add `creditLink` as a parallel array to link each artist name to the URL at the same position; missing links leave that artist name as plain text.
 
 ### Cover images
 
