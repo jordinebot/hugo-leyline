@@ -24,15 +24,34 @@
       {{ .Content }}
     </div>
 
-    <footer class="post-footer">
-      {{ with .Params.tags }}
-        <ul class="tags" aria-label="{{ i18n "tags" }}">
-          {{ range . }}
-            <li><a class="tag" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a></li>
-          {{ end }}
-        </ul>
-      {{ end }}
-    </footer>
+    {{ $hasDisclaimers := or .Params.credit .Params.coverAiModified .Params.aiTranslated }}
+    {{ if or .Params.tags $hasDisclaimers }}
+      <footer class="post-footer">
+        {{ with .Params.tags }}
+          <ul class="tags" aria-label="{{ i18n "tags" }}">
+            {{ range . }}
+              <li><a class="tag" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
+
+        {{ if $hasDisclaimers }}
+          <aside class="post-disclaimers" aria-label="{{ i18n "post_disclaimers" }}">
+            <ul class="post-disclaimers__list">
+              {{ with .Params.credit }}
+                <li>{{ i18n "cover_art_credit" (delimit . ", ") }}</li>
+              {{ end }}
+              {{ if .Params.coverAiModified }}
+                <li>{{ i18n "cover_ai_modified" }}</li>
+              {{ end }}
+              {{ if .Params.aiTranslated }}
+                <li>{{ i18n "ai_translated" }}</li>
+              {{ end }}
+            </ul>
+          </aside>
+        {{ end }}
+      </footer>
+    {{ end }}
 
     {{ $older := .PrevInSection }}
     {{ $newer := .NextInSection }}

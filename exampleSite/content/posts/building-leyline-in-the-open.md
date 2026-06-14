@@ -7,6 +7,7 @@ featured: true
 image: "https://picsum.photos/seed/leyline-building/1600/900"
 imageAlt: "Wooden workbench with hand tools"
 tags: ["meta", "process"]
+coverAiModified: true
 ---
 
 Most themes I've used arrived as finished artifacts. Polished, pre-decided. This time I wanted to do it differently: think out loud, pick at the trade-offs, and keep the small commits that don't usually make it past someone's local branch.

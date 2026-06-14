@@ -14,4 +14,7 @@ tags: []
 #    URL. `imageAlt` overrides the alt text (defaults to the post title).
 # image: ""
 # imageAlt: ""
+# credit: []
+# coverAiModified: false
+# aiTranslated: false
 ---

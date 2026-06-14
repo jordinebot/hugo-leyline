@@ -7,6 +7,9 @@ featured: true
 image: "https://picsum.photos/seed/leyline-welcome/1600/900"
 imageAlt: "Paisatge abstracte amb tons apagats"
 tags: ["meta", "design"]
+credit: ["Ariadna Soler"]
+coverAiModified: true
+aiTranslated: true
 ---
 
 Leyline és un tema Hugo minimalista pensat per a l'escriptura. Fa unes poques coses bé:

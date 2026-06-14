@@ -7,6 +7,9 @@ featured: true
 image: "https://picsum.photos/seed/leyline-modules/1600/900"
 imageAlt: "Stack of modular shipping containers"
 tags: ["hugo", "modules", "architecture"]
+credit: ["Sana Iqbal"]
+coverAiModified: true
+aiTranslated: true
 ---
 
 Themes used to be monoliths. You picked one, you got everything it shipped, and any deviation meant forking. Hugo Modules change that: a theme is a Go module, and you can compose modules together the same way you compose Go packages.

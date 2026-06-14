@@ -30,6 +30,13 @@ featured_badge: "Featured"
 tags: "Tags"
 all_tags: "All tags"
 
+# Post disclaimers
+post_disclaimers: "Post disclaimers"
+cover_art_credit:
+  other: "Cover art by {{ . }}."
+cover_ai_modified: "Cover art was modified with AI assistance."
+ai_translated: "This text was translated with AI assistance."
+
 # Empty states
 no_posts: "No posts yet."
 no_tags: "No tags yet."

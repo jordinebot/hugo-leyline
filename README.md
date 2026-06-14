@@ -124,11 +124,16 @@ date        = 2026-05-12T10:00:00+02:00
 draft       = false
 description = "Optional lead paragraph rendered below the title."
 featured    = true                      # Surface on the home Featured grid.
-image       = "/img/cover.jpg"          # Cover image (front-matter path).
-imageAlt    = "Alt text for the cover"  # Optional; defaults to the post title.
-tags        = ["design", "css"]
+image           = "/img/cover.jpg"          # Cover image (front-matter path).
+imageAlt        = "Alt text for the cover"  # Optional; defaults to the post title.
+credit          = ["Artist Name"]           # Optional cover-art credit(s).
+coverAiModified = false                 # Show an AI-modified cover-art disclaimer.
+aiTranslated    = false                 # Show an AI-translated text disclaimer.
+tags            = ["design", "css"]
 +++
 ```
+
+When `credit`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution.
 
 ### Cover images
 

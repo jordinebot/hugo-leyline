@@ -7,6 +7,7 @@ featured: true
 image: "https://picsum.photos/seed/leyline-color-mix/1600/900"
 imageAlt: "Tubes of paint blended on a palette"
 tags: ["css", "design"]
+credit: ["Noa Ferrer", "Julien Marot"]
 ---
 
 For years, "a lighter version of the accent colour" meant baking in a second hex value. Now there's `color-mix()`.

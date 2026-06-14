@@ -10,6 +10,8 @@ tags: ["design", "typography"]
 # then this post falls back to a placeholder via `image`.
 image: "https://picsum.photos/seed/leyline-typography/1600/900"
 imageAlt: "Stack of books, shallow depth of field"
+credit: ["Mateu Costa"]
+coverAiModified: true
 ---
 
 A few short notes on the type choices in this theme.
