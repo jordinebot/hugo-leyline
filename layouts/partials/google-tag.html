@@ -1,0 +1,12 @@
+{{- with site.Params.googleTagID -}}
+  {{- $tagID := printf "%s" . -}}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ $tagID | urlquery }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', {{ $tagID | jsonify | safeJS }});
+  </script>
+{{- end -}}

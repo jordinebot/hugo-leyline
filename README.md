@@ -68,6 +68,7 @@ theme = "hugo-leyline"
   description = "A short tagline for your site (used in <meta name='description'> and the home hero)."
   accentColor = "#4f46e5"           # Any CSS color; overrides --accent for the whole site.
   logo        = "/logo.svg"         # Optional. Omit to fall back to site.Title text.
+  googleTagID = "G-XXXXXXXXXX"       # Optional. Enables Google tag (gtag.js).
 
   [params.home]
     postCount   = 6                 # Max Featured posts (cards) on the home page.
