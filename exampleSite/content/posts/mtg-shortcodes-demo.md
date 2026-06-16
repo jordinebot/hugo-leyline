@@ -35,6 +35,12 @@ Three cards arranged like a fanned hand — hover one and the rest spread aside.
 
 {{< draft index="1" set="MKM" colors="{R}{W}" winrate="57" result="4-3" gems="1400" seventeenlands="3eea6d72600948eab9cf91dc09c2088e" >}}
 
+## A deck preview
+
+Deck previews are loaded from `data/decks/*.yaml` and enriched with Scryfall data at build time.
+
+{{< deck id="abzan-midrange" breakdownOpen="true" >}}
+
 ## Set Mastery
 
 Tracks progress through a set's mastery levels. The `pass` parameter flags whether the Mastery Pass was purchased.

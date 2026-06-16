@@ -1,0 +1,71 @@
+title: Ari Lax Abzan Midrange
+format: Standard
+source_url: https://www.mtggoldfish.com/deck/250294
+mainboard:
+  creatures:
+    - qty: 2
+      name: Elvish Mystic
+    - qty: 4
+      name: Sylvan Caryatid
+    - qty: 4
+      name: Courser of Kruphix
+    - qty: 4
+      name: Siege Rhino
+  planeswalkers:
+    - qty: 2
+      name: Sorin, Solemn Visitor
+    - qty: 2
+      name: Ajani, Mentor of Heroes
+    - qty: 3
+      name: Elspeth, Sun's Champion
+  instants:
+    - qty: 4
+      name: Abzan Charm
+    - qty: 3
+      name: Hero's Downfall
+    - qty: 2
+      name: Utter End
+  sorceries:
+    - qty: 4
+      name: Thoughtseize
+  lands:
+    - qty: 3
+      name: Forest
+    - qty: 2
+      name: Plains
+    - qty: 4
+      name: Windswept Heath
+    - qty: 4
+      name: Temple of Malady
+    - qty: 4
+      name: Sandsteppe Citadel
+    - qty: 2
+      name: Llanowar Wastes
+    - qty: 2
+      name: Caves of Koilos
+    - qty: 1
+      name: Mana Confluence
+    - qty: 1
+      name: Urborg, Tomb of Yawgmoth
+    - qty: 1
+      name: Temple of Silence
+  other:
+    - qty: 2
+      name: Wingmate Roc
+sideboard:
+  - qty: 1
+    name: Duneblast
+  - qty: 3
+    name: Drown in Sorrow
+  - qty: 3
+    name: Bile Blight
+  - qty: 1
+    name: Unravel the Aether
+  - qty: 1
+    name: Liliana Vess
+  - qty: 2
+    name: Nissa, Worldwaker
+  - qty: 2
+    name: Murderous Cut
+  - qty: 2
+    name: Glare of Heresy
