@@ -16,3 +16,11 @@ Deck previews are loaded from `data/decks/*.yaml` and enriched with Scryfall dat
 ```
 {{</* deck id="abzan-midrange" breakdownOpen="true" */>}}
 ```
+
+The same shortcode can handle larger mana bases and legends-heavy shells:
+
+{{< deck id="relic-legends" breakdownOpen="true" >}}
+
+```
+{{</* deck id="relic-legends" breakdownOpen="true" */>}}
+```

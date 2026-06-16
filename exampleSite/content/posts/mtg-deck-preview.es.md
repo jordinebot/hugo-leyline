@@ -17,3 +17,11 @@ Las vistas previas de mazos se cargan desde `data/decks/*.yaml` y se enriquecen 
 ```
 {{</* deck id="abzan-midrange" breakdownOpen="true" */>}}
 ```
+
+El mismo shortcode también puede renderizar bases de maná más grandes y mazos llenos de leyendas:
+
+{{< deck id="relic-legends" breakdownOpen="true" >}}
+
+```
+{{</* deck id="relic-legends" breakdownOpen="true" */>}}
+```

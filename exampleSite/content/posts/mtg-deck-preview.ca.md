@@ -17,3 +17,11 @@ Les previsualitzacions de baralles es carreguen des de `data/decks/*.yaml` i s'e
 ```
 {{</* deck id="abzan-midrange" breakdownOpen="true" */>}}
 ```
+
+El mateix shortcode també pot renderitzar bases de manà més grans i baralles plenes de llegendes:
+
+{{< deck id="relic-legends" breakdownOpen="true" >}}
+
+```
+{{</* deck id="relic-legends" breakdownOpen="true" */>}}
+```

@@ -2,7 +2,7 @@
   <article class="container-prose" data-pagefind-body>
     {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
     {{ with $cover }}
-      <figure class="post-hero">{{ . }}</figure>
+      <figure class="post-hero">{{ . | safeHTML }}</figure>
     {{ end }}
 
     <header class="post-header">

@@ -1,0 +1,83 @@
+title: Relic Legends
+format: Standard
+mainboard:
+  creatures:
+    - qty: 1
+      name: Elas il-Kor, Sadistic Pilgrim
+    - qty: 3
+      name: Inti, Seneschal of the Sun
+    - qty: 3
+      name: Kellan, Daring Traveler
+    - qty: 4
+      name: Rona, Herald of Invasion
+    - qty: 3
+      name: Honest Rutstein
+    - qty: 4
+      name: Slogurk, the Overslime
+    - qty: 2
+      name: Titania, Voice of Gaea
+    - qty: 2
+      name: Ertai Resurrected
+    - qty: 1
+      name: Vorinclex
+  instants:
+    - qty: 1
+      name: Cut Down
+    - qty: 2
+      name: Go for the Throat
+  sorceries:
+    - qty: 1
+      name: Duress
+  artifacts:
+    - qty: 4
+      name: Relic of Legends
+  lands:
+    - qty: 1
+      name: Blooming Marsh
+    - qty: 2
+      name: Boseiju, Who Endures
+    - qty: 3
+      name: Cavern of Souls
+    - qty: 1
+      name: Concealed Courtyard
+    - qty: 2
+      name: Darkslick Shores
+    - qty: 1
+      name: Eiganjo, Seat of the Empire
+    - qty: 1
+      name: Forest
+    - qty: 2
+      name: Jetmir's Garden
+    - qty: 4
+      name: Otawara, Soaring City
+    - qty: 4
+      name: Plaza of Heroes
+    - qty: 2
+      name: Raffine's Tower
+    - qty: 4
+      name: Takenuma, Abandoned Mire
+    - qty: 2
+      name: Ziatora's Proving Ground
+sideboard:
+  - qty: 1
+    name: Eiganjo, Seat of the Empire
+  - qty: 2
+    name: Cut Down
+  - qty: 1
+    name: Dreams of Steel and Oil
+  - qty: 2
+    name: Duress
+  - qty: 1
+    name: Turn the Earth
+  - qty: 1
+    name: Jirina, Dauntless General
+  - qty: 3
+    name: Pest Control
+  - qty: 1
+    name: Loran of the Third Path
+  - qty: 1
+    name: Ertai Resurrected
+  - qty: 1
+    name: Hostile Investigator
+  - qty: 1
+    name: Kura, the Boundless Sky
