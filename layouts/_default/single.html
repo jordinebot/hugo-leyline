@@ -37,30 +37,30 @@
 
         {{ if $hasDisclaimers }}
           <aside class="post-disclaimers" aria-label="{{ i18n "post_disclaimers" }}">
-            <ul class="post-disclaimers__list">
-              {{ with .Params.credit }}
-                {{ $creditLinks := $.Params.creditLink | default (slice) }}
-                {{ $credits := slice }}
-                {{ range $i, $name := . }}
-                  {{ $credit := $name | htmlEscape | safeHTML }}
-                  {{ if and (lt $i (len $creditLinks)) (index $creditLinks $i) }}
-                    {{ $href := printf "%s" (index $creditLinks $i | safeURL) | htmlEscape }}
-                    {{ $credit = printf "<a href=\"%s\" rel=\"noopener noreferrer\">%s</a>" $href ($name | htmlEscape) | safeHTML }}
-                  {{ end }}
-                  {{ $credits = $credits | append $credit }}
+            {{ $disclaimers := slice }}
+            {{ with .Params.credit }}
+              {{ $creditLinks := $.Params.creditLink | default (slice) }}
+              {{ $credits := slice }}
+              {{ range $i, $name := . }}
+                {{ $credit := $name | htmlEscape | safeHTML }}
+                {{ if and (lt $i (len $creditLinks)) (index $creditLinks $i) }}
+                  {{ $href := printf "%s" (index $creditLinks $i | safeURL) | htmlEscape }}
+                  {{ $credit = printf "<a href=\"%s\" rel=\"noopener noreferrer\">%s</a>" $href ($name | htmlEscape) | safeHTML }}
                 {{ end }}
-                <li>{{ i18n "cover_art_credit" (delimit $credits ", ") | safeHTML }}</li>
+                {{ $credits = $credits | append $credit }}
               {{ end }}
-              {{ if .Params.coverAiModified }}
-                <li>{{ i18n "cover_ai_modified" }}</li>
-              {{ end }}
-              {{ if .Params.coverAiGenerated }}
-                <li>{{ i18n "cover_ai_generated" }}</li>
-              {{ end }}
-              {{ if .Params.aiTranslated }}
-                <li>{{ i18n "ai_translated" }}</li>
-              {{ end }}
-            </ul>
+              {{ $disclaimers = $disclaimers | append (i18n "cover_art_credit" (delimit $credits ", ") | safeHTML) }}
+            {{ end }}
+            {{ if .Params.coverAiModified }}
+              {{ $disclaimers = $disclaimers | append (i18n "cover_ai_modified") }}
+            {{ end }}
+            {{ if .Params.coverAiGenerated }}
+              {{ $disclaimers = $disclaimers | append (i18n "cover_ai_generated") }}
+            {{ end }}
+            {{ if .Params.aiTranslated }}
+              {{ $disclaimers = $disclaimers | append (i18n "ai_translated") }}
+            {{ end }}
+            <p class="post-disclaimers__text">{{ delimit $disclaimers " " | safeHTML }}</p>
           </aside>
         {{ end }}
       </footer>

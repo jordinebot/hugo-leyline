@@ -18,7 +18,7 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Tag chip** styling shared between post footers and the `/tags/` index — pill background, accent-tinted hover via `color-mix()`, optional count badge
 - **`/tags/` index** sorted by post count (descending, alphabetical tiebreak) with a count badge per tag
 - **Previous / next post navigation** at the bottom of each post, labeled "Older / Newer" to sidestep the perennial previous-vs-next ambiguity
-- **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param
+- **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param; optional per-site legal disclaimer text
 - **Theme-agnostic CSS custom properties** drive the palette, fonts, spacing, and accent color — per-site override via `params.accentColor`
 - **Multilingual-ready** — every user-facing UI string is wired through Hugo's `{{ i18n }}`, ships with an English `i18n/en.yaml`, and a tiny **language switcher** in the header that only renders when more than one language is configured
 - **SEO head tags** including canonical URLs, multilingual `hreflang` alternates, Open Graph, Twitter Cards, per-language `og:locale`, and description fallbacks from page summaries
@@ -77,7 +77,13 @@ theme = "hugo-leyline"
 
   [params.footer]
     tagline = "Built with Leyline."
+    [params.footer.fanContentDisclaimer]
+      text       = "Example Site is unofficial Fan Content permitted under the Fan Content Policy."
+      policyText = "Fan Content Policy"
+      policyURL  = "https://company.wizards.com/en/legal/fancontentpolicy"
 ```
+
+`params.footer.fanContentDisclaimer` is optional. When present, Leyline renders `text` between the copyright line and footer tagline, and links the first matching `policyText` phrase to `policyURL`; omit the block to hide the legal note entirely.
 
 ### Menus
 

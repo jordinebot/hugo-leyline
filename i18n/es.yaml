@@ -34,7 +34,7 @@ cover_art_credit:
   other: "Arte de portada original de {{ . }}."
 cover_ai_modified: "El arte de portada se modificó con la ayuda de IA."
 cover_ai_generated: "El arte de portada se generó con IA."
-ai_translated: "Este texto se tradujo con la ayuda de IA."
+ai_translated: "Esta entrada se tradujo con la ayuda de IA."
 
 # Empty states
 no_posts: "Todavía no hay entradas."

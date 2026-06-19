@@ -1,8 +1,25 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <div>
-      &copy; {{ now.Year }} {{ site.Title }}
-      {{ with site.Params.footer.tagline }}<span> · {{ . }}</span>{{ end }}
+    <div class="site-footer__text">
+      <div>&copy; {{ now.Year }} {{ site.Title }}</div>
+
+      {{ $disclaimer := or (index site.Params.footer "fanContentDisclaimer") (index site.Params.footer "fancontentdisclaimer") }}
+      {{ with $disclaimer }}
+        {{ $text := index . "text" }}
+        {{ $policyText := or (index . "policyText") (index . "policytext") }}
+        {{ $policyURL := or (index . "policyURL") (index . "policyurl") }}
+        {{ with $text }}
+          <p class="site-footer__legal">
+            {{ if and $policyText $policyURL (in $text $policyText) }}
+              {{ range $index, $part := split $text $policyText }}{{ if gt $index 0 }}<a href="{{ $policyURL }}" target="_blank" rel="noopener noreferrer">{{ $policyText }}</a>{{ end }}{{ $part }}{{ end }}
+            {{ else }}
+              {{ $text }}
+            {{ end }}
+          </p>
+        {{ end }}
+      {{ end }}
+
+      {{ with site.Params.footer.tagline }}<p class="site-footer__tagline">{{ . }}</p>{{ end }}
     </div>
 
     {{ if site.Menus.footer }}
