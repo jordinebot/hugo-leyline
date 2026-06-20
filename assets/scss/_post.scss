@@ -25,6 +25,14 @@
   margin-bottom: var(--space-3);
 }
 
+.post-header__subtitle {
+  margin-bottom: var(--space-2);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .post-header__title {
   margin-bottom: var(--space-3);
 }

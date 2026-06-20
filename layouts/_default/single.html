@@ -13,6 +13,10 @@
         {{ with .Params.featured }}{{ if . }}<span class="badge">{{ i18n "featured_badge" }}</span>{{ end }}{{ end }}
       </div>
 
+      {{ with .Params.subtitle }}
+        <p class="post-header__subtitle">{{ . }}</p>
+      {{ end }}
+
       <h1 class="post-header__title">{{ .Title }}</h1>
 
       {{ with .Description }}
