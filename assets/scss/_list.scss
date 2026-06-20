@@ -37,7 +37,7 @@
 }
 
 .post-list__thumb {
-  width: 160px;
+  width: 260px;
   aspect-ratio: 16 / 9;
   border-radius: calc(var(--radius) / 2);
   overflow: hidden;
@@ -75,6 +75,6 @@
   .post-list__item--with-thumb {
     grid-template-columns: 1fr;
 
-    .post-list__thumb { display: none; }
+    .post-list__thumb { width: 100%; aspect-ratio: auto; }
   }
 }
