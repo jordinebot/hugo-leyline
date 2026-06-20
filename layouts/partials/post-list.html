@@ -1,0 +1,24 @@
+{{- $pages := .pages -}}
+
+{{- if gt (len $pages) 0 -}}
+  <ul class="post-list">
+    {{- range ($pages.GroupByDate "2006") -}}
+      {{- range .Pages -}}
+        {{- $hasCover := or (.Resources.GetMatch "{cover,featured,hero}.{jpg,jpeg,png,webp,avif}") .Params.image -}}
+        <li class="post-list__item{{ if $hasCover }} post-list__item--with-thumb{{ end }}">
+          {{ if $hasCover }}
+            <a class="post-list__thumb" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+              {{ partial "post-cover.html" (dict "page" . "variant" "card") }}
+            </a>
+          {{ end }}
+          <a class="post-list__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ if not .Date.IsZero }}
+            <time class="post-list__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          {{ end }}
+        </li>
+      {{- end -}}
+    {{- end -}}
+  </ul>
+{{- else -}}
+  <p>{{ i18n "no_posts" }}</p>
+{{- end -}}

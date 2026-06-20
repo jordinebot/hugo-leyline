@@ -12,6 +12,16 @@
   flex-direction: column;
 }
 
+.post-list-group + .post-list-group {
+  margin-top: var(--space-7);
+}
+
+.post-list-group__title {
+  margin-bottom: var(--space-3);
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+}
+
 .post-list__item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
