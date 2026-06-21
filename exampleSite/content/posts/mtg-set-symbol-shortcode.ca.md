@@ -33,3 +33,10 @@ Passa una raresa opcional per acolorir el símbol. Els valors admesos inclouen `
 {{</* set "FIN" "mythic" */>}}
 {{</* set code="FIN" rarity="foil" */>}}
 ```
+
+Fes servir `set-name` quan el símbol hagi d'introduir una referència completa a una col·lecció. Afegeix el codi de la col·lecció al nom visible i enllaça el resultat a Scryfall: {{< set-name "TLA" "Avatar, The Last Airbender" >}}.
+
+```
+{{</* set-name "TLA" "Avatar, The Last Airbender" */>}}
+{{</* set-name code="TLA" name="Avatar, The Last Airbender" */>}}
+```

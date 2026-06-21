@@ -32,3 +32,10 @@ Pass an optional rarity to colour the symbol. Supported values include `common`,
 {{</* set "FIN" "mythic" */>}}
 {{</* set code="FIN" rarity="foil" */>}}
 ```
+
+Use `set-name` when the symbol should introduce a complete set reference. It adds the set code to the visible name and links the result to Scryfall: {{< set-name "TLA" "Avatar, The Last Airbender" >}}.
+
+```
+{{</* set-name "TLA" "Avatar, The Last Airbender" */>}}
+{{</* set-name code="TLA" name="Avatar, The Last Airbender" */>}}
+```
