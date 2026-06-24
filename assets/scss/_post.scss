@@ -46,7 +46,14 @@
 .post-content h2 { margin-top: var(--space-6); }
 .post-content h3 { margin-top: var(--space-5); }
 
-.post-content img { border-radius: var(--radius); }
+.post-content img {
+  border-radius: var(--radius);
+}
+
+.post-content iframe[src*="youtube.com/embed"],
+.post-content iframe[src*="youtube-nocookie.com/embed"] {
+  border-radius: var(--radius-lg);
+}
 
 /* The global reset strips list-style + padding from ul/ol so the
    theme's nav and chip lists render cleanly. Re-enable both for prose
