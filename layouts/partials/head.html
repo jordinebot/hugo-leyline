@@ -1,4 +1,6 @@
-{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $siteTitle := site.Params.pageTitle | default site.Title -}}
+{{- $blogTitle := site.Params.blogTitle | default site.Title -}}
+{{- $title := cond .IsHome $siteTitle (printf "%s · %s" .Title $siteTitle) -}}
 {{- $description := .Description | default .Summary | default site.Params.description -}}
 {{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | truncate 180 -}}
 {{- $languageCode := .Language.Locale | default .Language.Lang -}}
@@ -73,7 +75,7 @@
   <meta property="og:description" content="{{ . }}">
 {{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:site_name" content="{{ $blogTitle }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:locale" content="{{ $ogLocale }}">
 {{ range .Translations }}
@@ -101,5 +103,5 @@
 {{ end }}
 
 {{ with .OutputFormats.Get "RSS" }}
-  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ $blogTitle }}" href="{{ .RelPermalink }}">
 {{ end }}

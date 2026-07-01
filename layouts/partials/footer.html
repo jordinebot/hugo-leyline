@@ -1,7 +1,8 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div class="site-footer__text">
-      <div>&copy; {{ now.Year }} {{ site.Title }}</div>
+      {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
+      <div>&copy; {{ now.Year }} {{ $blogTitle }}</div>
 
       {{ $disclaimer := or (index site.Params.footer "fanContentDisclaimer") (index site.Params.footer "fancontentdisclaimer") }}
       {{ with $disclaimer }}

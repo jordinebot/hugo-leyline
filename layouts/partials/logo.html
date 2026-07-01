@@ -1,8 +1,9 @@
-{{/* Logo: image if site.Params.logo is set, otherwise site title as text. */ -}}
-<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" site.Title }}">
+{{/* Logo: image if site.Params.logo is set, otherwise the blog title as text. */ -}}
+{{- $blogTitle := site.Params.blogTitle | default site.Title -}}
+<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" $blogTitle }}">
   {{ with site.Params.logo }}
-    <img src="{{ . | relURL }}" alt="{{ site.Title }}">
+    <img src="{{ . | relURL }}" alt="{{ $blogTitle }}">
   {{ else }}
-    <span>{{ site.Title }}</span>
+    <span>{{ $blogTitle }}</span>
   {{ end }}
 </a>

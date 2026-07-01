@@ -67,8 +67,10 @@ theme = "hugo-leyline"
 ```toml
 [params]
   description = "A short tagline for your site (used in <meta name='description'> and the home hero)."
+  blogTitle   = "My Site"           # Optional short brand name for the header logo and footer.
+  pageTitle   = "My Site | Writing about useful things" # Optional SEO title used in <title>; defaults to site title.
   accentColor = "#4f46e5"           # Any CSS color; overrides --accent for the whole site.
-  logo        = "/logo.svg"         # Optional. Omit to fall back to site.Title text.
+  logo        = "/logo.svg"         # Optional. Omit to fall back to blogTitle/site.Title text.
   googleTagID = "G-XXXXXXXXXX"       # Optional. Enables Google tag (gtag.js).
 
   [params.home]

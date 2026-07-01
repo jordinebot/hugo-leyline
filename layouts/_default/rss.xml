@@ -8,13 +8,14 @@
 {{- if ge $limit 1 -}}
   {{- $pages = first $limit $pages -}}
 {{- end -}}
-{{- $title := site.Title -}}
+{{- $blogTitle := site.Params.blogTitle | default site.Title -}}
+{{- $title := $blogTitle -}}
 {{- if not .IsHome -}}
-  {{- $title = printf "%s on %s" .Title site.Title -}}
+  {{- $title = printf "%s on %s" .Title $blogTitle -}}
 {{- end -}}
-{{- $description := printf "Recent content on %s" site.Title -}}
+{{- $description := printf "Recent content on %s" $blogTitle -}}
 {{- if not .IsHome -}}
-  {{- $description = printf "Recent content in %s on %s" .Title site.Title -}}
+  {{- $description = printf "Recent content in %s on %s" .Title $blogTitle -}}
 {{- end -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

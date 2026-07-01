@@ -1,7 +1,8 @@
 {{ define "main" }}
+  {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
   <section class="hero container-prose">
     <h1 class="hero__title">
-      {{ .Title | default site.Title }}
+      {{ .Title | default $blogTitle }}
     </h1>
     {{ with .Description | default site.Params.description }}
       <p class="hero__lead">{{ . }}</p>
