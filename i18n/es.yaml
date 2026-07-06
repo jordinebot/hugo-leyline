@@ -22,6 +22,7 @@ search_unavailable: "El índice de búsqueda aún no está disponible. Ejecuta `
 featured_posts: "Entradas destacadas"
 latest_posts: "Últimas entradas"
 all_posts: "Todas las entradas"
+home_read_latest: "Leer las últimas entradas"
 featured_badge: "Destacada"
 
 # Tags

@@ -13,7 +13,7 @@
   gap: var(--space-1);
   padding: var(--space-4);
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, var(--border));
   border-radius: var(--radius-lg);
   transition:
     border-color .15s ease,
@@ -24,24 +24,25 @@
 
 .post-pager__link:hover {
   text-decoration: none;
-  border-color: var(--border-strong);
-  background: var(--surface-2);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border-strong));
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
 
 .post-pager__direction {
-  color: var(--ink-subtle);
+  color: var(--accent-hover);
   font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 500;
+  letter-spacing: 0;
+  font-weight: 800;
 }
 
 .post-pager__title {
   color: var(--ink);
-  font-weight: 600;
-  letter-spacing: -0.005em;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: var(--font-heading-tracking);
   line-height: 1.3;
 }
 

@@ -14,7 +14,7 @@
 }
 
 .site-footer a { color: var(--ink-muted); }
-.site-footer a:hover { color: var(--ink); }
+.site-footer a:hover { color: var(--accent); }
 
 .site-footer__text {
   display: grid;
@@ -51,8 +51,8 @@
   transition: color .15s ease, background .15s ease;
 }
 .site-footer__icon:hover {
-  color: var(--ink);
-  background: var(--surface);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
 }
 .site-footer__icon svg {
   width: 18px;

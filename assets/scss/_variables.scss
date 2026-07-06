@@ -1,18 +1,29 @@
 :root {
-  --bg:           #ffffff;
-  --surface:      #f7f7f8;
-  --surface-2:    #ececef;
+  --bg:           #fbfbfc;
+  --surface:      #ffffff;
+  --surface-2:    #f1f1f3;
+  --surface-warm: color-mix(in srgb, var(--brand-paper) 64%, var(--bg));
   --ink:          #18181b;
   --ink-muted:    #52525b;
   --ink-subtle:   #71717a;
   --border:       #e4e4e7;
   --border-strong:#d4d4d8;
+  --brand-red:    #e32113;
+  --brand-red-dark: #a61411;
+  --brand-yellow: #f69e0f;
+  --brand-ink:    #030404;
+  --brand-paper:  #f2ece2;
+  --brand-muted:  #686869;
   --accent:       #4f46e5;
+  --accent-hover: color-mix(in srgb, var(--accent) 82%, var(--ink));
   --accent-ink:   #ffffff;
   --shadow-sm:    0 1px 2px rgb(0 0 0 / 4%);
   --shadow-md:    0 4px 12px rgb(0 0 0 / 6%);
+  --shadow-lg:    0 18px 46px rgb(3 4 4 / 10%);
 
   --font-sans:    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Mona Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading-tracking: -0.03em;
   --font-mono:    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
   --radius:       8px;
@@ -34,16 +45,33 @@
   --header-h: 64px;
 }
 
+@media (min-width: 1200px) {
+  :root {
+    --container: 1180px;
+    --container-prose: 900px;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --container: 1280px;
+    --container-prose: 960px;
+  }
+}
+
 [data-theme='dark'] {
   --bg:            #0a0a0a;
   --surface:       #161618;
   --surface-2:    #1f1f23;
+  --surface-warm:  color-mix(in srgb, var(--surface) 86%, var(--brand-red));
   --ink:           #fafafa;
   --ink-muted:     #d4d4d8;
   --ink-subtle:    #a1a1aa;
   --border:        #27272a;
   --border-strong: #3f3f46;
+  --accent-hover:  color-mix(in srgb, var(--accent) 78%, var(--brand-yellow));
   --accent-ink:    #ffffff;
   --shadow-sm:     0 1px 2px rgb(0 0 0 / 35%);
   --shadow-md:     0 6px 18px rgb(0 0 0 / 45%);
+  --shadow-lg:     0 22px 54px rgb(0 0 0 / 52%);
 }

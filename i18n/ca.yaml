@@ -22,6 +22,7 @@ search_unavailable: "L'índex de cerca encara no està disponible. Executa `page
 featured_posts: "Entrades destacades"
 latest_posts: "Últimes entrades"
 all_posts: "Més entrades"
+home_read_latest: "Llegeix les últimes entrades"
 featured_badge: "Destacada"
 
 # Tags

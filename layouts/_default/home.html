@@ -1,14 +1,47 @@
 {{ define "main" }}
   {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
-  <section class="hero container-prose">
-    <h1 class="hero__title">
-      {{ .Title | default $blogTitle }}
-    </h1>
-    {{ with .Description | default site.Params.description }}
-      <p class="hero__lead">{{ . }}</p>
-    {{ end }}
-    {{ with .Content }}
-      <div class="hero__body post-content">{{ . }}</div>
+  {{- $brand := site.Params.brand | default dict -}}
+  {{- $homeParams := site.Params.home | default dict -}}
+  {{- $brandLogo := index $brand "logo" -}}
+  {{- $brandLogoAlt := index $brand "logoAlt" | default $blogTitle -}}
+  {{- $brandLogoWidth := index $brand "logoWidth" -}}
+  {{- $brandLogoHeight := index $brand "logoHeight" -}}
+  {{- $useLogoInHero := and $brandLogo (ne (index $brand "useLogoInHero") false) -}}
+  {{- $heroTaglineKey := index $homeParams "heroTaglineKey" -}}
+  {{- $heroTagline := .Description | default site.Params.description -}}
+  {{- if $heroTaglineKey -}}
+    {{- $translatedTagline := i18n $heroTaglineKey -}}
+    {{- with $translatedTagline }}{{ $heroTagline = . }}{{ end -}}
+  {{- end -}}
+  {{- $heroCtaKey := index $homeParams "heroCtaKey" | default "home_read_latest" -}}
+
+  <section class="hero container">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        {{ .Title | default $blogTitle }}
+      </h1>
+      {{ with $heroTagline }}
+        <p class="hero__lead">{{ . }}</p>
+      {{ end }}
+      <div class="hero__actions">
+        <a class="button-primary" href="{{ "posts/" | relLangURL }}">{{ i18n $heroCtaKey }}</a>
+      </div>
+      {{ with .Content }}
+        <div class="hero__body post-content">{{ . }}</div>
+      {{ end }}
+    </div>
+
+    {{ if $useLogoInHero }}
+      <div class="hero__brand">
+        <img
+          class="hero__logo"
+          src="{{ $brandLogo | relURL }}"
+          alt="{{ $brandLogoAlt }}"
+          {{ with $brandLogoWidth }}width="{{ . }}"{{ end }}
+          {{ with $brandLogoHeight }}height="{{ . }}"{{ end }}
+          loading="eager"
+          decoding="async">
+      </div>
     {{ end }}
   </section>
 

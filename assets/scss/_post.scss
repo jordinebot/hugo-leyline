@@ -1,5 +1,5 @@
 .post-hero {
-  margin: 0 0 var(--space-6);
+  margin: 0 0 var(--space-7);
 }
 .post-hero img {
   width: 100%;
@@ -8,12 +8,25 @@
   object-fit: cover;
   border-radius: var(--radius-lg);
   background: var(--surface-2);
+  box-shadow: var(--shadow-lg);
 }
 
 .post-header {
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-5);
+  position: relative;
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-6);
   border-bottom: 1px solid var(--border);
+}
+
+.post-header::before {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.45rem;
+  margin-bottom: var(--space-5);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--brand-yellow));
+  transform: skewX(-18deg);
 }
 
 .post-header__meta {
@@ -27,24 +40,80 @@
 
 .post-header__subtitle {
   margin-bottom: var(--space-2);
-  color: var(--accent);
+  color: var(--accent-hover);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
 .post-header__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 6vw, 4.75rem);
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: var(--font-heading-tracking);
   margin-bottom: var(--space-3);
 }
 
 .post-header__lead {
   color: var(--ink-muted);
-  font-size: 1.1rem;
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.post-content {
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+@media (min-width: 1200px) {
+  .post-content {
+    font-size: 1.08rem;
+    line-height: 1.76;
+  }
+
+  .post-header__lead {
+    font-size: 1.28rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .post-content {
+    font-size: 1.12rem;
+  }
 }
 
 .post-content > * + * { margin-top: var(--space-4); }
-.post-content h2 { margin-top: var(--space-6); }
+.post-content h2 {
+  position: relative;
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+.post-content h2::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 4rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+}
 .post-content h3 { margin-top: var(--space-5); }
+
+.post-content a {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+}
+
+.post-content a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
 
 .post-content img {
   border-radius: var(--radius);

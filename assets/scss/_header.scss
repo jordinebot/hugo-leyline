@@ -2,10 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .site-header__inner {
@@ -20,13 +21,27 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 900;
   font-size: 1.05rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--font-heading-tracking);
   color: var(--ink);
 }
-.site-logo:hover { text-decoration: none; color: var(--ink); }
-.site-logo img { height: 28px; width: auto; }
+.site-logo::before {
+  content: "";
+  width: 0.45rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), var(--brand-yellow));
+  transform: skewX(-16deg);
+}
+.site-logo:hover { text-decoration: none; color: var(--accent); }
+.site-logo__mark {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.site-logo__text { color: inherit; }
 
 .site-nav {
   display: flex;
@@ -55,8 +70,8 @@
   transition: color .15s ease, background .15s ease;
 }
 .site-nav__link:hover {
-  color: var(--ink);
-  background: var(--surface);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
   text-decoration: none;
 }
 .site-nav__link[aria-current='page'] { color: var(--ink); }
@@ -70,7 +85,10 @@
   color: var(--ink-muted);
   transition: color .15s ease, background .15s ease;
 }
-.icon-btn:hover { color: var(--ink); background: var(--surface); }
+.icon-btn:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
 .icon-btn svg { width: 18px; height: 18px; }
 
 /* Theme toggle: show the right icon for the active mode */

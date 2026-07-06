@@ -1,9 +1,14 @@
-{{/* Logo: image if site.Params.logo is set, otherwise the blog title as text. */ -}}
+{{/* Header brand: text remains visible; optional compact mark can be added via params.brand.logoMark. */ -}}
 {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
-<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" $blogTitle }}">
-  {{ with site.Params.logo }}
-    <img src="{{ . | relURL }}" alt="{{ $blogTitle }}">
-  {{ else }}
-    <span>{{ $blogTitle }}</span>
+{{- $brand := site.Params.brand | default dict -}}
+{{- $brandName := index $brand "name" | default $blogTitle -}}
+{{- $logoMark := or (index $brand "logoMark") (index $brand "logomark") site.Params.logo -}}
+{{- $logoAlt := index $brand "logoAlt" | default $brandName -}}
+{{- $useLogoInHeader := ne (index $brand "useLogoInHeader") false -}}
+<a class="site-logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" $brandName }}">
+  {{ if and $logoMark $useLogoInHeader }}
+    <img class="site-logo__mark" src="{{ $logoMark | relURL }}" alt="" width="32" height="32">
   {{ end }}
+  <span class="site-logo__text">{{ $brandName }}</span>
+  <span class="sr-only">{{ $logoAlt }}</span>
 </a>

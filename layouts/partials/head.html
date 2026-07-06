@@ -48,7 +48,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap">
 
 {{ partial "mtg-styles.html" . }}
 
@@ -58,8 +58,11 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ end }}
 
-{{ with site.Params.accentColor }}
-  <style>:root { --accent: {{ . | safeCSS }}; }</style>
+{{ if or site.Params.accentColor site.Params.accentHoverColor }}
+  <style>:root {
+    {{ with site.Params.accentColor }}--accent: {{ . | safeCSS }};{{ end }}
+    {{ with site.Params.accentHoverColor }}--accent-hover: {{ . | safeCSS }};{{ end }}
+  }</style>
 {{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">

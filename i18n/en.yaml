@@ -23,6 +23,7 @@ search_unavailable: "Search index isn't available yet. Run `pagefind --site publ
 featured_posts: "Featured posts"
 latest_posts: "Latest posts"
 all_posts: "All posts"
+home_read_latest: "Read latest posts"
 # Single-word badge shown on featured post cards
 featured_badge: "Featured"
 

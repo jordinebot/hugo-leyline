@@ -110,9 +110,10 @@
 }
 
 .search-modal__result-title {
+  font-family: var(--font-heading);
   font-weight: 600;
   color: var(--ink);
-  letter-spacing: -0.005em;
+  letter-spacing: var(--font-heading-tracking);
   margin-bottom: 4px;
   display: flex;
   flex-wrap: wrap;
