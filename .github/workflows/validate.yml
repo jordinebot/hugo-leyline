@@ -37,18 +37,18 @@ jobs:
           sudo dpkg -i "${RUNNER_TEMP}/hugo.deb"
 
       - name: Check out hugo-leyline
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: hugo-leyline
 
       - name: Check out hugo-mtg-shortcodes
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: jordinebot/hugo-mtg-shortcodes
           path: hugo-mtg-shortcodes
 
       - name: Cache Hugo getresource (Scryfall API responses)
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/hugo_cache
           key: ${{ runner.os }}-hugo-getresource-${{ github.run_id }}
@@ -59,7 +59,7 @@ jobs:
         run: echo "HUGO_NUMWORKERMULTIPLIER=1" >> "$GITHUB_ENV"
 
       - name: Set up Node (for Pagefind)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '20'
 
