@@ -57,6 +57,17 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Cache Hugo getresource (Scryfall API responses)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/hugo_cache
+          key: ${{ runner.os }}-hugo-getresource-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-getresource-
+
+      - name: Limit Hugo worker concurrency for Scryfall
+        run: echo "HUGO_NUMWORKERMULTIPLIER=1" >> "$GITHUB_ENV"
+
       - name: Set up Node (for Pagefind)
         uses: actions/setup-node@v4
         with:
