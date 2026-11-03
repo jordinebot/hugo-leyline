@@ -16,3 +16,6 @@ node_modules/
 
 # Claude Code personal overrides
 .claude/settings.local.json
+
+# Generated Scryfall bulk index
+/exampleSite/data/scryfall.json

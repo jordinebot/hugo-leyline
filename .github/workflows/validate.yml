@@ -47,16 +47,23 @@ jobs:
           repository: jordinebot/hugo-mtg-shortcodes
           path: hugo-mtg-shortcodes
 
-      - name: Cache Hugo getresource (Scryfall API responses)
-        uses: actions/cache@v5
+      - name: Restore Scryfall bulk snapshot
+        id: scryfall-cache
+        uses: actions/cache/restore@v5
         with:
-          path: ~/.cache/hugo_cache
-          key: ${{ runner.os }}-hugo-getresource-${{ github.run_id }}
+          path: ~/.cache/hugo-mtg-scryfall-v1
+          key: ${{ runner.os }}-scryfall-bulk-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ${{ runner.os }}-hugo-getresource-
+            ${{ runner.os }}-scryfall-bulk-v1-
 
-      - name: Limit Hugo worker concurrency for Scryfall
-        run: echo "HUGO_NUMWORKERMULTIPLIER=1" >> "$GITHUB_ENV"
+      - name: Prepare offline Scryfall index
+        run: python3 hugo-mtg-shortcodes/scripts/prepare-scryfall.py --output hugo-leyline/exampleSite/data/scryfall.json
+
+      - name: Save Scryfall bulk snapshot
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/hugo-mtg-scryfall-v1
+          key: ${{ steps.scryfall-cache.outputs.cache-primary-key }}
 
       - name: Set up Node (for Pagefind)
         uses: actions/setup-node@v7
