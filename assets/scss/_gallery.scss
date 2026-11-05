@@ -65,6 +65,7 @@
   border: none;
   width: 96vw;
   max-width: 1400px;
+  height: 96dvh;
   max-height: 96dvh;
   background: #111;
   color: #fff;
@@ -111,22 +112,56 @@
 }
 
 .gallery-lb__stage {
+  // Give the image definite bounds, including for portrait photos. Percentage
+  // max-heights through an intrinsically sized figure can overflow the stage.
+  container-type: size;
   flex: 1;
   min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2.5rem 1rem 1rem;
+  overflow: hidden;
+}
+
+.gallery-lb__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
 }
 
 .gallery-lb__img {
   display: block;
-  max-width: 100%;
-  max-height: calc(96dvh - 5rem);
-
-  @media (max-width: 48rem) { max-height: calc(100dvh - 5rem); }
+  width: auto;
+  height: auto;
+  max-width: 100cqw;
+  max-height: 100cqh;
+  min-height: 0;
   object-fit: contain;
   border-radius: 0.25rem;
+}
+
+.gallery-lb .gallery-lb__caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  border: 0;
+  border-radius: 0;
+  overflow-wrap: anywhere;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: center;
+
+  &:empty { display: none; }
 }
 
 .gallery-lb__nav {

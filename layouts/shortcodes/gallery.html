@@ -1,5 +1,9 @@
 {{- $match      := .Get "match" -}}
 {{- $imagesList := .Get "images" -}}
+{{- $captions := slice -}}
+{{- with .Get "captions" -}}
+  {{- $captions = split . "|" -}}
+{{- end -}}
 {{- $cols       := .Get "cols" | default "3" -}}
 
 {{- /* Per-page counter for unique IDs */ -}}
@@ -57,12 +61,15 @@
 {{- if gt (len $items) 0 -}}
 <div class="gallery{{ if or (eq (len $items) 1) (eq $cols "1") }} gallery--centered{{ end }}" id="{{ $id }}" style="--gallery-cols:{{ $cols }}">
   {{- range $i, $item := $items -}}
+  {{- $caption := "" -}}
+  {{- if lt $i (len $captions) -}}{{- $caption = index $captions $i -}}{{- end -}}
   <figure class="gallery__item">
     <button class="gallery__btn"
             type="button"
             data-gallery="{{ $id }}"
             data-gallery-idx="{{ $i }}"
             data-gallery-full="{{ $item.full }}"
+            data-gallery-caption="{{ $caption }}"
             aria-label="{{ i18n "gallery_open_image" | default "Open image" }} {{ add $i 1 }}">
       <img src="{{ $item.thumb }}"
            {{- if and $item.thumbW $item.thumbH }} width="{{ $item.thumbW }}" height="{{ $item.thumbH }}"{{ end }}
@@ -82,7 +89,10 @@
           type="button"
           aria-label="{{ i18n "gallery_close" | default "Close" }}">&#x2715;</button>
   <div class="gallery-lb__stage">
-    <img class="gallery-lb__img" src="" alt="" decoding="async">
+    <figure class="gallery-lb__media">
+      <img class="gallery-lb__img" src="" alt="" decoding="async">
+      <figcaption class="gallery-lb__caption" aria-live="polite"></figcaption>
+    </figure>
   </div>
   <nav class="gallery-lb__nav" aria-label="{{ i18n "gallery_nav" | default "Navigate images" }}">
     <button class="gallery-lb__btn gallery-lb__prev"
@@ -102,7 +112,7 @@
 (function () {
   function getImages(galleryId) {
     return Array.from(document.querySelectorAll('[data-gallery="' + galleryId + '"]')).map(function (b) {
-      return { src: b.dataset.galleryFull, alt: b.querySelector('img').alt };
+      return { src: b.dataset.galleryFull, alt: b.querySelector('img').alt, caption: b.dataset.galleryCaption || '' };
     });
   }
 
@@ -114,6 +124,7 @@
     var img = lb.querySelector('.gallery-lb__img');
     img.src = item.src;
     img.alt = item.alt;
+    lb.querySelector('.gallery-lb__caption').textContent = item.caption;
     lb.querySelector('.gallery-lb__counter').textContent = (lb._idx + 1) + ' / ' + n;
     lb.querySelector('.gallery-lb__prev').hidden = n < 2;
     lb.querySelector('.gallery-lb__next').hidden = n < 2;

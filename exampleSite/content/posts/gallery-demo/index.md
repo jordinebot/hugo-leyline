@@ -36,6 +36,12 @@ Pass a comma-separated list with the `images` parameter. Each entry is tried as 
 {{</* gallery images="https://example.com/a.jpg, https://example.com/b.jpg" */>}}
 ```
 
+Optionally pass `captions` as a pipe-separated list. Captions map to images by position and appear only in the lightbox:
+
+```
+{{</* gallery images="https://example.com/a.jpg, https://example.com/b.jpg" captions="At the coast|On the trail" */>}}
+```
+
 The three galleries below are all rendered this way.
 
 ## Three columns (default)
@@ -56,6 +62,7 @@ The three galleries below are all rendered this way.
 |-----------|----------|---------|-------------|
 | `match`   | —        | —       | Glob pattern matched against page bundle resources (e.g. `"photo-*"`) |
 | `images`  | —        | —       | Comma-separated list of filenames or URLs |
+| `captions`| —        | —       | Pipe-separated captions, in image order; shown in the lightbox only |
 | `cols`    | —        | `3`     | Number of masonry columns on wide screens |
 
 One of `match` or `images` must be provided. `match` requires a [leaf bundle](https://gohugo.io/content-management/page-bundles/).
