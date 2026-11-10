@@ -21,11 +21,15 @@ search_no_matches: 'No matches for "{query}".'
 search_unavailable: "Search index isn't available yet. Run `pagefind --site public` after Hugo builds."
 
 # Home page sections
-featured_posts: "Featured posts"
 latest_posts: "Latest posts"
 all_posts: "All posts"
-# Single-word badge shown on featured post cards
-featured_badge: "Featured"
+published: "Published"
+in_category: "in"
+by_author: "By"
+share_this_post: "Share this post"
+copy_link: "Copy link"
+link_copied: "Link copied"
+copy_link_error: "Could not copy link"
 
 # Tags
 tags: "Tags"

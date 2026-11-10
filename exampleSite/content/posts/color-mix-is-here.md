@@ -3,7 +3,6 @@ title: "color-mix() is here. Use it."
 date: 2026-04-15T09:00:00+02:00
 draft: false
 description: "How Leyline keeps its accent-tinted hover states without committing to specific hex values."
-featured: true
 image: "https://picsum.photos/seed/leyline-color-mix/1600/900"
 imageAlt: "Tubes of paint blended on a palette"
 tags: ["css", "design"]

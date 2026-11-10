@@ -3,7 +3,6 @@ title: "MTG Arena season recap shortcode"
 date: 2026-05-10T13:20:00+02:00
 draft: false
 description: "Summarize an MTG Arena month with ranks, spending, gems, and draft tokens."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-season-recap/1600/900"
 imageAlt: "Monthly game journal with cards and counters"

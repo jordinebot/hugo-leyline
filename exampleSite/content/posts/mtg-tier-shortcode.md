@@ -3,7 +3,6 @@ title: "MTG inline tier rating shortcode"
 date: 2026-05-10T13:50:00+02:00
 draft: false
 description: "Render compact, colour-coded tier ratings inline with Magic commentary."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-tier-shortcode/1600/900"
 imageAlt: "Coloured tier labels arranged beside trading cards"

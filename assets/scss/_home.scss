@@ -102,15 +102,6 @@
   font-size: 0.95rem;
 }
 
-.badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 15%, transparent);
-  color: var(--accent);
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-}
+.home-all-posts { margin-top: clamp(40px, 6vw, 72px); text-align: center; }
+.home-all-posts a { display: inline-block; color: var(--ink-muted); font-size: .92rem; }
+.home-all-posts a:hover { color: var(--ink); }

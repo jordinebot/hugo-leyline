@@ -14,11 +14,11 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
   # logo = "/logo.svg"          # uncomment to use an image instead of the title
 
   [params.home]
-    postCount = 6           # Featured posts (cards). Falls back to latest if none flagged.
-    latestCount = 10        # Latest posts list shown below Featured (excludes posts already in Featured).
+    postCount = 6           # Maximum number of recent posts shown on the home page.
 
 [taxonomies]
   tag = "tags"
+  category = "categories"
 
 # Footer links live PER LANGUAGE (see [[languages.<lang>.menus.footer]]
 # blocks below). When `[languages]` is configured, top-level

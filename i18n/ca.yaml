@@ -20,10 +20,15 @@ search_no_matches: 'No s''ha trobat res per a "{query}".'
 search_unavailable: "L'índex de cerca encara no està disponible. Executa `pagefind --site public` després de compilar amb Hugo."
 
 # Home page sections
-featured_posts: "Entrades destacades"
 latest_posts: "Últimes entrades"
 all_posts: "Més entrades"
-featured_badge: "Destacada"
+published: "Publicat el"
+in_category: "a"
+by_author: "Per"
+share_this_post: "Comparteix aquesta entrada"
+copy_link: "Copia l'enllaç"
+link_copied: "Enllaç copiat"
+copy_link_error: "No s'ha pogut copiar l'enllaç"
 
 # Tags
 tags: "Etiquetes"

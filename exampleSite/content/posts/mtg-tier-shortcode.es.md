@@ -3,7 +3,6 @@ title: "Shortcode de valoraciones de tier en línea de MTG"
 date: 2026-05-10T13:50:00+02:00
 draft: false
 description: "Renderiza valoraciones de tier compactas y codificadas por colores en textos sobre Magic."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-tier-shortcode/1600/900"
 imageAlt: "Etiquetas de colores ordenadas por nivel junto a cartas coleccionables"

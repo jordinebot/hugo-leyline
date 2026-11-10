@@ -2,37 +2,41 @@
   <article class="article-shell" data-pagefind-body>
     <header class="post-header">
       <a class="post-header__back" href="{{ "posts/" | relLangURL }}">← {{ i18n "all_posts" }}</a>
-      {{ $categories := .Params.categories | default (slice .Params.category) }}
-      {{ with index $categories 0 }}<span class="post-header__category">{{ . }}</span>{{ end }}
-      <div class="post-header__meta">
-        {{ if not .Date.IsZero }}
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <div class="post-header__inner">
+        {{ $categories := .Params.categories | default (slice .Params.category) }}
+        <p class="post-header__meta">
+          {{ if not .Date.IsZero }}{{ i18n "published" }} {{ .Date | time.Format ":date_long" }}{{ end }}
+          {{ with index $categories 0 }}<span>{{ i18n "in_category" }} {{ if site.Taxonomies.categories }}<a class="post-header__category" href="{{ "categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>{{ else }}<span class="post-header__category">{{ . }}</span>{{ end }}</span>{{ end }}
+        </p>
+
+        <h1 class="post-header__title">{{ .Title }}</h1>
+
+        {{ with .Description }}<p class="post-header__lead">{{ . }}</p>{{ end }}
+        {{ with .Params.author }}
+          <div class="post-header__author">
+            {{ with $.Params.authorImage }}<img src="{{ . | relURL }}" alt="">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $.Params.author | substr 0 1 | upper }}</span>{{ end }}
+            <div><span>{{ i18n "by_author" }} {{ . }}</span>{{ with $.Params.authorRole }}<small>{{ . }}</small>{{ end }}</div>
+          </div>
         {{ end }}
-        {{ with .Params.featured }}{{ if . }}<span class="badge">{{ i18n "featured_badge" }}</span>{{ end }}{{ end }}
       </div>
-
-      {{ with .Params.subtitle }}
-        <p class="post-header__subtitle">{{ . }}</p>
-      {{ end }}
-
-      <h1 class="post-header__title">{{ .Title }}</h1>
-
-      {{ with .Description }}
-        <p class="post-header__lead">{{ . }}</p>
-      {{ end }}
-      {{ with .Params.author }}
-        <div class="post-header__author">
-          {{ with $.Params.authorImage }}<img src="{{ . | relURL }}" alt="">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $.Params.author | substr 0 1 | upper }}</span>{{ end }}
-          <div><span>{{ . }}</span>{{ with $.Params.authorRole }}<small>{{ . }}</small>{{ end }}</div>
-        </div>
-      {{ end }}
     </header>
 
     {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
     {{ with $cover }}<figure class="post-hero">{{ . | safeHTML }}</figure>{{ end }}
 
-    <div class="post-content">
-      {{ .Content }}
+    <div class="post-reading-layout">
+      <section class="post-share" aria-labelledby="post-share-title">
+        <h2 id="post-share-title">{{ i18n "share_this_post" }}</h2>
+        <button class="post-share__copy" type="button" data-copy-url data-copy-default="{{ i18n "copy_link" }}" data-copy-success="{{ i18n "link_copied" }}" data-copy-error="{{ i18n "copy_link_error" }}">
+          <span class="ms ms-ability-copy" aria-hidden="true"></span>
+          <span data-copy-label>{{ i18n "copy_link" }}</span>
+        </button>
+        <span class="post-share__status" data-copy-status aria-live="polite"></span>
+      </section>
+
+      <div class="post-content">
+        {{ .Content }}
+      </div>
     </div>
 
     {{ $hasDisclaimers := or .Params.credit .Params.coverAiGenerated .Params.coverAiModified .Params.aiTranslated }}
@@ -98,5 +102,6 @@
         {{ end }}
       </nav>
     {{ end }}
+    </div>
   </article>
 {{ end }}

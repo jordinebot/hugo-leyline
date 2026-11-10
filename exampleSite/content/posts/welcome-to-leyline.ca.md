@@ -3,7 +3,6 @@ title: "Benvingut a Leyline"
 date: 2026-05-11T10:00:00+02:00
 draft: false
 description: "Què és Leyline, què no és, i les decisions de disseny que hi ha al darrere."
-featured: true
 image: "https://picsum.photos/seed/leyline-welcome/1600/900"
 imageAlt: "Paisatge abstracte amb tons apagats"
 tags: ["meta", "design"]

@@ -8,28 +8,15 @@
       </header>
 
       {{ $posts := where site.RegularPages "Section" "posts" }}
-      {{ $featured := where $posts "Params.featured" true }}
       {{ $max := site.Params.home.postCount | default 6 }}
-      {{ $fallback := eq (len $featured) 0 }}
-      {{ if $fallback }}{{ $featured = $posts }}{{ end }}
-      {{ $featured = first $max (sort $featured "Date" "desc") }}
-      {{ if gt (len $featured) 0 }}
+      {{ $recent := first $max (sort $posts "Date" "desc") }}
+      {{ if gt (len $recent) 0 }}
         <section class="editorial-section">
           <div class="editorial-grid">
-            {{ range $featured }}{{ partial "post-card.html" . }}{{ end }}
+            {{ range $recent }}{{ partial "post-card.html" . }}{{ end }}
           </div>
         </section>
-        {{ if not $fallback }}
-          {{ $keys := slice }}{{ range $featured }}{{ $keys = $keys | append .RelPermalink }}{{ end }}
-          {{ $latest := where (sort $posts "Date" "desc") "RelPermalink" "not in" $keys }}
-          {{ $latest = first (site.Params.home.latestCount | default 10) $latest }}
-          {{ if gt (len $latest) 0 }}
-            <section class="editorial-section editorial-section--latest">
-              <div class="editorial-section__heading"><h2>{{ i18n "latest_posts" }}</h2><a href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} <span aria-hidden="true">→</span></a></div>
-              <div class="editorial-grid">{{ range $latest }}{{ partial "post-card.html" . }}{{ end }}</div>
-            </section>
-          {{ end }}
-        {{ end }}
+        <div class="home-all-posts"><a href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} <span aria-hidden="true">→</span></a></div>
       {{ end }}
     </div>
   </div>

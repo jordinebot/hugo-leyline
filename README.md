@@ -12,7 +12,7 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Client-side search** powered by [Pagefind](https://pagefind.app/) — a modal overlay with debounced search-as-you-type, arrow-key navigation, snippet highlighting, and lazy-loaded JS (only fetched on first open)
 - **Mobile menu** that drops down from under the header with an animated hamburger → X morph
 - **No-flash theme bootstrap** — an inline `<head>` script sets `[data-theme]` before first paint, so dark-mode visitors don't see a white flash
-- **Editorial post grid** on the home page and section archives, with a responsive section sidebar, optional categories and author bylines, and 16:9 cover images; featured posts are driven by a `featured: true` front-matter flag
+- **Editorial post grid** on the home page and section archives, with a responsive section sidebar, optional categories and author bylines, and 16:9 cover images
 - **Latest posts section** rendered below Featured (excludes duplicates), using the same editorial cards as the `/posts/` index
 - **Cover images** via two paths: drop `cover.jpg` (or `.png` / `.webp` / `.avif`) into a page bundle and Leyline generates a responsive WebP srcset; or set `image = "/path/to/img.jpg"` in front matter for plain `.md` posts
 - **Tag chip** styling shared between post footers and the `/tags/` index — pill background, accent-tinted hover via `color-mix()`, optional count badge
@@ -74,8 +74,7 @@ theme = "hugo-leyline"
   googleTagID = "G-XXXXXXXXXX"       # Optional. Enables Google tag (gtag.js).
 
   [params.home]
-    postCount   = 6                 # Max Featured posts (cards) on the home page.
-    latestCount = 10                # Max Latest posts (list) under Featured. Excludes Featured.
+    postCount   = 6                 # Max recent post cards on the home page.
 
   [params.footer]
     tagline = "Built with Leyline."
@@ -137,7 +136,6 @@ title       = "My post"
 date        = 2026-05-12T10:00:00+02:00
 draft       = false
 description = "Optional lead paragraph rendered below the title."
-featured    = true                      # Surface on the home Featured grid.
 image           = "/img/cover.jpg"          # Cover image (front-matter path).
 imageAlt        = "Alt text for the cover"  # Optional; defaults to the post title.
 credit          = ["Artist Name"]           # Optional cover-art credit(s).
@@ -154,6 +152,8 @@ authorRole      = "Design editor"           # Optional role below the author nam
 ```
 
 Leyline's editorial layouts show a serif reading face for article text and sans-serif headings and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
+
+To make category labels link to category archives, declare the `category = "categories"` taxonomy in your site's `[taxonomies]` config.
 
 When `credit`, `coverAiGenerated`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution. Add `creditLink` as a parallel array to link each artist name to the URL at the same position; missing links leave that artist name as plain text.
 
