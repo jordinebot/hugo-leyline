@@ -1,91 +1,36 @@
 {{ define "main" }}
-  {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
-  <section class="hero container-prose">
-    <h1 class="hero__title">
-      {{ .Title | default $blogTitle }}
-    </h1>
-    {{ with .Description | default site.Params.description }}
-      <p class="hero__lead">{{ . }}</p>
-    {{ end }}
-    {{ with .Content }}
-      <div class="hero__body post-content">{{ . }}</div>
-    {{ end }}
-  </section>
+  <div class="archive-layout container-wide">
+    {{ partial "archive-sidebar.html" . }}
+    <div class="archive-main">
+      <header class="archive-heading">
+        <h1>{{ .Title | default (site.Params.blogTitle | default site.Title) }}</h1>
+        {{ with .Description | default site.Params.description }}<p>{{ . }}</p>{{ end }}
+      </header>
 
-  {{/* Featured-with-latest-fallback: prefer posts marked `featured: true`. */}}
-  {{ $posts := where site.RegularPages "Section" "posts" }}
-  {{ $featured := where $posts "Params.featured" true }}
-  {{ $max := site.Params.home.postCount | default 6 }}
-  {{ $isFallback := false }}
-  {{ if eq (len $featured) 0 }}
-    {{ $featured = $posts }}
-    {{ $isFallback = true }}
-  {{ end }}
-  {{ $featured = first $max (sort $featured "Date" "desc") }}
-
-  {{ if gt (len $featured) 0 }}
-    <section class="section container">
-      <div class="section__head">
-        <h2 class="section__title">
-          {{ if $isFallback }}{{ i18n "latest_posts" }}{{ else }}{{ i18n "featured_posts" }}{{ end }}
-        </h2>
-        <a class="section__link" href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} &rarr;</a>
-      </div>
-
-      <div class="post-grid">
-        {{ range $featured }}
-          <a class="post-card" href="{{ .RelPermalink }}">
-            {{ $cover := partial "post-cover.html" (dict "page" . "variant" "card") }}
-            {{ with $cover }}
-              <div class="post-card__cover">{{ . }}</div>
-            {{ end }}
-            <div class="post-card__body">
-              <div class="post-card__meta">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-                {{ if and (not $isFallback) .Params.featured }}
-                  <span class="badge">{{ i18n "featured_badge" }}</span>
-                {{ end }}
-              </div>
-              <h3 class="post-card__title">{{ .Title }}</h3>
-              {{ with .Summary }}
-                <p class="post-card__summary">{{ . | plainify | truncate 140 }}</p>
-              {{ end }}
-            </div>
-          </a>
-        {{ end }}
-      </div>
-    </section>
-
-    {{/* Latest posts: only show this section when Featured actually
-         surfaced curated posts (otherwise the cards above are already
-         the latest, and this would duplicate them). Excludes posts
-         already shown in Featured. */}}
-    {{ if not $isFallback }}
-      {{ $latestMax := site.Params.home.latestCount | default 10 }}
-      {{ $featuredKeys := slice }}
-      {{ range $featured }}
-        {{ $featuredKeys = $featuredKeys | append .RelPermalink }}
-      {{ end }}
-      {{ $latest := where (sort $posts "Date" "desc") "RelPermalink" "not in" $featuredKeys }}
-      {{ $latest = first $latestMax $latest }}
-
-      {{ if gt (len $latest) 0 }}
-        <section class="section container">
-          <div class="section__head">
-            <h2 class="section__title">{{ i18n "latest_posts" }}</h2>
-            <a class="section__link" href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} &rarr;</a>
+      {{ $posts := where site.RegularPages "Section" "posts" }}
+      {{ $featured := where $posts "Params.featured" true }}
+      {{ $max := site.Params.home.postCount | default 6 }}
+      {{ $fallback := eq (len $featured) 0 }}
+      {{ if $fallback }}{{ $featured = $posts }}{{ end }}
+      {{ $featured = first $max (sort $featured "Date" "desc") }}
+      {{ if gt (len $featured) 0 }}
+        <section class="editorial-section">
+          <div class="editorial-grid">
+            {{ range $featured }}{{ partial "post-card.html" . }}{{ end }}
           </div>
-
-          <ul class="post-list">
-            {{ range $latest }}
-              <li class="post-list__item">
-                <a class="post-list__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <time class="post-list__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-              </li>
-            {{ end }}
-          </ul>
         </section>
+        {{ if not $fallback }}
+          {{ $keys := slice }}{{ range $featured }}{{ $keys = $keys | append .RelPermalink }}{{ end }}
+          {{ $latest := where (sort $posts "Date" "desc") "RelPermalink" "not in" $keys }}
+          {{ $latest = first (site.Params.home.latestCount | default 10) $latest }}
+          {{ if gt (len $latest) 0 }}
+            <section class="editorial-section editorial-section--latest">
+              <div class="editorial-section__heading"><h2>{{ i18n "latest_posts" }}</h2><a href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }} <span aria-hidden="true">→</span></a></div>
+              <div class="editorial-grid">{{ range $latest }}{{ partial "post-card.html" . }}{{ end }}</div>
+            </section>
+          {{ end }}
+        {{ end }}
       {{ end }}
-    {{ end }}
-  {{ end }}
+    </div>
+  </div>
 {{ end }}

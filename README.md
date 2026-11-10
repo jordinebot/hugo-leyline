@@ -12,8 +12,8 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Client-side search** powered by [Pagefind](https://pagefind.app/) — a modal overlay with debounced search-as-you-type, arrow-key navigation, snippet highlighting, and lazy-loaded JS (only fetched on first open)
 - **Mobile menu** that drops down from under the header with an animated hamburger → X morph
 - **No-flash theme bootstrap** — an inline `<head>` script sets `[data-theme]` before first paint, so dark-mode visitors don't see a white flash
-- **Featured posts grid** on the home page (cards with optional 16:9 cover images), driven by a `featured: true` front-matter flag; falls back to "latest posts" when nothing is flagged
-- **Latest posts list** rendered below Featured (excludes duplicates), styled like the `/posts/` index
+- **Editorial post grid** on the home page and section archives, with a responsive section sidebar, optional categories and author bylines, and 16:9 cover images; featured posts are driven by a `featured: true` front-matter flag
+- **Latest posts section** rendered below Featured (excludes duplicates), using the same editorial cards as the `/posts/` index
 - **Cover images** via two paths: drop `cover.jpg` (or `.png` / `.webp` / `.avif`) into a page bundle and Leyline generates a responsive WebP srcset; or set `image = "/path/to/img.jpg"` in front matter for plain `.md` posts
 - **Tag chip** styling shared between post footers and the `/tags/` index — pill background, accent-tinted hover via `color-mix()`, optional count badge
 - **`/tags/` index** sorted by post count (descending, alphabetical tiebreak) with a count badge per tag
@@ -79,6 +79,8 @@ theme = "hugo-leyline"
 
   [params.footer]
     tagline = "Built with Leyline."
+    quote = "We shape our tools, and thereafter our tools shape us."
+    quoteAttribution = "Marshall McLuhan"
     [params.footer.fanContentDisclaimer]
       text       = "Example Site is unofficial Fan Content permitted under the Fan Content Policy."
       policyText = "Fan Content Policy"
@@ -86,6 +88,8 @@ theme = "hugo-leyline"
 ```
 
 `params.footer.fanContentDisclaimer` is optional. When present, Leyline renders `text` between the copyright line and footer tagline, and links the first matching `policyText` phrase to `policyURL`; omit the block to hide the legal note entirely.
+
+The footer can also show up to four link columns. Add repeated `[[params.footer.columns]]` blocks with a `title` and nested `[[params.footer.columns.links]]` entries containing `name` and `url` to create them. The quote and attribution are optional.
 
 ### Menus
 
@@ -142,8 +146,14 @@ coverAiGenerated = false                # Show an AI-generated cover-art disclai
 coverAiModified = false                 # Show an AI-modified cover-art disclaimer.
 aiTranslated    = false                 # Show an AI-translated text disclaimer.
 tags            = ["design", "css"]
+categories      = ["Design"]               # Optional editorial category shown on cards and posts.
+author          = "Alex Example"            # Optional byline.
+authorImage     = "/authors/alex.webp"      # Optional portrait shown beside the byline.
+authorRole      = "Design editor"           # Optional role below the author name.
 +++
 ```
+
+Leyline's editorial layouts show a serif reading face for article text and sans-serif headings and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
 
 When `credit`, `coverAiGenerated`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution. Add `creditLink` as a parallel array to link each artist name to the URL at the same position; missing links leave that artist name as plain text.
 

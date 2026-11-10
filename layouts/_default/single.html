@@ -1,11 +1,9 @@
 {{ define "main" }}
-  <article class="container-prose" data-pagefind-body>
-    {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
-    {{ with $cover }}
-      <figure class="post-hero">{{ . | safeHTML }}</figure>
-    {{ end }}
-
+  <article class="article-shell" data-pagefind-body>
     <header class="post-header">
+      <a class="post-header__back" href="{{ "posts/" | relLangURL }}">← {{ i18n "all_posts" }}</a>
+      {{ $categories := .Params.categories | default (slice .Params.category) }}
+      {{ with index $categories 0 }}<span class="post-header__category">{{ . }}</span>{{ end }}
       <div class="post-header__meta">
         {{ if not .Date.IsZero }}
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
@@ -22,7 +20,16 @@
       {{ with .Description }}
         <p class="post-header__lead">{{ . }}</p>
       {{ end }}
+      {{ with .Params.author }}
+        <div class="post-header__author">
+          {{ with $.Params.authorImage }}<img src="{{ . | relURL }}" alt="">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $.Params.author | substr 0 1 | upper }}</span>{{ end }}
+          <div><span>{{ . }}</span>{{ with $.Params.authorRole }}<small>{{ . }}</small>{{ end }}</div>
+        </div>
+      {{ end }}
     </header>
+
+    {{ $cover := partial "post-cover.html" (dict "page" . "variant" "hero") }}
+    {{ with $cover }}<figure class="post-hero">{{ . | safeHTML }}</figure>{{ end }}
 
     <div class="post-content">
       {{ .Content }}

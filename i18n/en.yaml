@@ -1,5 +1,6 @@
 # Header / nav
 nav_primary: "Primary"
+nav_footer: "Footer"
 toggle_theme: "Toggle theme"
 open_menu: "Open menu"
 close_menu: "Close menu"

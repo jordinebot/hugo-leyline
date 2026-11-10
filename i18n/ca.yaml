@@ -1,5 +1,6 @@
 # Header / nav
 nav_primary: "Principal"
+nav_footer: "Peu de pàgina"
 toggle_theme: "Canvia el tema"
 open_menu: "Obre el menú"
 close_menu: "Tanca el menú"
