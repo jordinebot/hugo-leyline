@@ -1,4 +1,10 @@
 /* Keep the deck breakdown useful while giving the surrounding post less visual noise. */
+.post-content a.mastery__set,
+.post-content a.mastery__set:hover,
+.post-content a.mastery__set:focus {
+  color: var(--color-bg, #ffffff);
+}
+
 .deck-preview__breakdown {
   padding: 0.75rem 1rem 0;
 }
