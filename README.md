@@ -76,6 +76,7 @@ theme = "hugo-leyline"
   [params.home]
     postCount   = 6                 # Max recent post cards on the home page.
     sidebarLogo = "/images/cover.webp" # Optional. Replaces the sidebar title with an image.
+    sidebarLogoDark = "/images/cover-dark.png" # Optional transparent variant for dark mode.
 
   [params.footer]
     tagline = "Built with Leyline."

@@ -54,6 +54,9 @@ main { padding-block: clamp(34px, 5vw, 68px); }
 }
 .archive-sidebar__brand:hover { text-decoration: none; }
 .archive-sidebar__logo { display: block; width: 100%; max-height: 130px; object-fit: contain; object-position: left center; }
+.archive-sidebar__logo--dark { display: none; }
+[data-theme='dark'] .archive-sidebar__logo--light { display: none; }
+[data-theme='dark'] .archive-sidebar__logo--dark { display: block; }
 .archive-sidebar__intro {
   max-width: 25ch;
   margin-top: 14px;
