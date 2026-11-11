@@ -45,6 +45,8 @@
 .post-content > * + * { margin-top: var(--space-4); }
 .post-content h2 { margin-top: var(--space-6); }
 .post-content h3 { margin-top: var(--space-5); }
+.post-content a:not(.cardname__link) { color: var(--accent); }
+.post-content a:not(.cardname__link):hover { color: var(--accent); }
 
 .post-content img {
   border-radius: var(--radius);
