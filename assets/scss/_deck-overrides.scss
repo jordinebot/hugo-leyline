@@ -1,0 +1,73 @@
+/* Keep the deck breakdown useful while giving the surrounding post less visual noise. */
+.deck-preview__breakdown {
+  padding: 0.75rem 1rem 0;
+}
+
+.deck-preview__breakdown-panels {
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.deck-preview__breakdown-panel {
+  min-height: 12rem;
+  padding: 0.9rem 0.7rem 0.75rem;
+}
+
+.deck-preview__breakdown-panel h4 {
+  color: var(--color-text-muted, currentColor);
+  font-size: 0.74rem;
+  letter-spacing: 0.035em;
+}
+
+.deck-preview__breakdown-panel > p {
+  margin: 0.45rem 0 0.7rem;
+  font-size: 0.7rem;
+}
+
+.deck-preview__mana-histogram {
+  min-height: 7rem;
+}
+
+.deck-preview__breakdown-panel:first-child .deck-preview__mana-histogram {
+  min-height: 9rem;
+  margin-top: 0.4rem;
+}
+
+.deck-preview__mana-bar {
+  grid-template-rows: 0.85rem 5.25rem 0.85rem;
+  min-width: 1.15rem;
+}
+
+.deck-preview__breakdown-panel:first-child .deck-preview__mana-bar {
+  grid-template-rows: 0.85rem 7.25rem 0.85rem;
+}
+
+.deck-preview__mana-bar-track {
+  width: 0.78rem;
+}
+
+.deck-preview__donut {
+  width: 54%;
+  max-width: 7.25rem;
+  margin: 0.9rem auto 0.65rem;
+}
+
+.deck-preview__breakdown-panel:first-child > p {
+  display: none;
+}
+
+.deck-preview__legend {
+  gap: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.deck-preview__legend li {
+  gap: 0.3rem;
+}
+
+.deck-preview__legend span {
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+}
