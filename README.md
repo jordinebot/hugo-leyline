@@ -75,6 +75,7 @@ theme = "hugo-leyline"
 
   [params.home]
     postCount   = 6                 # Max recent post cards on the home page.
+    sidebarLogo = "/images/cover.webp" # Optional. Replaces the sidebar title with an image.
 
   [params.footer]
     tagline = "Built with Leyline."
@@ -151,7 +152,7 @@ authorRole      = "Design editor"           # Optional role below the author nam
 +++
 ```
 
-Leyline's editorial layouts show a serif reading face for article text and sans-serif headings and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
+Leyline's editorial layouts use the site's sans-serif face for article text, headings, and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
 
 To make category labels link to category archives, declare the `category = "categories"` taxonomy in your site's `[taxonomies]` config.
 

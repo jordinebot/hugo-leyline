@@ -1,5 +1,8 @@
 <aside class="archive-sidebar" aria-label="{{ i18n "nav_primary" }}">
-  <a class="archive-sidebar__brand" href="{{ site.Home.RelPermalink }}">{{ site.Params.blogTitle | default site.Title }}</a>
+  {{- $brandTitle := site.Params.blogTitle | default site.Title -}}
+  <a class="archive-sidebar__brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "site_home" $brandTitle }}">
+    {{ with site.Params.home.sidebarLogo }}<img class="archive-sidebar__logo" src="{{ . | relURL }}" alt="">{{ else }}{{ $brandTitle }}{{ end }}
+  </a>
   {{ with site.Params.description }}<p class="archive-sidebar__intro">{{ . }}</p>{{ end }}
   <nav class="archive-sidebar__nav">
     <a class="archive-sidebar__link{{ if .IsHome }} is-current{{ end }}" href="{{ site.Home.RelPermalink }}">{{ i18n "latest_posts" }}</a>
