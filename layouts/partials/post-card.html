@@ -9,9 +9,8 @@
     <h2 class="editorial-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
     {{ with $page.Summary }}<p class="editorial-card__summary">{{ . | plainify | truncate 180 }}</p>{{ end }}
     {{ if $page.Params.author }}
-      {{ $authorImage := $page.Params.authorImage | default site.Params.authorImage }}
       <div class="editorial-card__author">
-        {{ with $authorImage }}<img src="{{ . | relURL }}" alt="" loading="lazy">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $page.Params.author | substr 0 1 | upper }}</span>{{ end }}
+        {{ partial "author-avatar.html" $page }}
         <div><span class="editorial-card__author-name">{{ $page.Params.author }}</span>{{ with $page.Params.authorRole }}<span class="editorial-card__author-role">{{ . }}</span>{{ end }}</div>
       </div>
     {{ else if not $page.Date.IsZero }}

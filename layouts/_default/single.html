@@ -13,9 +13,8 @@
 
         {{ with .Description }}<p class="post-header__lead">{{ . }}</p>{{ end }}
         {{ with .Params.author }}
-          {{ $authorImage := $.Params.authorImage | default site.Params.authorImage }}
           <div class="post-header__author">
-            {{ with $authorImage }}<img src="{{ . | relURL }}" alt="" loading="lazy">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $.Params.author | substr 0 1 | upper }}</span>{{ end }}
+            {{ partial "author-avatar.html" $ }}
             <div><span>{{ i18n "by_author" }} {{ . }}</span>{{ with $.Params.authorRole }}<small>{{ . }}</small>{{ end }}</div>
           </div>
         {{ end }}

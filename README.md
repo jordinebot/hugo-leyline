@@ -148,12 +148,16 @@ aiTranslated    = false                 # Show an AI-translated text disclaimer.
 tags            = ["design", "css"]
 categories      = ["Design"]               # Optional editorial category shown on cards and posts.
 author          = "Alex Example"            # Optional byline.
-authorImage     = "/authors/alex.webp"      # Optional portrait shown beside the byline.
+authorImage     = "/avatars/alex-example.webp" # Optional per-post portrait override.
 authorRole      = "Design editor"           # Optional role below the author name.
 +++
 ```
 
 Leyline's editorial layouts use the site's sans-serif face for article text, headings, and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
+
+### Author avatars
+
+When a post has an `author` but no `authorImage`, Leyline looks for a WebP avatar at `static/avatars/<author-slug>.webp`. The slug is generated from the author name using Hugo's `urlize` function (lowercase words joined with hyphens). For example, `author = "Jordi Nebot"` uses `static/avatars/jordi-nebot.webp`. If the matching file is missing, Leyline displays the author's initial. Set `authorImage` in a post's front matter to use a different image for that post; its path should be site-relative, such as `/avatars/jordi-nebot.webp`.
 
 To make category labels link to category archives, declare the `category = "categories"` taxonomy in your site's `[taxonomies]` config.
 

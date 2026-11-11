@@ -1,0 +1,14 @@
+{{- $page := . -}}
+{{- $authorImage := $page.Params.authorImage -}}
+{{- if not $authorImage -}}
+  {{- $authorSlug := $page.Params.author | urlize -}}
+  {{- $candidate := printf "/avatars/%s.webp" $authorSlug -}}
+  {{- if fileExists (printf "static%s" $candidate) -}}
+    {{- $authorImage = $candidate -}}
+  {{- end -}}
+{{- end -}}
+{{- with $authorImage -}}
+  <img src="{{ . | relURL }}" alt="" loading="lazy">
+{{- else -}}
+  <span class="editorial-card__avatar" aria-hidden="true">{{ $page.Params.author | substr 0 1 | upper }}</span>
+{{- end -}}
