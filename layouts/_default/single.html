@@ -25,61 +25,56 @@
     {{ with $cover }}<figure class="post-hero">{{ . | safeHTML }}</figure>{{ end }}
 
     <div class="post-reading-layout">
-      <section class="post-share" aria-labelledby="post-share-title">
-        <h2 id="post-share-title">{{ i18n "share_this_post" }}</h2>
-        <button class="post-share__copy" type="button" data-copy-url data-copy-default="{{ i18n "copy_link" }}" data-copy-success="{{ i18n "link_copied" }}" data-copy-error="{{ i18n "copy_link_error" }}">
-          <span class="ms ms-ability-copy" aria-hidden="true"></span>
-          <span data-copy-label>{{ i18n "copy_link" }}</span>
-        </button>
-        <span class="post-share__status" data-copy-status aria-live="polite"></span>
-      </section>
+      <aside class="post-sidebar">
+        <section class="post-share" aria-labelledby="post-share-title">
+          <h2 id="post-share-title">{{ i18n "share_this_post" }}</h2>
+          <button class="post-share__copy" type="button" data-copy-url data-copy-default="{{ i18n "copy_link" }}" data-copy-success="{{ i18n "link_copied" }}" data-copy-error="{{ i18n "copy_link_error" }}">
+            <span class="ms ms-ability-copy" aria-hidden="true"></span>
+            <span data-copy-label>{{ i18n "copy_link" }}</span>
+          </button>
+          <span class="post-share__status" data-copy-status aria-live="polite"></span>
+        </section>
+
+        {{ $hasDisclaimers := or .Params.credit .Params.coverAiGenerated .Params.coverAiModified .Params.aiTranslated }}
+        {{ if or .Params.tags $hasDisclaimers }}
+          <footer class="post-footer">
+            {{ with .Params.tags }}
+              <h2 class="post-footer__title">{{ i18n "tags" }}</h2>
+              <ul class="tags" aria-label="{{ i18n "tags" }}">
+                {{ range . }}<li><a class="tag" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a></li>{{ end }}
+              </ul>
+            {{ end }}
+
+            {{ if $hasDisclaimers }}
+              <aside class="post-disclaimers" aria-label="{{ i18n "post_disclaimers" }}">
+                {{ $disclaimers := slice }}
+                {{ with .Params.credit }}
+                  {{ $creditLinks := $.Params.creditLink | default (slice) }}
+                  {{ $credits := slice }}
+                  {{ range $i, $name := . }}
+                    {{ $credit := $name | htmlEscape | safeHTML }}
+                    {{ if and (lt $i (len $creditLinks)) (index $creditLinks $i) }}
+                      {{ $href := printf "%s" (index $creditLinks $i | safeURL) | htmlEscape }}
+                      {{ $credit = printf "<a href=\"%s\" rel=\"noopener noreferrer\">%s</a>" $href ($name | htmlEscape) | safeHTML }}
+                    {{ end }}
+                    {{ $credits = $credits | append $credit }}
+                  {{ end }}
+                  {{ $disclaimers = $disclaimers | append (i18n "cover_art_credit" (delimit $credits ", ") | safeHTML) }}
+                {{ end }}
+                {{ if .Params.coverAiModified }}{{ $disclaimers = $disclaimers | append (i18n "cover_ai_modified") }}{{ end }}
+                {{ if .Params.coverAiGenerated }}{{ $disclaimers = $disclaimers | append (i18n "cover_ai_generated") }}{{ end }}
+                {{ if .Params.aiTranslated }}{{ $disclaimers = $disclaimers | append (i18n "ai_translated") }}{{ end }}
+                <p class="post-disclaimers__text">{{ delimit $disclaimers " " | safeHTML }}</p>
+              </aside>
+            {{ end }}
+          </footer>
+        {{ end }}
+      </aside>
 
       <div class="post-content">
         {{ .Content }}
       </div>
     </div>
-
-    {{ $hasDisclaimers := or .Params.credit .Params.coverAiGenerated .Params.coverAiModified .Params.aiTranslated }}
-    {{ if or .Params.tags $hasDisclaimers }}
-      <footer class="post-footer">
-        {{ with .Params.tags }}
-          <ul class="tags" aria-label="{{ i18n "tags" }}">
-            {{ range . }}
-              <li><a class="tag" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a></li>
-            {{ end }}
-          </ul>
-        {{ end }}
-
-        {{ if $hasDisclaimers }}
-          <aside class="post-disclaimers" aria-label="{{ i18n "post_disclaimers" }}">
-            {{ $disclaimers := slice }}
-            {{ with .Params.credit }}
-              {{ $creditLinks := $.Params.creditLink | default (slice) }}
-              {{ $credits := slice }}
-              {{ range $i, $name := . }}
-                {{ $credit := $name | htmlEscape | safeHTML }}
-                {{ if and (lt $i (len $creditLinks)) (index $creditLinks $i) }}
-                  {{ $href := printf "%s" (index $creditLinks $i | safeURL) | htmlEscape }}
-                  {{ $credit = printf "<a href=\"%s\" rel=\"noopener noreferrer\">%s</a>" $href ($name | htmlEscape) | safeHTML }}
-                {{ end }}
-                {{ $credits = $credits | append $credit }}
-              {{ end }}
-              {{ $disclaimers = $disclaimers | append (i18n "cover_art_credit" (delimit $credits ", ") | safeHTML) }}
-            {{ end }}
-            {{ if .Params.coverAiModified }}
-              {{ $disclaimers = $disclaimers | append (i18n "cover_ai_modified") }}
-            {{ end }}
-            {{ if .Params.coverAiGenerated }}
-              {{ $disclaimers = $disclaimers | append (i18n "cover_ai_generated") }}
-            {{ end }}
-            {{ if .Params.aiTranslated }}
-              {{ $disclaimers = $disclaimers | append (i18n "ai_translated") }}
-            {{ end }}
-            <p class="post-disclaimers__text">{{ delimit $disclaimers " " | safeHTML }}</p>
-          </aside>
-        {{ end }}
-      </footer>
-    {{ end }}
 
     {{ $older := .PrevInSection }}
     {{ $newer := .NextInSection }}
@@ -102,6 +97,5 @@
         {{ end }}
       </nav>
     {{ end }}
-    </div>
   </article>
 {{ end }}

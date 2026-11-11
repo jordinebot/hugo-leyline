@@ -24,8 +24,8 @@
         </button>
 
         <button class="icon-btn theme-toggle" type="button" aria-label="{{ i18n "toggle_theme" }}" data-theme-toggle>
-          {{ partial "icons/sun.html" . }}
-          {{ partial "icons/moon.html" . }}
+          <span class="ms ms-w icon-mana-white" aria-hidden="true"></span>
+          <span class="ms ms-b icon-mana-black" aria-hidden="true"></span>
         </button>
 
         {{ if site.Menus.main }}

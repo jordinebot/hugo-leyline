@@ -15,7 +15,7 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Editorial post grid** on the home page and section archives, with a responsive section sidebar, optional categories and author bylines, and 16:9 cover images
 - **Latest posts section** rendered below Featured (excludes duplicates), using the same editorial cards as the `/posts/` index
 - **Cover images** via two paths: drop `cover.jpg` (or `.png` / `.webp` / `.avif`) into a page bundle and Leyline generates a responsive WebP srcset; or set `image = "/path/to/img.jpg"` in front matter for plain `.md` posts
-- **Tag chip** styling shared between post footers and the `/tags/` index — pill background, accent-tinted hover via `color-mix()`, optional count badge
+- **Tag labels** use simple uppercase gray text in the `/tags/` index and regular body text in the post sidebar, with optional inline counts
 - **`/tags/` index** sorted by post count (descending, alphabetical tiebreak) with a count badge per tag
 - **Previous / next post navigation** at the bottom of each post, labeled "Older / Newer" to sidestep the perennial previous-vs-next ambiguity
 - **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param; optional per-site legal disclaimer text
