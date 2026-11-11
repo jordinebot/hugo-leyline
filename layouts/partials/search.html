@@ -44,7 +44,12 @@
         spellcheck="false"
         data-search-input
       >
-      <kbd class="search-modal__esc">{{ i18n "search_hint_close" }}</kbd>
+      <button
+        type="button"
+        class="search-modal__close"
+        data-search-close
+        aria-label="{{ i18n "close_search" }}"
+      >{{ i18n "search_hint_close" }}</button>
     </div>
 
     <div

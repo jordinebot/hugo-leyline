@@ -3,7 +3,7 @@
     {{ partial "archive-sidebar.html" . }}
     <div class="archive-main">
       <header class="archive-heading">
-        <h1>{{ .Title | default (site.Params.blogTitle | default site.Title) }}</h1>
+        {{ if not .IsHome }}<h1>{{ .Title | default (site.Params.blogTitle | default site.Title) }}</h1>{{ end }}
         {{ with .Description | default site.Params.description }}<p>{{ . }}</p>{{ end }}
       </header>
 

@@ -71,7 +71,7 @@
 .search-modal__input::placeholder { color: var(--ink-subtle); }
 .search-modal__input::-webkit-search-cancel-button { -webkit-appearance: none; }
 
-.search-modal__esc {
+.search-modal__close {
   flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -81,6 +81,17 @@
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--ink-subtle);
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.search-modal__close:hover {
+  color: var(--ink);
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+.search-modal__close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .search-modal__results {
