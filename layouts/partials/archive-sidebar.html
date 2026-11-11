@@ -8,7 +8,9 @@
   <nav class="archive-sidebar__nav">
     <a class="archive-sidebar__link{{ if .IsHome }} is-current{{ end }}" href="{{ site.Home.RelPermalink }}">{{ i18n "latest_posts" }}</a>
     {{ range site.Menus.main }}
-      {{ $current := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+      {{ $menuURL := .URL | relURL }}
+      {{ $currentURL := $.RelPermalink }}
+      {{ $current := or (eq $currentURL $menuURL) (and (ne $menuURL site.Home.RelPermalink) (strings.HasPrefix $currentURL $menuURL)) }}
       <a class="archive-sidebar__link{{ if $current }} is-current{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
     {{ end }}
   </nav>
