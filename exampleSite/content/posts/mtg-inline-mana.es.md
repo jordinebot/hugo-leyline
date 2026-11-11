@@ -3,7 +3,6 @@ title: "Shortcode de maná en línea de MTG"
 date: 2026-05-10T12:00:00+02:00
 draft: false
 description: "Un vistazo concreto a cómo renderizar símbolos de maná de Magic en línea con hugo-mtg-shortcodes."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-inline-mana/1600/900"
 imageAlt: "Primer plano de fichas de juego coloridas sobre una mesa"

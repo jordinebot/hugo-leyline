@@ -1,47 +1,31 @@
 {{ define "main" }}
-  <div class="container">
-    <header class="list-header">
-      <h1 class="list-header__title">{{ .Title }}</h1>
-      {{ with .Description }}
-        <p class="list-header__lead">{{ . }}</p>
-      {{ end }}
-      {{ with .Content }}
-        <div class="post-content">{{ . }}</div>
-      {{ end }}
-    </header>
+  <div class="archive-layout container-wide">
+    {{ partial "archive-sidebar.html" . }}
+    <div class="archive-main">
+      <header class="archive-heading">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ with .Content }}<div class="archive-heading__content post-content">{{ . }}</div>{{ end }}
+      </header>
 
-    {{ $pages := .Pages }}
-    {{ $listRecursive := .Param "listRecursive" }}
-    {{ $groupParam := .Param "listGroupByParam" }}
-    {{ $groupOrder := .Param "listGroupOrder" }}
-    {{ $groupLabels := .Param "listGroupLabels" | default dict }}
-    {{ if .IsHome }}
-      {{ $pages = where site.RegularPages "Section" "posts" }}
-    {{ else if $listRecursive }}
-      {{ $pages = .RegularPagesRecursive }}
-    {{ end }}
-
-    {{ if and $groupParam (gt (len $pages) 0) }}
-      {{ with $groupOrder }}
-        {{ range $key := . }}
-          {{ $groupPages := where $pages (printf "Params.%s" $groupParam) $key }}
-          {{ if gt (len $groupPages) 0 }}
-            <section class="post-list-group">
-              <h2 class="post-list-group__title">{{ index $groupLabels $key | default ($key | humanize) }}</h2>
-              {{ partial "post-list.html" (dict "pages" $groupPages) }}
-            </section>
+      {{ $pages := .Pages }}
+      {{ if .IsHome }}{{ $pages = where site.RegularPages "Section" "posts" }}{{ end }}
+      {{ $recursive := .Param "listRecursive" }}{{ if $recursive }}{{ $pages = .RegularPagesRecursive }}{{ end }}
+      {{ $groupParam := .Param "listGroupByParam" }}
+      {{ $groupOrder := .Param "listGroupOrder" }}
+      {{ $groupLabels := .Param "listGroupLabels" | default dict }}
+      {{ if and $groupParam (gt (len $pages) 0) }}
+        {{ if $groupOrder }}
+          {{ range $key := $groupOrder }}
+            {{ $groupPages := where $pages (printf "Params.%s" $groupParam) $key }}
+            {{ if gt (len $groupPages) 0 }}<section class="editorial-section"><h2 class="editorial-section__title">{{ index $groupLabels $key | default ($key | humanize) }}</h2><div class="editorial-grid">{{ range $groupPages }}{{ partial "post-card.html" . }}{{ end }}</div></section>{{ end }}
           {{ end }}
+        {{ else }}
+          {{ range ($pages.GroupByParam $groupParam) }}<section class="editorial-section"><h2 class="editorial-section__title">{{ index $groupLabels .Key | default (.Key | humanize) }}</h2><div class="editorial-grid">{{ range .Pages }}{{ partial "post-card.html" . }}{{ end }}</div></section>{{ end }}
         {{ end }}
       {{ else }}
-        {{ range ($pages.GroupByParam $groupParam) }}
-          <section class="post-list-group">
-            <h2 class="post-list-group__title">{{ index $groupLabels .Key | default (.Key | humanize) }}</h2>
-            {{ partial "post-list.html" (dict "pages" .Pages) }}
-          </section>
-        {{ end }}
+        {{ if gt (len $pages) 0 }}<div class="editorial-grid">{{ range ($pages.ByDate.Reverse) }}{{ partial "post-card.html" . }}{{ end }}</div>{{ else }}<p>{{ i18n "no_posts" }}</p>{{ end }}
       {{ end }}
-    {{ else }}
-      {{ partial "post-list.html" (dict "pages" $pages) }}
-    {{ end }}
+    </div>
   </div>
 {{ end }}

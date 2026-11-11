@@ -1,5 +1,7 @@
 {{ define "main" }}
-  <div class="container">
+  <div class="archive-layout container-wide">
+    {{ partial "archive-sidebar.html" . }}
+    <div class="archive-main">
     <header class="list-header">
       <h1 class="list-header__title">{{ .Title }}</h1>
       {{ with .Description }}
@@ -31,5 +33,6 @@
     {{ else }}
       <p>{{ i18n "no_tags" }}</p>
     {{ end }}
+    </div>
   </div>
 {{ end }}

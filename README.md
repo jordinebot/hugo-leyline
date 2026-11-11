@@ -12,10 +12,10 @@ A clean, modern Hugo theme designed for writing — sticky header, light + dark 
 - **Client-side search** powered by [Pagefind](https://pagefind.app/) — a modal overlay with debounced search-as-you-type, arrow-key navigation, snippet highlighting, and lazy-loaded JS (only fetched on first open)
 - **Mobile menu** that drops down from under the header with an animated hamburger → X morph
 - **No-flash theme bootstrap** — an inline `<head>` script sets `[data-theme]` before first paint, so dark-mode visitors don't see a white flash
-- **Featured posts grid** on the home page (cards with optional 16:9 cover images), driven by a `featured: true` front-matter flag; falls back to "latest posts" when nothing is flagged
-- **Latest posts list** rendered below Featured (excludes duplicates), styled like the `/posts/` index
+- **Editorial post grid** on the home page and section archives, with a responsive section sidebar, optional categories and author bylines, and 16:9 cover images
+- **Latest posts section** rendered below Featured (excludes duplicates), using the same editorial cards as the `/posts/` index
 - **Cover images** via two paths: drop `cover.jpg` (or `.png` / `.webp` / `.avif`) into a page bundle and Leyline generates a responsive WebP srcset; or set `image = "/path/to/img.jpg"` in front matter for plain `.md` posts
-- **Tag chip** styling shared between post footers and the `/tags/` index — pill background, accent-tinted hover via `color-mix()`, optional count badge
+- **Tag labels** use simple uppercase gray text in the `/tags/` index and regular body text in the post sidebar, with optional inline counts
 - **`/tags/` index** sorted by post count (descending, alphabetical tiebreak) with a count badge per tag
 - **Previous / next post navigation** at the bottom of each post, labeled "Older / Newer" to sidestep the perennial previous-vs-next ambiguity
 - **Footer with social icon links** — built-in icons for github, mastodon, bluesky, x, twitter, linkedin, rss, mail; falls back to text for entries with no `icon` param; optional per-site legal disclaimer text
@@ -74,11 +74,14 @@ theme = "hugo-leyline"
   googleTagID = "G-XXXXXXXXXX"       # Optional. Enables Google tag (gtag.js).
 
   [params.home]
-    postCount   = 6                 # Max Featured posts (cards) on the home page.
-    latestCount = 10                # Max Latest posts (list) under Featured. Excludes Featured.
+    postCount   = 6                 # Max recent post cards on the home page.
+    sidebarLogo = "/images/cover.webp" # Optional. Replaces the sidebar title with an image.
+    sidebarLogoDark = "/images/cover-dark.png" # Optional transparent variant for dark mode.
 
   [params.footer]
     tagline = "Built with Leyline."
+    quote = "We shape our tools, and thereafter our tools shape us."
+    quoteAttribution = "Marshall McLuhan"
     [params.footer.fanContentDisclaimer]
       text       = "Example Site is unofficial Fan Content permitted under the Fan Content Policy."
       policyText = "Fan Content Policy"
@@ -86,6 +89,8 @@ theme = "hugo-leyline"
 ```
 
 `params.footer.fanContentDisclaimer` is optional. When present, Leyline renders `text` between the copyright line and footer tagline, and links the first matching `policyText` phrase to `policyURL`; omit the block to hide the legal note entirely.
+
+The footer can also show up to four link columns. Add repeated `[[params.footer.columns]]` blocks with a `title` and nested `[[params.footer.columns.links]]` entries containing `name` and `url` to create them. The quote and attribution are optional.
 
 ### Menus
 
@@ -133,7 +138,6 @@ title       = "My post"
 date        = 2026-05-12T10:00:00+02:00
 draft       = false
 description = "Optional lead paragraph rendered below the title."
-featured    = true                      # Surface on the home Featured grid.
 image           = "/img/cover.jpg"          # Cover image (front-matter path).
 imageAlt        = "Alt text for the cover"  # Optional; defaults to the post title.
 credit          = ["Artist Name"]           # Optional cover-art credit(s).
@@ -142,8 +146,16 @@ coverAiGenerated = false                # Show an AI-generated cover-art disclai
 coverAiModified = false                 # Show an AI-modified cover-art disclaimer.
 aiTranslated    = false                 # Show an AI-translated text disclaimer.
 tags            = ["design", "css"]
+categories      = ["Design"]               # Optional editorial category shown on cards and posts.
+author          = "Alex Example"            # Optional byline.
+authorImage     = "/authors/alex.webp"      # Optional portrait shown beside the byline.
+authorRole      = "Design editor"           # Optional role below the author name.
 +++
 ```
+
+Leyline's editorial layouts use the site's sans-serif face for article text, headings, and interface text. Category and author fields are optional; cards fall back to the publication date when no author is supplied.
+
+To make category labels link to category archives, declare the `category = "categories"` taxonomy in your site's `[taxonomies]` config.
 
 When `credit`, `coverAiGenerated`, `coverAiModified`, or `aiTranslated` are set, Leyline renders a small disclaimer block at the bottom of the post, below any tag chips. `credit` should be an array of artist names; multiple names are displayed as a comma-separated cover-art attribution. Add `creditLink` as a parallel array to link each artist name to the URL at the same position; missing links leave that artist name as plain text.
 

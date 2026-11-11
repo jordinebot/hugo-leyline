@@ -3,7 +3,6 @@ title: "The mobile menu morph"
 date: 2026-05-04T10:30:00+02:00
 draft: false
 description: "Three lines, two rotations, one fade — the hamburger-to-X animation in 30 lines of CSS."
-featured: true
 image: "https://picsum.photos/seed/leyline-mobile-menu/1600/900"
 imageAlt: "Close-up of a phone screen with a navigation menu"
 tags: ["design", "css", "animation"]

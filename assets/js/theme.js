@@ -66,6 +66,43 @@ document.addEventListener('keydown', (event) => {
   if (nav) setMenuOpen(nav, false);
 });
 
+/* ---------- Copy article URL ---------- */
+
+document.addEventListener('click', async (event) => {
+  const button = event.target.closest('[data-copy-url]');
+  if (!button) return;
+
+  let copied = false;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(window.location.href);
+      copied = true;
+    } else {
+      const input = document.createElement('textarea');
+      input.value = window.location.href;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.append(input);
+      input.select();
+      copied = document.execCommand('copy');
+      input.remove();
+    }
+  } catch (_) {}
+
+  const label = button.querySelector('[data-copy-label]');
+  const status = document.querySelector('[data-copy-status]');
+  const result = copied ? button.dataset.copySuccess : button.dataset.copyError;
+  if (label) label.textContent = result;
+  if (status) status.textContent = result;
+  button.classList.toggle('is-copied', copied);
+  window.setTimeout(() => {
+    if (label) label.textContent = button.dataset.copyDefault;
+    if (status) status.textContent = '';
+    button.classList.remove('is-copied');
+  }, 2200);
+});
+
 /* Reset menu state when crossing the mobile breakpoint */
 const breakpoint = window.matchMedia('(min-width: 641px)');
 breakpoint.addEventListener('change', (e) => {

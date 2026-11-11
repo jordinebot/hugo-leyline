@@ -3,7 +3,6 @@ title: "Bienvenido a Leyline"
 date: 2026-05-11T10:00:00+02:00
 draft: false
 description: "Qué es Leyline, qué no es, y las decisiones de diseño que lo respaldan."
-featured: true
 image: "https://picsum.photos/seed/leyline-welcome/1600/900"
 imageAlt: "Paisaje abstracto en tonos apagados"
 tags: ["meta", "design"]

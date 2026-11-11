@@ -3,7 +3,6 @@ title: "Shortcode de resumen de temporada de MTG Arena"
 date: 2026-05-10T13:20:00+02:00
 draft: false
 description: "Resume un mes de MTG Arena con rangos, gasto, gemas y fichas de draft."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-season-recap/1600/900"
 imageAlt: "Diario mensual de juego con cartas y contadores"

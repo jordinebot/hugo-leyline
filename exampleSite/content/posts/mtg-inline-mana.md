@@ -3,7 +3,6 @@ title: "MTG inline mana shortcode"
 date: 2026-05-10T12:00:00+02:00
 draft: false
 description: "A focused look at rendering Magic mana symbols inline with hugo-mtg-shortcodes."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-inline-mana/1600/900"
 imageAlt: "Close-up of colorful game tokens on a tabletop"

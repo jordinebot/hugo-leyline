@@ -1,5 +1,6 @@
 # Header / nav
 nav_primary: "Principal"
+nav_footer: "Pie de página"
 toggle_theme: "Cambiar tema"
 open_menu: "Abrir menú"
 close_menu: "Cerrar menú"
@@ -19,10 +20,15 @@ search_no_matches: 'No hay resultados para "{query}".'
 search_unavailable: "El índice de búsqueda aún no está disponible. Ejecuta `pagefind --site public` después de compilar con Hugo."
 
 # Home page sections
-featured_posts: "Entradas destacadas"
 latest_posts: "Últimas entradas"
 all_posts: "Todas las entradas"
-featured_badge: "Destacada"
+published: "Publicado el"
+in_category: "en"
+by_author: "Por"
+share_this_post: "Compartir esta entrada"
+copy_link: "Copiar enlace"
+link_copied: "Enlace copiado"
+copy_link_error: "No se pudo copiar el enlace"
 
 # Tags
 tags: "Etiquetas"

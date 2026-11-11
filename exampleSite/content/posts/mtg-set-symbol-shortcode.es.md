@@ -3,7 +3,6 @@ title: "Shortcode de símbolos de colección de MTG"
 date: 2026-05-10T13:40:00+02:00
 draft: false
 description: "Renderiza símbolos de expansión de Magic en línea a partir de sus códigos de colección con Keyrune."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-set-symbol-shortcode/1600/900"
 imageAlt: "Sobres y cartas coleccionables dispuestos sobre un tapete de juego"

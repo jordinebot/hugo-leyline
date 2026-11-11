@@ -1,5 +1,5 @@
 <footer class="site-footer">
-  <div class="container site-footer__inner">
+  <div class="container-wide site-footer__inner{{ if site.Params.footer.columns }} site-footer__inner--columns{{ end }}">
     <div class="site-footer__text">
       {{- $blogTitle := site.Params.blogTitle | default site.Title -}}
       <div>&copy; {{ now.Year }} {{ $blogTitle }}</div>
@@ -21,7 +21,23 @@
       {{ end }}
 
       {{ with site.Params.footer.tagline }}<p class="site-footer__tagline">{{ . }}</p>{{ end }}
+      {{ with site.Params.footer.quote }}
+        <figure class="site-footer__quote"><blockquote>{{ . }}</blockquote>
+          {{ with site.Params.footer.quoteAttribution }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
+      {{ end }}
     </div>
+
+    {{ with site.Params.footer.columns }}
+      <nav class="site-footer__columns" aria-label="{{ i18n "nav_footer" }}">
+        {{ range . }}
+          <div class="site-footer__column">
+            {{ with .title }}<h2>{{ . }}</h2>{{ end }}
+            {{ with .links }}<ul>{{ range . }}<li><a href="{{ .url | relURL }}">{{ .name }}</a></li>{{ end }}</ul>{{ end }}
+          </div>
+        {{ end }}
+      </nav>
+    {{ end }}
 
     {{ if site.Menus.footer }}
       <ul class="site-footer__links">

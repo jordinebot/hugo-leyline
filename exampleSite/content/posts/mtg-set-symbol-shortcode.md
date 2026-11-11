@@ -3,7 +3,6 @@ title: "MTG set symbol shortcode"
 date: 2026-05-10T13:40:00+02:00
 draft: false
 description: "Render Magic expansion symbols inline from their set codes using Keyrune."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-set-symbol-shortcode/1600/900"
 imageAlt: "Booster packs and trading cards arranged on a playmat"

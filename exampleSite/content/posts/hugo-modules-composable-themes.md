@@ -3,7 +3,6 @@ title: "Hugo Modules: composable themes"
 date: 2026-04-28T18:00:00+02:00
 draft: false
 description: "Why Leyline keeps MTG shortcodes outside the theme — and what Hugo Modules buy you when you compose them."
-featured: true
 image: "https://picsum.photos/seed/leyline-modules/1600/900"
 imageAlt: "Stack of modular shipping containers"
 tags: ["hugo", "modules", "architecture"]

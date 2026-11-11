@@ -1,0 +1,20 @@
+{{- $page := . -}}
+<article class="editorial-card">
+  <a class="editorial-card__image" href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true">
+    {{ with partial "post-cover.html" (dict "page" $page "variant" "card") }}{{ . | safeHTML }}{{ else }}<span class="editorial-card__image-placeholder"></span>{{ end }}
+  </a>
+  <div class="editorial-card__body">
+    {{ $categories := $page.Params.categories | default (slice $page.Params.category) }}
+    {{ with index $categories 0 }}<span class="editorial-card__category">{{ . }}</span>{{ end }}
+    <h2 class="editorial-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+    {{ with $page.Summary }}<p class="editorial-card__summary">{{ . | plainify | truncate 180 }}</p>{{ end }}
+    {{ if $page.Params.author }}
+      <div class="editorial-card__author">
+        {{ with $page.Params.authorImage }}<img src="{{ . | relURL }}" alt="" loading="lazy">{{ else }}<span class="editorial-card__avatar" aria-hidden="true">{{ $page.Params.author | substr 0 1 | upper }}</span>{{ end }}
+        <div><span class="editorial-card__author-name">{{ $page.Params.author }}</span>{{ with $page.Params.authorRole }}<span class="editorial-card__author-role">{{ . }}</span>{{ end }}</div>
+      </div>
+    {{ else if not $page.Date.IsZero }}
+      <time class="editorial-card__date" datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "Jan 2, 2006" }}</time>
+    {{ end }}
+  </div>
+</article>

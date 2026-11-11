@@ -3,7 +3,6 @@ title: "Shortcode de maestría de colección de MTG Arena"
 date: 2026-05-10T13:10:00+02:00
 draft: false
 description: "Sigue el progreso de maestría de MTG Arena en colecciones actuales y pasadas."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-set-mastery/1600/900"
 imageAlt: "Notas de progreso con cartas de juego cerca"

@@ -3,7 +3,6 @@ title: "Building Leyline in the open"
 date: 2026-05-08T15:00:00+02:00
 draft: false
 description: "Why I'm writing this theme out loud instead of behind closed doors."
-featured: true
 image: "https://picsum.photos/seed/leyline-building/1600/900"
 imageAlt: "Wooden workbench with hand tools"
 tags: ["meta", "process"]

@@ -3,7 +3,6 @@ title: "Shortcode de vista previa de mazo MTG"
 date: 2026-05-10T13:00:00+02:00
 draft: false
 description: "Carga un mazo de Magic desde data/decks y renderiza una vista previa enriquecida."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-deck-preview/1600/900"
 imageAlt: "Lista de mazo ordenada junto a un montón de cartas enfundadas"

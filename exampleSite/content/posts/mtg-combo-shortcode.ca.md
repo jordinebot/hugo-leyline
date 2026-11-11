@@ -3,7 +3,6 @@ title: "Shortcode de combo de MTG"
 date: 2026-05-10T12:30:00+02:00
 draft: false
 description: "Mostra un petit combo de Magic com un ventall de previsualitzacions interactives."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-combo-shortcode/1600/900"
 imageAlt: "Diverses cartes disposades en ventall sobre un tapet"

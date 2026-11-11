@@ -3,7 +3,6 @@ title: "MTG draft summary shortcode"
 date: 2026-05-10T12:50:00+02:00
 draft: false
 description: "Show an MTG Arena draft result with set, colors, win rate, record, gems, and a 17Lands link."
-featured: true
 tags: ["mtg", "demo", "shortcodes"]
 image: "https://picsum.photos/seed/mtg-draft-summary/1600/900"
 imageAlt: "Draft notes and card piles on a table"
