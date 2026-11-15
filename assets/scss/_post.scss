@@ -118,3 +118,13 @@
 .post-disclaimers__text {
   margin: 0;
 }
+
+.post-disclaimers__text a {
+  text-decoration: underline dotted;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.16em;
+}
+
+.post-disclaimers__text a:hover {
+  text-decoration-color: currentColor;
+}
