@@ -265,13 +265,13 @@ main { padding-block: clamp(34px, 5vw, 68px); }
 .site-footer__quote figcaption { margin-top: 8px; color: var(--ink-subtle); font-family: var(--font-sans); font-size: .78rem; }
 
 @media (max-width: 800px) {
-  .archive-layout { grid-template-columns: 1fr; gap: 24px; }
-  .archive-sidebar { position: static; min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); padding: 0 0 16px; }
+  .archive-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .archive-sidebar { position: static; min-width: 0; min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); padding: 0 0 16px; }
   .archive-sidebar__brand { font-size: 1.55rem; }
   .archive-sidebar__brand { text-align: center; }
   .archive-sidebar__logo { margin-inline: auto; object-position: center; }
   .archive-sidebar__intro { max-width: 30ch; margin: 6px auto 0; text-align: center; }
-  .archive-sidebar__nav { display: flex; gap: 16px; overflow-x: auto; margin-top: 14px; padding: 10px 0 2px; white-space: nowrap; border-top: 0; }
+  .archive-sidebar__nav { display: flex; min-width: 0; max-width: 100%; gap: 16px; overflow-x: auto; margin-top: 14px; padding: 10px 0 2px; white-space: nowrap; border-top: 0; }
   .archive-sidebar__link { flex: 0 0 auto; }
   .site-footer__inner--columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-footer__inner--columns > .site-footer__text { grid-column: 1 / -1; }
