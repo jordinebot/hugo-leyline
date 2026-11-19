@@ -32,7 +32,9 @@
 
       {{ if gt $paginator.TotalPages 1 }}
         <nav class="list-pagination" aria-label="{{ i18n "pagination" }}">
-          {{ with $paginator.Prev }}<a class="list-pagination__link" href="{{ .URL }}" rel="prev">← {{ i18n "newer" }}</a>{{ end }}
+          <div class="list-pagination__side list-pagination__side--previous">
+            {{ with $paginator.Prev }}<a class="list-pagination__link" href="{{ .URL }}" rel="prev">← {{ i18n "newer" }}</a>{{ else }}<span aria-hidden="true"></span>{{ end }}
+          </div>
           <div class="list-pagination__pages">
             {{ range $paginator.Pagers }}
               {{ if eq . $paginator }}
@@ -42,7 +44,9 @@
               {{ end }}
             {{ end }}
           </div>
-          {{ with $paginator.Next }}<a class="list-pagination__link" href="{{ .URL }}" rel="next">{{ i18n "older" }} →</a>{{ end }}
+          <div class="list-pagination__side list-pagination__side--next">
+            {{ with $paginator.Next }}<a class="list-pagination__link" href="{{ .URL }}" rel="next">{{ i18n "older" }} →</a>{{ else }}<span aria-hidden="true"></span>{{ end }}
+          </div>
         </nav>
       {{ end }}
     </div>

@@ -97,9 +97,9 @@ main { padding-block: clamp(34px, 5vw, 68px); }
   row-gap: clamp(34px, 5vw, 56px);
 }
 .list-pagination {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   margin-top: clamp(36px, 5vw, 56px);
   padding-top: 20px;
@@ -107,6 +107,9 @@ main { padding-block: clamp(34px, 5vw, 68px); }
   color: var(--ink-muted);
   font-size: .92rem;
 }
+.list-pagination__side { display: flex; min-width: 0; }
+.list-pagination__side--previous { justify-content: flex-start; }
+.list-pagination__side--next { justify-content: flex-end; }
 .list-pagination__link, .list-pagination__page, .list-pagination__current {
   display: inline-flex;
   min-width: 2.25rem;
