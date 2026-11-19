@@ -11,6 +11,9 @@
       {{ $pages := .Pages }}
       {{ if .IsHome }}{{ $pages = where site.RegularPages "Section" "posts" }}{{ end }}
       {{ $recursive := .Param "listRecursive" }}{{ if $recursive }}{{ $pages = .RegularPagesRecursive }}{{ end }}
+      {{ $perPage := site.Params.list.postCount | default 12 }}
+      {{ $paginator := .Paginate ($pages.ByDate.Reverse) $perPage }}
+      {{ $pages = $paginator.Pages }}
       {{ $groupParam := .Param "listGroupByParam" }}
       {{ $groupOrder := .Param "listGroupOrder" }}
       {{ $groupLabels := .Param "listGroupLabels" | default dict }}
@@ -24,7 +27,23 @@
           {{ range ($pages.GroupByParam $groupParam) }}<section class="editorial-section"><h2 class="editorial-section__title">{{ index $groupLabels .Key | default (.Key | humanize) }}</h2><div class="editorial-grid">{{ range .Pages }}{{ partial "post-card.html" . }}{{ end }}</div></section>{{ end }}
         {{ end }}
       {{ else }}
-        {{ if gt (len $pages) 0 }}<div class="editorial-grid">{{ range ($pages.ByDate.Reverse) }}{{ partial "post-card.html" . }}{{ end }}</div>{{ else }}<p>{{ i18n "no_posts" }}</p>{{ end }}
+        {{ if gt (len $pages) 0 }}<div class="editorial-grid">{{ range $pages }}{{ partial "post-card.html" . }}{{ end }}</div>{{ else }}<p>{{ i18n "no_posts" }}</p>{{ end }}
+      {{ end }}
+
+      {{ if gt $paginator.TotalPages 1 }}
+        <nav class="list-pagination" aria-label="{{ i18n "pagination" }}">
+          {{ with $paginator.Prev }}<a class="list-pagination__link" href="{{ .URL }}" rel="prev">← {{ i18n "newer" }}</a>{{ end }}
+          <div class="list-pagination__pages">
+            {{ range $paginator.Pagers }}
+              {{ if eq . $paginator }}
+                <span class="list-pagination__current" aria-current="page">{{ .PageNumber }}</span>
+              {{ else }}
+                <a class="list-pagination__page" href="{{ .URL }}" aria-label="{{ i18n "pagination_page" .PageNumber }}">{{ .PageNumber }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          {{ with $paginator.Next }}<a class="list-pagination__link" href="{{ .URL }}" rel="next">{{ i18n "older" }} →</a>{{ end }}
+        </nav>
       {{ end }}
     </div>
   </div>

@@ -96,6 +96,29 @@ main { padding-block: clamp(34px, 5vw, 68px); }
   column-gap: clamp(24px, 4vw, 56px);
   row-gap: clamp(34px, 5vw, 56px);
 }
+.list-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: clamp(36px, 5vw, 56px);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--ink-muted);
+  font-size: .92rem;
+}
+.list-pagination__link, .list-pagination__page, .list-pagination__current {
+  display: inline-flex;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+}
+.list-pagination__link { padding-inline: 8px; }
+.list-pagination__pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+.list-pagination__page:hover { background: var(--surface-2); text-decoration: none; }
+.list-pagination__current { background: var(--surface-2); color: var(--ink); font-weight: 650; }
 .editorial-card { min-width: 0; }
 .editorial-card__image {
   display: block;

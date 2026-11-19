@@ -16,6 +16,9 @@ theme = ["hugo-leyline", "hugo-mtg-shortcodes"]
   [params.home]
     postCount = 6           # Maximum number of recent posts shown on the home page.
 
+  [params.list]
+    postCount = 12          # Posts per archive page; pagination appears when needed.
+
 [taxonomies]
   tag = "tags"
   category = "categories"

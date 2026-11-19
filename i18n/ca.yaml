@@ -22,6 +22,8 @@ search_unavailable: "L'índex de cerca encara no està disponible. Executa `page
 # Home page sections
 latest_posts: "Últimes entrades"
 all_posts: "Més entrades"
+pagination: "Pàgines d'entrades"
+pagination_page: "Pàgina {{ . }}"
 published: "Publicat el"
 in_category: "a"
 by_author: "Per"

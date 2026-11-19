@@ -22,6 +22,8 @@ search_unavailable: "El índice de búsqueda aún no está disponible. Ejecuta `
 # Home page sections
 latest_posts: "Últimas entradas"
 all_posts: "Todas las entradas"
+pagination: "Páginas de entradas"
+pagination_page: "Página {{ . }}"
 published: "Publicado el"
 in_category: "en"
 by_author: "Por"

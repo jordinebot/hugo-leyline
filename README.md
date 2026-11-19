@@ -78,6 +78,9 @@ theme = "hugo-leyline"
     sidebarLogo = "/images/cover.webp" # Optional. Replaces the sidebar title with an image.
     sidebarLogoDark = "/images/cover-dark.png" # Optional transparent variant for dark mode.
 
+  [params.list]
+    postCount   = 12                # Posts per archive page; pagination appears when needed.
+
   [params.footer]
     tagline = "Built with Leyline."
     quote = "We shape our tools, and thereafter our tools shape us."

@@ -23,6 +23,8 @@ search_unavailable: "Search index isn't available yet. Run `pagefind --site publ
 # Home page sections
 latest_posts: "Latest posts"
 all_posts: "All posts"
+pagination: "Post pages"
+pagination_page: "Page {{ . }}"
 published: "Published"
 in_category: "in"
 by_author: "By"
